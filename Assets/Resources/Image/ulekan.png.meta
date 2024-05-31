@@ -132,7 +132,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      ulekan_0: 1717295492741377826
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

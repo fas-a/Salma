@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 5a7fe550e07ee5a43aad962c6f345c9c
+guid: a153c134c344dde46903a76d40529ab8
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2555422057201572368
-    second: buku-resepp_0
+      213: -2138198974718068496
+    second: Pesanan_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: buku-resepp_0
+      name: Pesanan_0
       rect:
         serializedVersion: 2
-        x: 120
+        x: 0
         y: 0
-        width: 380
-        height: 226
+        width: 958
+        height: 227
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0f56d4d9d21598cd0800000000000000
-      internalID: -2555422057201572368
+      spriteID: 0f833d47c579352e0800000000000000
+      internalID: -2138198974718068496
       vertices: []
       indices: 
       edges: []
@@ -132,8 +132,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      buku-resepp_0: -2555422057201572368
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

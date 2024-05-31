@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 5a7fe550e07ee5a43aad962c6f345c9c
+guid: 593a48ecb84584a48bf7a5bf6fb2d9cb
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2555422057201572368
-    second: buku-resepp_0
+      213: -4284015772228389174
+    second: container-box_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: buku-resepp_0
+      name: container-box_0
       rect:
         serializedVersion: 2
-        x: 120
+        x: 0
         y: 0
-        width: 380
-        height: 226
+        width: 115
+        height: 129
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0f56d4d9d21598cd0800000000000000
-      internalID: -2555422057201572368
+      spriteID: ac6f7245a5e1c84c0800000000000000
+      internalID: -4284015772228389174
       vertices: []
       indices: 
       edges: []
@@ -132,8 +132,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      buku-resepp_0: -2555422057201572368
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
