@@ -157,7 +157,9 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      cobek-dan-ulekan_0: -467792675711733076
+      cobek-dan-ulekan_1: -6914788245097684460
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -157,7 +157,9 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      jahe-geprek_0: 333176380966058360
+      jahe-geprek_1: -9084855711517482802
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

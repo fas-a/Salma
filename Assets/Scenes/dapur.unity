@@ -549,86 +549,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7372451625257779688, guid: 1d1412b046ecb534fbf7fffea83c3f92, type: 3}
   m_PrefabInstance: {fileID: 1082051626}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &236752194
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 236752195}
-  - component: {fileID: 236752197}
-  - component: {fileID: 236752196}
-  m_Layer: 5
-  m_Name: boxPesanan
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &236752195
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 236752194}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 31792724}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.040000003, y: 0.13100001}
-  m_AnchorMax: {x: 0.96000004, y: 0.74600005}
-  m_AnchoredPosition: {x: -0.38111877, y: 0.1359806}
-  m_SizeDelta: {x: -0.07977295, y: -0.09772968}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &236752196
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 236752194}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ed34571171edbf44b9bad7068ae79af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  jamuItem:
-  - {fileID: 8866324180838104983, guid: a9689911d9c273b4ea8e6fbd73a70b45, type: 3}
-  - {fileID: 64109219275418935, guid: 8c5d1380287c9fe48a12f007c85505f0, type: 3}
-  - {fileID: 7381748539430388761, guid: bb2aa792540fd224fbb4db4ebe0e1ba3, type: 3}
-  ordersContainer: {fileID: 236752195}
-  jumlahPesanan: 20
-  spawnDelay: 1
---- !u!114 &236752197
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 236752194}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a8695521f0d02e499659fee002a26c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Padding:
-    m_Left: 0
-    m_Right: 0
-    m_Top: 0
-    m_Bottom: 0
-  m_ChildAlignment: 0
-  m_StartCorner: 0
-  m_StartAxis: 0
-  m_CellSize: {x: 16, y: 15}
-  m_Spacing: {x: 0, y: 0}
-  m_Constraint: 0
-  m_ConstraintCount: 2
 --- !u!1 &165622040
 GameObject:
   m_ObjectHideFlags: 0
@@ -755,6 +675,86 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &236752194
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 236752195}
+  - component: {fileID: 236752197}
+  - component: {fileID: 236752196}
+  m_Layer: 5
+  m_Name: boxPesanan
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &236752195
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 236752194}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 31792724}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.040000003, y: 0.13100001}
+  m_AnchorMax: {x: 0.96000004, y: 0.74600005}
+  m_AnchoredPosition: {x: -0.38111877, y: 0.1359806}
+  m_SizeDelta: {x: -0.07977295, y: -0.09772968}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &236752196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 236752194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ed34571171edbf44b9bad7068ae79af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jamuItem:
+  - {fileID: 8866324180838104983, guid: a9689911d9c273b4ea8e6fbd73a70b45, type: 3}
+  - {fileID: 64109219275418935, guid: 8c5d1380287c9fe48a12f007c85505f0, type: 3}
+  - {fileID: 7381748539430388761, guid: bb2aa792540fd224fbb4db4ebe0e1ba3, type: 3}
+  ordersContainer: {fileID: 236752195}
+  jumlahPesanan: 5
+  spawnDelay: 5
+--- !u!114 &236752197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 236752194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a8695521f0d02e499659fee002a26c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 0
+  m_StartCorner: 0
+  m_StartAxis: 0
+  m_CellSize: {x: 16, y: 15}
+  m_Spacing: {x: 0, y: 0}
+  m_Constraint: 0
+  m_ConstraintCount: 2
 --- !u!1 &238104954
 GameObject:
   m_ObjectHideFlags: 0
@@ -5557,7 +5557,6 @@ RectTransform:
   - {fileID: 1364087010}
   - {fileID: 31792724}
   - {fileID: 1685765951}
-  m_Father: {fileID: 0}
   m_Father: {fileID: 165622041}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
