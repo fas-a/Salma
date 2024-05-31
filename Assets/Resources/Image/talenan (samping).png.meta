@@ -132,7 +132,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      talenan (samping)_0: -8941266435211040193
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

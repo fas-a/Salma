@@ -1,12 +1,23 @@
 using UnityEngine;
 
-public class DragAndDrop : MonoBehaviour
+public class ulekan : MonoBehaviour
 {
     private Vector3 offset;
     private Camera cam;
-    private short pukulan = 0;
-    public Sprite newSprite;
 
+    void OnCollisionEnter2D(Collision2D collision) 
+    { 
+        // if (collision.gameObject.CompareTag("Enemy")) 
+        // { 
+        //     collision.gameObject.SendMessage("ApplyDamage", 10); 
+        // } 
+        Debug.Log("Collision with " + collision.gameObject.name);
+        DragAndDrop drag = collision.gameObject.GetComponent<DragAndDrop>();
+        if (drag != null)
+        {
+            drag.pukul();
+        }
+    }
 
     private void Start()
     {
@@ -18,6 +29,8 @@ public class DragAndDrop : MonoBehaviour
         // Hitung offset antara posisi mouse dan posisi objek
         offset = gameObject.transform.position - GetMouseWorldPos();
         Debug.Log("down");
+        gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+        gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
     }
 
     private void OnMouseDrag()
@@ -42,6 +55,7 @@ public class DragAndDrop : MonoBehaviour
         //         Destroy(gameObject);
         //     }
         // }
+        gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
     }
     
 
@@ -51,21 +65,5 @@ public class DragAndDrop : MonoBehaviour
         Vector3 mousePoint = Input.mousePosition;
         mousePoint.z = cam.WorldToScreenPoint(gameObject.transform.position).z;
         return cam.ScreenToWorldPoint(mousePoint);
-    }
-
-    public void pukul()
-    {
-        pukulan++;
-        Debug.Log("Pukul " + pukulan);
-        if (pukulan == 5)
-        {
-            gepeng();
-        }
-    }
-
-    private void gepeng()
-    {
-        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
-        spriteRenderer.sprite = newSprite;
     }
 }

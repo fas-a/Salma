@@ -132,7 +132,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      dinding_0: -1121842787011521930
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

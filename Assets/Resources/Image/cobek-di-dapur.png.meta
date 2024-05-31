@@ -132,7 +132,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      cobek-di-dapur_0: 2514477707458822214
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

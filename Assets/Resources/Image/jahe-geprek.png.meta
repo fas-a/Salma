@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: 5a7fe550e07ee5a43aad962c6f345c9c
+guid: 3ace089718e97b345a3cd1432fc8da53
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2555422057201572368
-    second: buku-resepp_0
+      213: 333176380966058360
+    second: jahe-geprek_0
+  - first:
+      213: -9084855711517482802
+    second: jahe-geprek_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +103,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: buku-resepp_0
+      name: jahe-geprek_0
       rect:
         serializedVersion: 2
-        x: 120
-        y: 0
-        width: 380
-        height: 226
+        x: 149
+        y: 452
+        width: 852
+        height: 623
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +118,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0f56d4d9d21598cd0800000000000000
-      internalID: -2555422057201572368
+      spriteID: 879380b372eaf9400800000000000000
+      internalID: 333176380966058360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jahe-geprek_1
+      rect:
+        serializedVersion: 2
+        x: 1049
+        y: 26
+        width: 8
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec0625f2ddb1ce180800000000000000
+      internalID: -9084855711517482802
       vertices: []
       indices: 
       edges: []
@@ -132,8 +157,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      buku-resepp_0: -2555422057201572368
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

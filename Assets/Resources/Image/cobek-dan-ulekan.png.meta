@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: 5a7fe550e07ee5a43aad962c6f345c9c
+guid: 3742935ac4b30f94c9b178f1851295ba
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2555422057201572368
-    second: buku-resepp_0
+      213: -467792675711733076
+    second: cobek-dan-ulekan_0
+  - first:
+      213: -6914788245097684460
+    second: cobek-dan-ulekan_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +103,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: buku-resepp_0
+      name: cobek-dan-ulekan_0
       rect:
         serializedVersion: 2
-        x: 120
-        y: 0
-        width: 380
-        height: 226
+        x: 473
+        y: 812
+        width: 496
+        height: 356
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +118,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0f56d4d9d21598cd0800000000000000
-      internalID: -2555422057201572368
+      spriteID: ca23ca73a011289f0800000000000000
+      internalID: -467792675711733076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cobek-dan-ulekan_1
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 200
+        width: 845
+        height: 477
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 412e7e92abcb900a0800000000000000
+      internalID: -6914788245097684460
       vertices: []
       indices: 
       edges: []
@@ -132,8 +157,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      buku-resepp_0: -2555422057201572368
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
