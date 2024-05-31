@@ -604,7 +604,7 @@ MonoBehaviour:
   - {fileID: 7381748539430388761, guid: bb2aa792540fd224fbb4db4ebe0e1ba3, type: 3}
   ordersContainer: {fileID: 236752195}
   jumlahPesanan: 20
-  spawnDelay: 5
+  spawnDelay: 1
 --- !u!114 &236752197
 MonoBehaviour:
   m_ObjectHideFlags: 0
