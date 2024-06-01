@@ -8,21 +8,31 @@ public class DragAndDrop : MonoBehaviour
     private short pukulan = 0;
     public Sprite newSprite;
     private string colliderName;
+    public GameObject panci;
 
     private void Start()
     {
         cam = Camera.main;
     }
 
-    // private void OnCollisionEnter2D(Collision2D other)
-    // {
-    //     colliderName = other.gameObject.name;
-    //     Debug.Log(colliderName + " entered collider");
-    //     if(other.gameObject.tag == "alat")
-    //     {
-    //         SceneManager.LoadScene(colliderName);
-    //     }
-    // }
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        colliderName = other.gameObject.name;
+        Debug.Log(colliderName + " entered collider");
+        if(other.gameObject.tag == "talenan")
+        {
+            cam.transform.position = new Vector3(-50, 0, -10);
+        }
+        if(other.gameObject.tag == "ulekan")
+        {
+            cam.transform.position = new Vector3(-100, 0, -10);
+        }
+        if(other.gameObject.tag == "panci")
+        {
+            Debug.Log("Panci");
+            Destroy(gameObject);
+        }
+    }
 
     private void OnMouseDown()
     {

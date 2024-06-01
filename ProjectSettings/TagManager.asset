@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Bahan
   - alat
+  - panci
+  - ulekan
+  - talenan
   layers:
   - Default
   - TransparentFX
