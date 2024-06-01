@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DragAndDrop : MonoBehaviour
 {
@@ -6,12 +7,22 @@ public class DragAndDrop : MonoBehaviour
     private Camera cam;
     private short pukulan = 0;
     public Sprite newSprite;
-
+    private string colliderName;
 
     private void Start()
     {
         cam = Camera.main;
     }
+
+    // private void OnCollisionEnter2D(Collision2D other)
+    // {
+    //     colliderName = other.gameObject.name;
+    //     Debug.Log(colliderName + " entered collider");
+    //     if(other.gameObject.tag == "alat")
+    //     {
+    //         SceneManager.LoadScene(colliderName);
+    //     }
+    // }
 
     private void OnMouseDown()
     {
@@ -30,18 +41,7 @@ public class DragAndDrop : MonoBehaviour
     private void OnMouseUp()
     {
         Debug.Log("up");
-        // RaycastHit2D hit = Physics2D.Raycast(cam.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
-        // if (hit.collider != null)
-        // {
-        //     Debug.Log(hit.collider.name);
-        //     // Jika objek yang terkena adalah slotItem, panggil metode OnMouseUp dari slotItem
-        //     slotItem slot = hit.collider.GetComponent<slotItem>();
-        //     if (slot != null)
-        //     {
-        //         slot.OnMouseUp();
-        //         Destroy(gameObject);
-        //     }
-        // }
+        
     }
     
 
