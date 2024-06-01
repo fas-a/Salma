@@ -10,24 +10,8 @@ public class Progress : MonoBehaviour
     public TMP_Text teksTimer;
     public stageDay dayCounterScript;
 
-    public float conversionFactor = 1f; // 1 detik waktu nyata = 1 menit waktu permainan
-
     void Start()
     {
-        if (teksUang == null)
-        {
-            Debug.LogError("teksUang is not assigned!");
-        }
-
-        if (teksTimer == null)
-        {
-            Debug.LogError("teksTimer is not assigned!");
-        }
-
-        if (dayCounterScript == null)
-        {
-            Debug.LogError("dayCounterScript is not assigned!");
-        }
 
         jumlahPesanan = 0;
         pesananHarian = 0;
@@ -48,25 +32,17 @@ public class Progress : MonoBehaviour
 
     public void UpdateTimer(float waktuTersisa, float durasiHari, int jamMulai)
     {
-        // Menghitung total menit berdasarkan faktor konversi
-        float totalMenit = (durasiHari - waktuTersisa) * conversionFactor; // 1 detik = 1 menit waktu permainan
-        int jam = jamMulai + (int)(totalMenit / 60);
-        int menit = (int)(totalMenit % 60);
+        float conversionFactor = 15f / durasiHari; // Karena 15 jam dalam permainan setara dengan durasi hari dalam waktu nyata
 
-        if (jam >= 24)
-        {
-            jam -= 24;
-        }
+        // Menghitung total jam berdasarkan faktor konversi
+        float totalJam = (durasiHari - waktuTersisa) * conversionFactor;
+
+        int jam = jamMulai + (int)totalJam;
+        int menit = (int)((totalJam - (int)totalJam) * 60f); // Mengkonversi sisa menit dari desimal ke integer
 
         string waktu = string.Format("{0:00}:{1:00}", jam, menit);
         teksTimer.text = "Waktu: " + waktu;
-
-        if ((jamMulai + (totalMenit / 60)) >= 22)
-        {
-            dayCounterScript.HariBerikutnya(); // Ganti ke hari berikutnya
-        }
     }
-
 
     void Update()
     {

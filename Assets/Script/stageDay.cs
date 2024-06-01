@@ -7,7 +7,7 @@ public class stageDay : MonoBehaviour
     public TMP_Text teksHari;
     public Progress progressScript;
     public Pesanan orderSpawner;
-    public float durasiHari = 10800f; // Durasi satu hari dalam detik
+    public float durasiHari = 300f;
     private float waktuTersisa;
     private int jamMulai = 7; // Jam mulai pukul 7 pagi
 
@@ -16,18 +16,15 @@ public class stageDay : MonoBehaviour
         hari = 1;
         UpdateDayText();
         MulaiHariBaru();
-    }
 
-    void Update()
-    {
-        HitungMundurWaktu();
+        InvokeRepeating("HitungMundurWaktu", 0f, 1f);
     }
 
     void HitungMundurWaktu()
     {
         if (waktuTersisa > 0)
         {
-            waktuTersisa -= Time.deltaTime;
+            waktuTersisa -= 1f;
             if (progressScript != null)
             {
                 progressScript.UpdateTimer(waktuTersisa, durasiHari, jamMulai); // Update timer in Progress script
@@ -42,6 +39,8 @@ public class stageDay : MonoBehaviour
             HariBerikutnya();
         }
     }
+
+    
 
     public void MulaiHariBaru()
     {
