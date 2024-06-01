@@ -7,19 +7,31 @@ public class Progress : MonoBehaviour
     private int jumlahPesanan;
     private int pesananHarian;
     public TMP_Text teksUang;
-    public stageDay dayCounterScript; // Pastikan ini sesuai dengan referensi ke skrip DayCounter
+    public TMP_Text teksTimer;
+    public stageDay dayCounterScript;
+
+    public float conversionFactor = 1f; // 1 detik waktu nyata = 1 menit waktu permainan
 
     void Start()
     {
-        uang = 0;
+        if (teksUang == null)
+        {
+            Debug.LogError("teksUang is not assigned!");
+        }
+
+        if (teksTimer == null)
+        {
+            Debug.LogError("teksTimer is not assigned!");
+        }
+
+        if (dayCounterScript == null)
+        {
+            Debug.LogError("dayCounterScript is not assigned!");
+        }
+
         jumlahPesanan = 0;
         pesananHarian = 0;
         itemPesanan.OnOrderCompleted += HandleOrderCompleted;
-    }
-
-    public void SetTargetPesananHarian(int target)
-    {
-        pesananHarian = target;
     }
 
     public void ResetPesananHarian()
@@ -32,19 +44,35 @@ public class Progress : MonoBehaviour
         jumlahPesanan++;
         pesananHarian++;
         uang += price;
+    }
 
-        // Periksa apakah target pesanan harian tercapai
-        if (pesananHarian >= dayCounterScript.targetPesananHarian)
+    public void UpdateTimer(float waktuTersisa, float durasiHari, int jamMulai)
+    {
+        // Menghitung total menit berdasarkan faktor konversi
+        float totalMenit = (durasiHari - waktuTersisa) * conversionFactor; // 1 detik = 1 menit waktu permainan
+        int jam = jamMulai + (int)(totalMenit / 60);
+        int menit = (int)(totalMenit % 60);
+
+        if (jam >= 24)
         {
-            dayCounterScript.HariBerikutnya();
+            jam -= 24;
+        }
+
+        string waktu = string.Format("{0:00}:{1:00}", jam, menit);
+        teksTimer.text = "Waktu: " + waktu;
+
+        if ((jamMulai + (totalMenit / 60)) >= 22)
+        {
+            dayCounterScript.HariBerikutnya(); // Ganti ke hari berikutnya
         }
     }
+
 
     void Update()
     {
         string order = "Pesanan yang diselesaikan: " + jumlahPesanan;
         string money = "Uang: Rp. " + uang;
-        teksUang.text = order + "\n" + money;
+        teksUang.text = order + "\n" + money; // Combine order and money text
     }
 
     void OnDestroy()

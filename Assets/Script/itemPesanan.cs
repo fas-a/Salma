@@ -32,7 +32,7 @@ public class itemPesanan : MonoBehaviour
     void DecreaseProgress()
     {
         float currentValue = progressBar.value;
-        currentValue -= 0.2f;
+        currentValue -= 0.01f;
         SetProgress(currentValue);
     }
 
