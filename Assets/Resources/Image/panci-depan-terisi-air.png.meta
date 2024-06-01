@@ -132,7 +132,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      panci-depan-terisi-air_0: -7854239059754051060
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

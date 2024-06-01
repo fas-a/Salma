@@ -132,7 +132,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      container-gudang_0: -1996842069909760926
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

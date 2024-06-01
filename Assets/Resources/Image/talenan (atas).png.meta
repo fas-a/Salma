@@ -132,7 +132,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      talenan (atas)_0: 7604411728994097411
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

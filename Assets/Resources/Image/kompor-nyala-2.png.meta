@@ -132,7 +132,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      kompor-nyala-2_0: -2462824544464219259
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -157,7 +157,9 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      pisau-digunakan_0: -6891603105153966723
+      pisau-digunakan_1: 2791390423041133763
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
