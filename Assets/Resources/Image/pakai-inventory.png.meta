@@ -132,7 +132,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      pakai-inventory_0: -5726975067770035695
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
