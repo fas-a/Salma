@@ -207,7 +207,11 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      dailog-box-salma_0: -7486686431838832069
+      dailog-box-salma_1: 174110012618683832
+      dailog-box-salma_2: 6871573495020716281
+      dailog-box-salma_3: 4059780401402920615
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

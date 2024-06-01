@@ -207,7 +207,11 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      dailog-box_0: -8759912562884287279
+      dailog-box_1: 8959071414448729783
+      dailog-box_2: -5230659255686645271
+      dailog-box_3: 2496362109132644621
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
