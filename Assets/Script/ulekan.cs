@@ -4,6 +4,7 @@ public class ulekan : MonoBehaviour
 {
     private Vector3 offset;
     private Camera cam;
+    public Rigidbody2D rb;
 
     void OnCollisionEnter2D(Collision2D collision) 
     { 
@@ -29,8 +30,8 @@ public class ulekan : MonoBehaviour
         // Hitung offset antara posisi mouse dan posisi objek
         offset = gameObject.transform.position - GetMouseWorldPos();
         Debug.Log("down");
-        gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
-        gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
+        rb.bodyType = RigidbodyType2D.Dynamic;
+        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
 
     private void OnMouseDrag()
@@ -55,7 +56,7 @@ public class ulekan : MonoBehaviour
         //         Destroy(gameObject);
         //     }
         // }
-        gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+        rb.bodyType = RigidbodyType2D.Static;
     }
     
 
