@@ -2488,8 +2488,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Pak, saya mohon, tolong beri kami keringanan. Nenek saya sedang sakit.
-    Kasih saya waktu satu bulan lagi untuk melunasi hutang itu.
+  m_text: 'Salma: Pak, saya mohon, tolong beri kami keringanan. Nenek saya sedang
+    sakit. Kasih saya waktu satu bulan lagi untuk melunasi hutang itu.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 772b5dfd475f78e43866afa882b976c7, type: 2}
   m_sharedMaterial: {fileID: 4339964640282565253, guid: 772b5dfd475f78e43866afa882b976c7, type: 2}
@@ -2925,7 +2925,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Akan saya ingat, Pak.
+  m_text: 'Salma: Akan saya ingat, Pak.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 772b5dfd475f78e43866afa882b976c7, type: 2}
   m_sharedMaterial: {fileID: 4339964640282565253, guid: 772b5dfd475f78e43866afa882b976c7, type: 2}

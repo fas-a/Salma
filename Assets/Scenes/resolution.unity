@@ -419,8 +419,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Aku harus berhasil membuat jamu ini. Itu satu-satunya cara untuk membantu
-    nenek dan mengatasi masalah hutang kita.
+  m_text: 'Salma: Aku harus berhasil membuat jamu ini. Itu satu-satunya cara untuk
+    membantu nenek dan mengatasi masalah hutang kita.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 772b5dfd475f78e43866afa882b976c7, type: 2}
   m_sharedMaterial: {fileID: 4339964640282565253, guid: 772b5dfd475f78e43866afa882b976c7, type: 2}
