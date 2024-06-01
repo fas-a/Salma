@@ -678,7 +678,7 @@ MonoBehaviour:
   - {fileID: 64109219275418935, guid: 8c5d1380287c9fe48a12f007c85505f0, type: 3}
   - {fileID: 7381748539430388761, guid: bb2aa792540fd224fbb4db4ebe0e1ba3, type: 3}
   ordersContainer: {fileID: 236752195}
-  jumlahPesanan: 5
+  jumlahPesanan: 10
   spawnDelay: 5
 --- !u!114 &236752197
 MonoBehaviour:
@@ -2268,8 +2268,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 772b5dfd475f78e43866afa882b976c7, type: 2}
+  m_sharedMaterial: {fileID: 4339964640282565253, guid: 772b5dfd475f78e43866afa882b976c7, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2299,7 +2299,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -3614,7 +3614,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -4218,6 +4218,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teksUang: {fileID: 943319606}
+  dayCounterScript: {fileID: 1744593307}
 --- !u!114 &1685765953
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4375,6 +4376,7 @@ GameObject:
   - component: {fileID: 1744593304}
   - component: {fileID: 1744593306}
   - component: {fileID: 1744593305}
+  - component: {fileID: 1744593307}
   m_Layer: 5
   m_Name: day
   m_TagString: Untagged
@@ -4440,6 +4442,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1744593303}
   m_CullTransparentMesh: 1
+--- !u!114 &1744593307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1744593303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fe80180cbeda454e957acaf31aa237b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hari: 1
+  teksHari: {fileID: 1395068787}
+  targetPesananHarian: 5
+  progressScript: {fileID: 1685765952}
 --- !u!1 &1757160862
 GameObject:
   m_ObjectHideFlags: 0

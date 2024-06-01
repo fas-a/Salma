@@ -13,7 +13,6 @@ public class itemPesanan : MonoBehaviour
     public void SetProgress(float value)
     {
         progressBar.value = value;
-        //Debug.Log(value);
         if (value <= 0)
         {
             CompleteOrder();
@@ -33,17 +32,13 @@ public class itemPesanan : MonoBehaviour
     void DecreaseProgress()
     {
         float currentValue = progressBar.value;
-        //Debug.Log(currentValue);
         currentValue -= 0.2f;
         SetProgress(currentValue);
     }
 
     void CompleteOrder()
     {
-        if (OnOrderCompleted != null)
-        {
-            OnOrderCompleted(hargaJamu);
-        }
+        OnOrderCompleted?.Invoke(hargaJamu);
         Destroy(gameObject);
     }
 

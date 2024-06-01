@@ -1,27 +1,45 @@
 using UnityEngine;
 using TMPro;
 
-public class progress : MonoBehaviour
+public class Progress : MonoBehaviour
 {
     private int uang;
     private int jumlahPesanan;
+    private int pesananHarian;
     public TMP_Text teksUang;
+    public stageDay dayCounterScript; // Pastikan ini sesuai dengan referensi ke skrip DayCounter
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         uang = 0;
         jumlahPesanan = 0;
+        pesananHarian = 0;
         itemPesanan.OnOrderCompleted += HandleOrderCompleted;
+    }
+
+    public void SetTargetPesananHarian(int target)
+    {
+        pesananHarian = target;
+    }
+
+    public void ResetPesananHarian()
+    {
+        pesananHarian = 0;
     }
 
     void HandleOrderCompleted(int price)
     {
         jumlahPesanan++;
+        pesananHarian++;
         uang += price;
+
+        // Periksa apakah target pesanan harian tercapai
+        if (pesananHarian >= dayCounterScript.targetPesananHarian)
+        {
+            dayCounterScript.HariBerikutnya();
+        }
     }
 
-    // Update is called once per frame
     void Update()
     {
         string order = "Pesanan yang diselesaikan: " + jumlahPesanan;
@@ -29,7 +47,7 @@ public class progress : MonoBehaviour
         teksUang.text = order + "\n" + money;
     }
 
-    private void OnDestroy()
+    void OnDestroy()
     {
         itemPesanan.OnOrderCompleted -= HandleOrderCompleted;
     }

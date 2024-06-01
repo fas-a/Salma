@@ -5,7 +5,7 @@ public class progressBar : MonoBehaviour
 {
 public Slider slider;
     public Image fillImage;
-    private float timer = 100f;
+    private float timer = 180f;
 
     public void OnSliderChanged()
     {
