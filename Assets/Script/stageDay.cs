@@ -10,6 +10,7 @@ public class stageDay : MonoBehaviour
     public float durasiHari = 300f;
     private float waktuTersisa;
     private int jamMulai = 7; // Jam mulai pukul 7 pagi
+    public resultPopUp popup;
 
     void Start()
     {
@@ -36,7 +37,7 @@ public class stageDay : MonoBehaviour
         }
         else
         {
-            HariBerikutnya();
+            HariSelesai();
         }
     }
 
@@ -69,6 +70,16 @@ public class stageDay : MonoBehaviour
         hari++;
         UpdateDayText();
         MulaiHariBaru();
+    }
+
+    public void HariSelesai()
+    {
+        // Prepare result text, for example:
+        string today = "Hari ke-" + hari;
+        string result = "Hari selesai!\n Total pesanan: " + progressScript.GetJumlahPesanan();
+
+        // Display the result popup
+        popup.displayResult(today, result);
     }
 
     void UpdateDayText()

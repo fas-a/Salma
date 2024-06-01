@@ -30,6 +30,10 @@ public class Progress : MonoBehaviour
         uang += price;
     }
 
+    public int GetJumlahPesanan() {
+        return jumlahPesanan;
+    }
+
     public void UpdateTimer(float waktuTersisa, float durasiHari, int jamMulai)
     {
         float conversionFactor = 15f / durasiHari; // Karena 15 jam dalam permainan setara dengan durasi hari dalam waktu nyata
