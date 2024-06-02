@@ -30,6 +30,7 @@ public class panci : MonoBehaviour
     {
         jamuResep = new List<Resep>();
         jamuResep.Add(new Resep("Jamu Sederhana", new List<string> {"air", "kunyitpotong", "jahepotong", "serehpotong", "madu", "jeruknipis"}, jamuSederhana));
+        // jamuResep.Add(new Resep("Jamu Sederhana", new List<string> {"air"}, jamuSederhana));
     }
 
     private void balik()
