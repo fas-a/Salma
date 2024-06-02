@@ -17,7 +17,7 @@ public class ubahResep : MonoBehaviour
     {   
         if(currentPage < maxPage){
             currentPage++;
-            string name = "Image/(dummy)konten-resep-" + currentPage;
+            string name = "Image/resep-jamu-" + currentPage;
             Sprite newSprite = Resources.Load<Sprite>(name);
             targetImage.sprite = newSprite;
         }
@@ -27,7 +27,7 @@ public class ubahResep : MonoBehaviour
     {   
         if(currentPage > 1){
             currentPage--;
-            string name = "Image/(dummy)konten-resep-" + currentPage;
+            string name = "Image/(dummy)konten-resep-" + currentPage ;
             Sprite newSprite = Resources.Load<Sprite>(name);
             targetImage.sprite = newSprite;
         }

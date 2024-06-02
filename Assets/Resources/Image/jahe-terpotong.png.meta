@@ -1,28 +1,28 @@
 fileFormatVersion: 2
-guid: 18e607562fb229c44b77b8e7b94997aa
+guid: 660870029368aee49abd9dc242360fc4
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8963740953805364153
-    second: (dummy)konten-resep-1_0
+      213: 7130387993858561868
+    second: jahe-terpotong_0
   - first:
-      213: 5728009609634229687
-    second: (dummy)konten-resep-1_1
+      213: -7989258156051699407
+    second: jahe-terpotong_1
   - first:
-      213: -5757748510137057470
-    second: (dummy)konten-resep-1_2
+      213: 6357175197048196673
+    second: jahe-terpotong_2
   - first:
-      213: 4199524353340716108
-    second: (dummy)konten-resep-1_3
+      213: 3797921349966648426
+    second: jahe-terpotong_3
   - first:
-      213: 4305149089785266585
-    second: (dummy)konten-resep-1_4
+      213: 4872113472819645503
+    second: jahe-terpotong_4
   - first:
-      213: -5198952156612635146
-    second: (dummy)konten-resep-1_5
+      213: -3221121794176796699
+    second: jahe-terpotong_5
   - first:
-      213: 7615106200003058151
-    second: (dummy)konten-resep-1_6
+      213: 7441034417834274395
+    second: jahe-terpotong_6
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -118,13 +118,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: (dummy)konten-resep-1_0
+      name: jahe-terpotong_0
       rect:
         serializedVersion: 2
-        x: 249
-        y: 1006
-        width: 33
-        height: 38
+        x: 1099
+        y: 1217
+        width: 22
+        height: 35
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -133,20 +133,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7446fcd28156a9380800000000000000
-      internalID: -8963740953805364153
+      spriteID: c4756ac1a1a34f260800000000000000
+      internalID: 7130387993858561868
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: (dummy)konten-resep-1_1
+      name: jahe-terpotong_1
       rect:
         serializedVersion: 2
-        x: 283
-        y: 1006
-        width: 24
-        height: 38
+        x: 1105
+        y: 1026
+        width: 252
+        height: 233
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -155,20 +155,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7bda544446afd7f40800000000000000
-      internalID: 5728009609634229687
+      spriteID: 13965a53904702190800000000000000
+      internalID: -7989258156051699407
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: (dummy)konten-resep-1_2
+      name: jahe-terpotong_2
       rect:
         serializedVersion: 2
-        x: 309
-        y: 1005
-        width: 27
-        height: 40
+        x: 310
+        y: 640
+        width: 408
+        height: 469
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -177,20 +177,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 24ffe336c3e5810b0800000000000000
-      internalID: -5757748510137057470
+      spriteID: 14e4bf2f829393850800000000000000
+      internalID: 6357175197048196673
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: (dummy)konten-resep-1_3
+      name: jahe-terpotong_3
       rect:
         serializedVersion: 2
-        x: 340
-        y: 1006
-        width: 24
-        height: 38
+        x: 613
+        y: 715
+        width: 392
+        height: 401
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -199,20 +199,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c44b97a3625b74a30800000000000000
-      internalID: 4199524353340716108
+      spriteID: a6452a5785de4b430800000000000000
+      internalID: 3797921349966648426
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: (dummy)konten-resep-1_4
+      name: jahe-terpotong_4
       rect:
         serializedVersion: 2
-        x: 368
-        y: 1006
-        width: 29
-        height: 38
+        x: 917
+        y: 775
+        width: 374
+        height: 349
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -221,20 +221,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9914fb99946febb30800000000000000
-      internalID: 4305149089785266585
+      spriteID: f3c4fc4d3693d9340800000000000000
+      internalID: 4872113472819645503
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: (dummy)konten-resep-1_5
+      name: jahe-terpotong_5
       rect:
         serializedVersion: 2
-        x: 415
-        y: 1006
-        width: 18
-        height: 39
+        x: 87
+        y: 320
+        width: 244
+        height: 318
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -243,20 +243,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6f55adc0f8c99d7b0800000000000000
-      internalID: -5198952156612635146
+      spriteID: 5e7b2df5bc64c43d0800000000000000
+      internalID: -3221121794176796699
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: (dummy)konten-resep-1_6
+      name: jahe-terpotong_6
       rect:
         serializedVersion: 2
-        x: 217
-        y: 653
-        width: 276
-        height: 351
+        x: 263
+        y: 434
+        width: 266
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -265,8 +265,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7e99e0a0eba4ea960800000000000000
-      internalID: 7615106200003058151
+      spriteID: b5ea774f06dd34760800000000000000
+      internalID: 7441034417834274395
       vertices: []
       indices: 
       edges: []
@@ -283,13 +283,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      (dummy)konten-resep-1_0: -8963740953805364153
-      (dummy)konten-resep-1_1: 5728009609634229687
-      (dummy)konten-resep-1_2: -5757748510137057470
-      (dummy)konten-resep-1_3: 4199524353340716108
-      (dummy)konten-resep-1_4: 4305149089785266585
-      (dummy)konten-resep-1_5: -5198952156612635146
-      (dummy)konten-resep-1_6: 7615106200003058151
+      jahe-terpotong_0: 7130387993858561868
+      jahe-terpotong_1: -7989258156051699407
+      jahe-terpotong_2: 6357175197048196673
+      jahe-terpotong_3: 3797921349966648426
+      jahe-terpotong_4: 4872113472819645503
+      jahe-terpotong_5: -3221121794176796699
+      jahe-terpotong_6: 7441034417834274395
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -8,28 +8,49 @@ public class DragAndDrop : MonoBehaviour
     private short pukulan = 0;
     public Sprite newSprite;
     private string colliderName;
-    public GameObject panci;
+    public panci panci;
+    public pisau pisau;
+    private bool isPotong = false;
+    private bool isUlek = false;
+    public Rigidbody2D rb;
+    public Sprite potong;
+    public GameObject image;
+    private bool inDrag = false;
 
     private void Start()
     {
         cam = Camera.main;
+        GameObject pisauObj = GameObject.Find("pisaupotong");
+        pisau = pisauObj.GetComponent<pisau>();
+        GameObject panciObj = GameObject.FindWithTag("panci");
+        panci = panciObj.GetComponent<panci>();
+        if(gameObject.tag == "madu" || gameObject.tag == "jeruknipis")
+        {
+            isPotong = true;
+            isUlek = true;
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D other)
     {
         colliderName = other.gameObject.name;
         Debug.Log(colliderName + " entered collider");
-        if(other.gameObject.tag == "talenan")
+        if(other.gameObject.tag == "talenan" && isPotong == false)
         {
             cam.transform.position = new Vector3(-50, 0, -10);
+            rb.bodyType = RigidbodyType2D.Static;
+            pisau.setBahan(gameObject);
+            gameObject.transform.position = new Vector3(-49.5f, -4.5f, 0);
+            gameObject.transform.localScale = new Vector3(3, 3, 1);
         }
         if(other.gameObject.tag == "ulekan")
         {
             cam.transform.position = new Vector3(-100, 0, -10);
         }
-        if(other.gameObject.tag == "panci")
+        if(other.gameObject.tag == "panci" && inDrag == false)
         {
             Debug.Log("Panci");
+            panci.addItem(gameObject.tag);
             Destroy(gameObject);
         }
     }
@@ -38,7 +59,7 @@ public class DragAndDrop : MonoBehaviour
     {
         // Hitung offset antara posisi mouse dan posisi objek
         offset = gameObject.transform.position - GetMouseWorldPos();
-        Debug.Log("down");
+        inDrag = true;
     }
 
     private void OnMouseDrag()
@@ -51,7 +72,7 @@ public class DragAndDrop : MonoBehaviour
     private void OnMouseUp()
     {
         Debug.Log("up");
-        
+        inDrag = false;
     }
     
 
@@ -73,9 +94,27 @@ public class DragAndDrop : MonoBehaviour
         }
     }
 
+    public void potongBahan()
+    {
+        Destroy(image.GetComponent<PolygonCollider2D>());
+        SpriteRenderer spriteRenderer = GameObject.Find("image").GetComponent<SpriteRenderer>();
+        spriteRenderer.sprite = potong;
+        gameObject.transform.position = new Vector3(-50f, -2f, 0);
+        isPotong = true;
+        image.AddComponent<PolygonCollider2D>();
+        gameObject.tag = gameObject.tag + "potong";
+    }
+
     private void gepeng()
     {
         SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.sprite = newSprite;
+    }
+
+    public void setAwal()
+    {
+        gameObject.transform.position = new Vector3(-6, -3, 0);
+        gameObject.transform.localScale = new Vector3(1, 1, 1);
+        rb.bodyType = RigidbodyType2D.Dynamic;
     }
 }

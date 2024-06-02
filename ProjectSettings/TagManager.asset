@@ -9,6 +9,14 @@ TagManager:
   - panci
   - ulekan
   - talenan
+  - jahe
+  - kunyit
+  - sereh
+  - jahepotong
+  - kunyitpotong
+  - serehpotong
+  - madu
+  - jeruknipis
   layers:
   - Default
   - TransparentFX

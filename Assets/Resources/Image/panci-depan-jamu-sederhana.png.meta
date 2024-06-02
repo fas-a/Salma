@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: f2918627db554044a9a31377afd7f859
+guid: 373c3d3b736c8594c9f954500713e9f0
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3218225721289422980
-    second: Scene 2 (temp)_0
+      213: -6159589635233873921
+    second: panci-depan-jamu-sederhana_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Scene 2 (temp)_0
+      name: panci-depan-jamu-sederhana_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1920
-        height: 1200
+        x: 43
+        y: 558
+        width: 1254
+        height: 617
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4883b7c1e3f69ac20800000000000000
-      internalID: 3218225721289422980
+      spriteID: ffff4b59cddb48aa0800000000000000
+      internalID: -6159589635233873921
       vertices: []
       indices: 
       edges: []
@@ -132,8 +132,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      Scene 2 (temp)_0: 3218225721289422980
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

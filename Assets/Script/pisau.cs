@@ -4,6 +4,23 @@ using UnityEngine;
 public class pisau : MonoBehaviour
 {
     private short potong = 0;
+    private Camera cam;
+    private Vector3 posisiAwal;
+    private GameObject bahan;
+    private DragAndDrop dragDrop;
+
+    private void Start()
+    {
+        cam = Camera.main;
+        posisiAwal = transform.position;
+    }
+
+    public void setBahan(GameObject bahan)
+    {
+        this.bahan = bahan;
+        dragDrop = bahan.GetComponent<DragAndDrop>();
+    }
+
     private void OnMouseDown()
     {
         Debug.Log("down");
@@ -17,21 +34,24 @@ public class pisau : MonoBehaviour
         Vector3 originalPosition = transform.position;
 
         // Move down
-        Vector3 targetPosition = originalPosition + Vector3.down * 5;
+        Vector3 targetPosition = originalPosition + Vector3.down * 6;
         yield return MoveToPosition(targetPosition, duration);
+        if (potong == 5)
+        {
+            dragDrop.potongBahan();
+        }
 
         // Move up
         targetPosition = originalPosition;
         yield return MoveToPosition(targetPosition, duration);
 
-        // Move left
-        targetPosition = originalPosition + Vector3.left * 2;
-        yield return MoveToPosition(targetPosition, duration);
-
         if (potong == 5)
         {
-            targetPosition = originalPosition + Vector3.right * 10;
+            targetPosition = posisiAwal;
             yield return MoveToPosition(targetPosition, duration);
+            cam.transform.position = new Vector3(0, 0, -10);
+            dragDrop.setAwal();
+            potong = 0;
         }
     }
 

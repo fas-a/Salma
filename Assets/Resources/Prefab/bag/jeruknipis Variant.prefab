@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &6399578296214146105
+--- !u!1001 &3568095775566873356
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -11,7 +11,7 @@ PrefabInstance:
     - target: {fileID: 1197746561012040439, guid: 2fdbe24d8356a1b4694ba6691f7272c1, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -9006348463894762932, guid: d988ad678271e734f907c1238435b8b0, type: 3}
+      objectReference: {fileID: 2206496582082414778, guid: d957279e16cc1be46941a6eca23bfc60, type: 3}
     - target: {fileID: 1337849046059618615, guid: 2fdbe24d8356a1b4694ba6691f7272c1, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -92,17 +92,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2675551677493535264, guid: 2fdbe24d8356a1b4694ba6691f7272c1, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 54.4
+      objectReference: {fileID: 0}
     - target: {fileID: 4424086191778324341, guid: 2fdbe24d8356a1b4694ba6691f7272c1, type: 3}
       propertyPath: m_text
-      value: Kunyit
+      value: Nipis
       objectReference: {fileID: 0}
     - target: {fileID: 6208125641818170013, guid: 2fdbe24d8356a1b4694ba6691f7272c1, type: 3}
       propertyPath: item
       value: 
-      objectReference: {fileID: 6686575067101847827, guid: 1d519fb8b38c1bf45b7a810915451c37, type: 3}
+      objectReference: {fileID: 6431991131821092535, guid: cb7387bd8947bcb4395ac47240ab65c9, type: 3}
     - target: {fileID: 8406576743772192040, guid: 2fdbe24d8356a1b4694ba6691f7272c1, type: 3}
       propertyPath: m_Name
-      value: kunyit Variant
+      value: jeruknipis Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
