@@ -75,12 +75,10 @@ public class gelas : MonoBehaviour
         }
         if(isSerahkan && jamu){
             Debug.Log(gelasJamu);
-            ItemPesanan matchingOrder = boxPesanan.GetMatchingOrder(gelasJamu);
+            bool matchingOrder = boxPesanan.GetMatchingOrder(gelasJamu);
             Debug.Log(matchingOrder);
-            if(matchingOrder != null)
+            if(matchingOrder)
             {
-                matchingOrder.CompleteOrder(true);
-                boxPesanan.RemoveOrder(matchingOrder);
                 image.sprite = kosong;
                 jamu = false;
             }
