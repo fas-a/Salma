@@ -96,6 +96,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 7812970827906401345, guid: 7cf05ed83b2c3104dbaaca1677b6b37f, type: 3}
+    - target: {fileID: 7185728532508694527, guid: a9689911d9c273b4ea8e6fbd73a70b45, type: 3}
+      propertyPath: requiredItemTag
+      value: jamuBeras
+      objectReference: {fileID: 0}
     - target: {fileID: 8705494780504407504, guid: a9689911d9c273b4ea8e6fbd73a70b45, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0

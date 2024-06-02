@@ -207,7 +207,11 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      jeruk-nipis-peres_0: 2932281178851422898
+      jeruk-nipis-peres_1: -1557524957329779427
+      jeruk-nipis-peres_2: 4969592385457346137
+      jeruk-nipis-peres_3: 5541829683026981502
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

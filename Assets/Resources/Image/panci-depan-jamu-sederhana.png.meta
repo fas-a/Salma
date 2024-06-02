@@ -132,7 +132,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      panci-depan-jamu-sederhana_0: -6159589635233873921
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

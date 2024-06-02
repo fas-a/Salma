@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using TMPro;
 
 public class pisau : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class pisau : MonoBehaviour
     private Vector3 posisiAwal;
     private GameObject bahan;
     private DragAndDrop dragDrop;
+    public TMP_Text tekspotong;
 
     private void Start()
     {
@@ -26,6 +28,11 @@ public class pisau : MonoBehaviour
         Debug.Log("down");
         potong++;
         StartCoroutine(AnimateMovement());
+        tekspotong.text = "Klik Pisau " + (5-potong) + " kali lagi";
+        if(potong == 5)
+        {
+            tekspotong.text = "Bahan memotong";
+        }
     }
 
     private IEnumerator AnimateMovement()

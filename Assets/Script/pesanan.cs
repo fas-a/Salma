@@ -59,7 +59,7 @@ public class Pesanan : MonoBehaviour
             ItemPesanan newItemPesanan = newOrder.GetComponent<ItemPesanan>();
             activeOrders.Add(newItemPesanan);
 
-            newOrder.GetComponent<ItemPesanan>().SetRequiredItemTag("Jamu Sederhana"); // Sesuaikan tag sesuai dengan kebutuhan
+            // newOrder.GetComponent<ItemPesanan>().SetRequiredItemTag("Jamu Sederhana"); // Sesuaikan tag sesuai dengan kebutuhan
             int index = gridPositions.Count > 0 ? Random.Range(0, gridPositions.Count) : 0;
             Vector2 gridPos = gridPositions[index];
             RectTransform orderRect = newOrder.GetComponent<RectTransform>();

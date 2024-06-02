@@ -15,6 +15,7 @@ public class gelas : MonoBehaviour
     private bool jamu = false;
     public GameObject serahkan;
     public Pesanan boxPesanan;
+    private string gelasJamu;
 
     private void Start()
     {
@@ -68,12 +69,14 @@ public class gelas : MonoBehaviour
                     jamu = true;
                     panci.image.sprite = panci.kosong;
                     panci.jamu = false;
+                    gelasJamu = "jamuSederhana";
                     break;
             }
         }
-
         if(isSerahkan && jamu){
-            ItemPesanan matchingOrder = boxPesanan.GetMatchingOrder("Jamu Sederhana");
+            Debug.Log(gelasJamu);
+            ItemPesanan matchingOrder = boxPesanan.GetMatchingOrder(gelasJamu);
+            Debug.Log(matchingOrder);
             if(matchingOrder != null)
             {
                 matchingOrder.CompleteOrder(true);

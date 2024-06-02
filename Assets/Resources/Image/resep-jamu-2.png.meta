@@ -132,7 +132,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      resep-jamu-2_0: -6692811483626996011
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

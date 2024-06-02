@@ -16,6 +16,7 @@ public class DragAndDrop : MonoBehaviour
     public Sprite potong;
     public GameObject image;
     private bool inDrag = false;
+    public GameObject tas;
 
     private void Start()
     {
@@ -29,6 +30,7 @@ public class DragAndDrop : MonoBehaviour
             isPotong = true;
             isUlek = true;
         }
+        tas = GameObject.FindWithTag("tas");
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -42,6 +44,7 @@ public class DragAndDrop : MonoBehaviour
             pisau.setBahan(gameObject);
             gameObject.transform.position = new Vector3(-49.5f, -4.5f, 0);
             gameObject.transform.localScale = new Vector3(3, 3, 1);
+            tas.SetActive(false);
         }
         if(other.gameObject.tag == "ulekan")
         {
@@ -116,5 +119,6 @@ public class DragAndDrop : MonoBehaviour
         gameObject.transform.position = new Vector3(-6, -3, 0);
         gameObject.transform.localScale = new Vector3(1, 1, 1);
         rb.bodyType = RigidbodyType2D.Dynamic;
+        tas.SetActive(true);
     }
 }

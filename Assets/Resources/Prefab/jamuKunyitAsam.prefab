@@ -104,6 +104,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 934581552272764482, guid: 00257b5330fb1124e8a7e1b9cf063d61, type: 3}
+    - target: {fileID: 7185728532508694527, guid: a9689911d9c273b4ea8e6fbd73a70b45, type: 3}
+      propertyPath: requiredItemTag
+      value: jamuKunyit
+      objectReference: {fileID: 0}
     - target: {fileID: 7937522807219397348, guid: a9689911d9c273b4ea8e6fbd73a70b45, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.07947722
@@ -126,7 +130,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8866324180838104983, guid: a9689911d9c273b4ea8e6fbd73a70b45, type: 3}
       propertyPath: m_Name
-      value: jamu Variant 1
+      value: jamuKunyitAsam
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

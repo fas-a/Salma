@@ -132,7 +132,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      buku-resep-2_0: -4390532249881725480
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -132,7 +132,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      madu-terbuka-netes_0: 238571550851901387
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -132,7 +132,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      kunyit-terpotong_0: 2784250609531434388
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
