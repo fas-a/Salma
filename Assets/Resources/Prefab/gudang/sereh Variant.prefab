@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: sereh Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 7316518318385621802, guid: 1d1412b046ecb534fbf7fffea83c3f92, type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 1851222726967748268, guid: 4a10458cefb4c9a48a0dd903658dff3f, type: 3}
     - target: {fileID: 7372451625257779688, guid: 1d1412b046ecb534fbf7fffea83c3f92, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

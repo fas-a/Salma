@@ -16,6 +16,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: jahe Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 7316518318385621802, guid: 1d1412b046ecb534fbf7fffea83c3f92, type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 6517720341438503090, guid: ee5706b58d7f4cf44a81e38e392e664a, type: 3}
     - target: {fileID: 7372451625257779688, guid: 1d1412b046ecb534fbf7fffea83c3f92, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
