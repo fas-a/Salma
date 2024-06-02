@@ -9,10 +9,12 @@ public class Pesanan : MonoBehaviour
     public Transform ordersContainer;
     public float spawnDelay;
     private List<Vector2> gridPositions;
+    private List<ItemPesanan> activeOrders;
 
     void Start()
     {
         InitializeGridPositions();
+        activeOrders = new List<ItemPesanan>();
     }
 
     void InitializeGridPositions()
@@ -54,6 +56,10 @@ public class Pesanan : MonoBehaviour
             GameObject newOrder = Instantiate(randomProduct, ordersContainer);
             newOrder.transform.SetParent(ordersContainer, false);
 
+            ItemPesanan newItemPesanan = newOrder.GetComponent<ItemPesanan>();
+            activeOrders.Add(newItemPesanan);
+
+            newOrder.GetComponent<ItemPesanan>().SetRequiredItemTag("Jamu Sederhana"); // Sesuaikan tag sesuai dengan kebutuhan
             int index = gridPositions.Count > 0 ? Random.Range(0, gridPositions.Count) : 0;
             Vector2 gridPos = gridPositions[index];
             RectTransform orderRect = newOrder.GetComponent<RectTransform>();
@@ -61,5 +67,22 @@ public class Pesanan : MonoBehaviour
 
             yield return new WaitForSeconds(spawnDelay);
         }
+    }
+
+    public ItemPesanan GetMatchingOrder(string itemTag)
+    {
+        foreach (ItemPesanan order in activeOrders)
+        {
+            if (order.IsMatch(itemTag))
+            {
+                return order;
+            }
+        }
+        return null;
+    }
+
+    public void RemoveOrder(ItemPesanan order)
+    {
+        activeOrders.Remove(order);
     }
 }

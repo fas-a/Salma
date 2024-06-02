@@ -15,7 +15,7 @@ public class Progress : MonoBehaviour
 
         jumlahPesanan = 0;
         pesananHarian = 0;
-        itemPesanan.OnOrderCompleted += HandleOrderCompleted;
+        ItemPesanan.OnOrderCompleted += HandleOrderCompleted;
     }
 
     public void ResetPesananHarian()
@@ -57,6 +57,6 @@ public class Progress : MonoBehaviour
 
     void OnDestroy()
     {
-        itemPesanan.OnOrderCompleted -= HandleOrderCompleted;
+        ItemPesanan.OnOrderCompleted -= HandleOrderCompleted;
     }
 }

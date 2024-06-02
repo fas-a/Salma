@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class itemPesanan : MonoBehaviour
+public class ItemPesanan : MonoBehaviour
 {
     public delegate void OrderCompleted(int harga);
     public static event OrderCompleted OnOrderCompleted;
@@ -17,7 +17,7 @@ public class itemPesanan : MonoBehaviour
         progressBar.value = value;
         if (value <= 0)
         {
-            CompleteOrder();
+            CompleteOrder(false);
         }
     }
 
@@ -43,9 +43,17 @@ public class itemPesanan : MonoBehaviour
         SetProgress(currentValue);
     }
 
-    void CompleteOrder()
+    public void CompleteOrder(bool serahkan)
     {
-        OnOrderCompleted?.Invoke(hargaJamu);
+        if (serahkan)
+        {
+            OnOrderCompleted?.Invoke(hargaJamu);
+        }
         Destroy(gameObject);
+    }
+
+    public bool IsMatch(string itemTag)
+    {
+        return requiredItemTag == itemTag;
     }
 }

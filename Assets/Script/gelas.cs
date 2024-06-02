@@ -14,6 +14,7 @@ public class gelas : MonoBehaviour
     public panci panci;
     private bool jamu = false;
     public GameObject serahkan;
+    public Pesanan boxPesanan;
 
     private void Start()
     {
@@ -70,10 +71,16 @@ public class gelas : MonoBehaviour
                     break;
             }
         }
+
         if(isSerahkan && jamu){
-            // Serahkan jamu
-            image.sprite = kosong;
-            jamu = false;
+            ItemPesanan matchingOrder = boxPesanan.GetMatchingOrder("Jamu Sederhana");
+            if(matchingOrder != null)
+            {
+                matchingOrder.CompleteOrder(true);
+                boxPesanan.RemoveOrder(matchingOrder);
+                image.sprite = kosong;
+                jamu = false;
+            }
         }
         balik();
         rb.bodyType = RigidbodyType2D.Static;
