@@ -494,8 +494,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 0, y: 6.8637}
+  m_SizeDelta: {x: 200, y: 51.804}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &69823776
 MonoBehaviour:
@@ -1635,8 +1635,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: 'Nenek: Nak, membalas perbuatan jahat dengan kejahatan itu tidak akan menyelesaikan
-    masalah. Cukup Nak. Ini semua salah nenek, maafkan nenek ya sayang. Nenek lemah
-    dan tidak bisa mencukupi kebutuhanmu. Dan ayahmu itu.. nenek telah salah membesarkannya.'
+    masalah. Cukup Nak. Maafkan nenek ya sayang. Nenek sakit-sakitan dan tidak bisa
+    mencukupi kebutuhanmu. Dan ayahmu itu.. nenek telah salah membesarkannya.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 772b5dfd475f78e43866afa882b976c7, type: 2}
   m_sharedMaterial: {fileID: 4339964640282565253, guid: 772b5dfd475f78e43866afa882b976c7, type: 2}
@@ -2594,7 +2594,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: 'Penagih utang: Urusan saya datang kesini adalah menagih utang nenek ini,
-    bocah. Saya juga tidak peduli dengan toko tua bobrokmu ini!'
+    bocah. Dan juga, saya tidak peduli dengan toko tua bobrokmu ini!'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 772b5dfd475f78e43866afa882b976c7, type: 2}
   m_sharedMaterial: {fileID: 4339964640282565253, guid: 772b5dfd475f78e43866afa882b976c7, type: 2}

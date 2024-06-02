@@ -404,7 +404,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Di sebuah toko jamu sederhana di pinggiran kota, hidup seorang anak SMA
     bernama Salma. Ia kini tengah sibuk membantu neneknya mempersiapkan jamu untuk
-    dijual hari ini. Aroma harum dari bahan-bahan alami memenuhi dapur tempat mereka
+    dijual hari ini. Aroma harum dari bahan-bahan alami memenuhi dapur, tempat mereka
     meracik jamu.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 772b5dfd475f78e43866afa882b976c7, type: 2}
@@ -1185,8 +1185,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.00007036564, y: 0.0005629251}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 0.00007036564, y: 6.864}
+  m_SizeDelta: {x: 200, y: 51.803}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1493954117
 MonoBehaviour:
