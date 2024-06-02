@@ -18,6 +18,17 @@ public class Progress : MonoBehaviour
         ItemPesanan.OnOrderCompleted += HandleOrderCompleted;
     }
 
+    public int getUang()
+    {
+        return this.uang;
+    }
+
+    public void beli(int price)
+    {
+        uang -= price;
+        Update();
+    }
+
     public void ResetPesananHarian()
     {
         pesananHarian = 0;
