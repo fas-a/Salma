@@ -3,18 +3,16 @@ using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 
-public class OrderSpawner : MonoBehaviour
+public class Pesanan : MonoBehaviour
 {
     public List<GameObject> jamuItem;
     public Transform ordersContainer;
-    public int jumlahPesanan;
     public float spawnDelay;
     private List<Vector2> gridPositions;
 
     void Start()
     {
         InitializeGridPositions();
-        SpawnOrders();
     }
 
     void InitializeGridPositions()
@@ -25,7 +23,6 @@ public class OrderSpawner : MonoBehaviour
         if (gridLayoutGroup != null)
         {
             int columns = gridLayoutGroup.constraintCount;
-
             Vector2 cellSize = gridLayoutGroup.cellSize;
             Vector2 spacing = gridLayoutGroup.spacing;
             Vector2 startPosition = new Vector2(
@@ -33,7 +30,7 @@ public class OrderSpawner : MonoBehaviour
                 -cellSize.y / 2 - spacing.y / 2
             );
 
-            for (int x = 0; x < jumlahPesanan; x++)
+            for (int x = 0; x < columns; x++)
             {
                 Vector2 position = new Vector2(
                     startPosition.x + x * (cellSize.x + spacing.x),
@@ -44,22 +41,22 @@ public class OrderSpawner : MonoBehaviour
         }
     }
 
-    void SpawnOrders()
+    public void SpawnOrders()
     {
         StartCoroutine(SpawnOrdersCoroutine());
     }
 
     IEnumerator SpawnOrdersCoroutine()
     {
-        for (int i = 0; i < jumlahPesanan; i++)
+        while (true)
         {
             GameObject randomProduct = jamuItem[Random.Range(0, jamuItem.Count)];
             GameObject newOrder = Instantiate(randomProduct, ordersContainer);
             newOrder.transform.SetParent(ordersContainer, false);
 
-            Vector2 gridPos = gridPositions[i];
+            int index = gridPositions.Count > 0 ? Random.Range(0, gridPositions.Count) : 0;
+            Vector2 gridPos = gridPositions[index];
             RectTransform orderRect = newOrder.GetComponent<RectTransform>();
-
             orderRect.anchoredPosition = gridPos;
 
             yield return new WaitForSeconds(spawnDelay);

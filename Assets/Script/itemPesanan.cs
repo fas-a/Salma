@@ -10,6 +10,8 @@ public class itemPesanan : MonoBehaviour
     public Slider progressBar;
     public int hargaJamu;
 
+    private float decreaseInterval = 1f; // Interval untuk mengurangi progress, dalam detik
+
     public void SetProgress(float value)
     {
         progressBar.value = value;
@@ -29,10 +31,15 @@ public class itemPesanan : MonoBehaviour
         hargaJamu = harga;
     }
 
+    void Start()
+    {
+        InvokeRepeating("DecreaseProgress", 0f, decreaseInterval);
+    }
+
     void DecreaseProgress()
     {
         float currentValue = progressBar.value;
-        currentValue -= 0.2f;
+        currentValue -= decreaseInterval;
         SetProgress(currentValue);
     }
 
@@ -40,10 +47,5 @@ public class itemPesanan : MonoBehaviour
     {
         OnOrderCompleted?.Invoke(hargaJamu);
         Destroy(gameObject);
-    }
-
-    void Update()
-    {
-        DecreaseProgress();
     }
 }
