@@ -57,7 +57,10 @@ public class Pesanan : MonoBehaviour
             newOrder.transform.SetParent(ordersContainer, false);
 
             ItemPesanan newItemPesanan = newOrder.GetComponent<ItemPesanan>();
+            newItemPesanan.pesanan = this; // Atur referensi ke objek Pesanan
             activeOrders.Add(newItemPesanan);
+
+            Debug.Log("Jumlah order" + activeOrders.Count);
 
             // newOrder.GetComponent<ItemPesanan>().SetRequiredItemTag("Jamu Sederhana"); // Sesuaikan tag sesuai dengan kebutuhan
             int index = gridPositions.Count > 0 ? Random.Range(0, gridPositions.Count) : 0;
@@ -69,16 +72,19 @@ public class Pesanan : MonoBehaviour
         }
     }
 
-    public ItemPesanan GetMatchingOrder(string itemTag)
+    public bool GetMatchingOrder(string itemTag)
     {
         foreach (ItemPesanan order in activeOrders)
         {
+            Debug.Log("Ini order" + order);
             if (order.IsMatch(itemTag))
             {
-                return order;
+                order.CompleteOrder(true);
+                RemoveOrder(order);
+                return true;
             }
         }
-        return null;
+        return false;
     }
 
     public void RemoveOrder(ItemPesanan order)
