@@ -132,7 +132,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Tabungan_0: 386591717329654674
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

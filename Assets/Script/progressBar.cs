@@ -5,13 +5,13 @@ public class progressBar : MonoBehaviour
 {
 public Slider slider;
     public Image fillImage;
-    private float timer = 30f;
+    private float timer = 60f;
 
     public void OnSliderChanged()
     {
-        if (slider.value <= 15f)
+        if (slider.value <= 30f)
         {
-            fillImage.color = Color.Lerp(Color.green, Color.red, (15f - slider.value) * 2);
+            fillImage.color = Color.Lerp(Color.green, Color.red, (30f - slider.value) * 2);
         } else
         {
             fillImage.color = Color.green;

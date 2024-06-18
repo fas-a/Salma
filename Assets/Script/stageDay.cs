@@ -7,7 +7,7 @@ public class stageDay : MonoBehaviour
     public TMP_Text teksHari;
     public Progress progressScript;
     public Pesanan orderSpawner;
-    public float durasiHari = 300f;
+    public float durasiHari = 450f;
     private float waktuTersisa;
     private int jamMulai = 7; // Jam mulai pukul 7 pagi
     public resultPopUp popup;

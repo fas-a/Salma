@@ -132,7 +132,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Logo Tim_0: 6266500773241565195
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

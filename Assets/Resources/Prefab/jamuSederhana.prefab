@@ -84,9 +84,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 30
+  m_MaxValue: 60
   m_WholeNumbers: 0
-  m_Value: 30
+  m_Value: 60
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -458,3 +458,4 @@ MonoBehaviour:
   requiredItemTag: jamuSederhana
   progressBar: {fileID: 5136904636882392960}
   hargaJamu: 12000
+  pesanan: {fileID: 0}

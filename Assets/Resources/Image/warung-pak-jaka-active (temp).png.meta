@@ -132,7 +132,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      warung-pak-jaka-active (temp)_0: 1070773712331350427
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

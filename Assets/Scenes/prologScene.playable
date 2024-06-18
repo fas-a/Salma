@@ -201,6 +201,22 @@ MonoBehaviour:
     volume: 1
     stereoPan: 0
     spatialBlend: 0
+--- !u!114 &-6150294993828341212
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15c38f6fa1940124db1ab7f6fe7268d1, type: 3}
+  m_Name: Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 9
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: 0b4c43f5a1fb41b43a40320170fecafb, type: 2}
 --- !u!114 &-6023835699343304206
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -399,6 +415,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fde0d25a170598d46a0b9dc16b4527a5, type: 3}
   m_Name: ActivationPlayableAsset
   m_EditorClassIdentifier: 
+--- !u!114 &-4907435552972292383
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15c38f6fa1940124db1ab7f6fe7268d1, type: 3}
+  m_Name: Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 0.05
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: 24fe52bd2e863be4bbd9c63a58e1a1ee, type: 2}
 --- !u!114 &-4685127133620122063
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -834,6 +866,22 @@ MonoBehaviour:
   m_Markers:
     m_Objects: []
   m_PostPlaybackState: 3
+--- !u!114 &-1964020361568929384
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15c38f6fa1940124db1ab7f6fe7268d1, type: 3}
+  m_Name: Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 0
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 0}
 --- !u!114 &-1062306029555166922
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1245,7 +1293,7 @@ MonoBehaviour:
     m_Framerate: 60
     m_ScenePreview: 1
   m_DurationMode: 0
-  m_MarkerTrack: {fileID: 0}
+  m_MarkerTrack: {fileID: 7629028498941933454}
 --- !u!114 &34560331760876511
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1975,6 +2023,22 @@ MonoBehaviour:
   m_bufferingTime: 0.1
   m_ClipProperties:
     volume: 1
+--- !u!114 &2455407086538060682
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15c38f6fa1940124db1ab7f6fe7268d1, type: 3}
+  m_Name: Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 13.4
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: 7c29c20e0d89dfc49a29e555b1839fef, type: 2}
 --- !u!114 &2541762979102591957
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2053,7 +2117,7 @@ MonoBehaviour:
     m_Start: 98.6333333333334
     m_ClipIn: 0
     m_Asset: {fileID: 7362118729264478626}
-    m_Duration: 15.683333333333195
+    m_Duration: 16.883333333333198
     m_TimeScale: 1
     m_ParentTrack: {fileID: 3536163631489196955}
     m_EaseInDuration: 0.97
@@ -3429,6 +3493,29 @@ MonoBehaviour:
   m_Markers:
     m_Objects: []
   m_PostPlaybackState: 3
+--- !u!114 &7629028498941933454
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a16748d9461eae46a725db9776d5390, type: 3}
+  m_Name: Markers
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_AnimClip: {fileID: 0}
+  m_Locked: 0
+  m_Muted: 0
+  m_CustomPlayableFullTypename: 
+  m_Curves: {fileID: 0}
+  m_Parent: {fileID: 11400000}
+  m_Children: []
+  m_Clips: []
+  m_Markers:
+    m_Objects: []
 --- !u!114 &8086466524654170930
 MonoBehaviour:
   m_ObjectHideFlags: 1
