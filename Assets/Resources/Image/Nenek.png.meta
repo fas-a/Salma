@@ -182,7 +182,10 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Nenek_0: -6501863296475282502
+      Nenek_1: 6496897431780467628
+      Nenek_2: -1570315234655910732
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

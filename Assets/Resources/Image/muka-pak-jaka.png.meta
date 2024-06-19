@@ -1,16 +1,10 @@
 fileFormatVersion: 2
-guid: 7c6a871c0579f6949978f863cc8c9b65
+guid: c147add01de3f3049a90a2ffecffa4f1
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2651458684260046897
-    second: Debt Collector_0
-  - first:
-      213: -9153800013061619236
-    second: Debt Collector_1
-  - first:
-      213: 3344647050134473351
-    second: Debt Collector_2
+      213: -142555234937071538
+    second: muka-pak-jaka_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -106,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Debt Collector_0
+      name: muka-pak-jaka_0
       rect:
         serializedVersion: 2
-        x: 64
-        y: 182
-        width: 54
-        height: 98
+        x: 47
+        y: 56
+        width: 269
+        height: 286
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -121,52 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fc72e0cef50243bd0800000000000000
-      internalID: -2651458684260046897
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Debt Collector_1
-      rect:
-        serializedVersion: 2
-        x: 141
-        y: 139
-        width: 429
-        height: 81
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: cd10f74136b27f080800000000000000
-      internalID: -9153800013061619236
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Debt Collector_2
-      rect:
-        serializedVersion: 2
-        x: 70
-        y: 74
-        width: 47
-        height: 105
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 78ac25a75c29a6e20800000000000000
-      internalID: 3344647050134473351
+      spriteID: e4814b4e4ca850ef0800000000000000
+      internalID: -142555234937071538
       vertices: []
       indices: 
       edges: []
@@ -182,10 +132,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      Debt Collector_0: -2651458684260046897
-      Debt Collector_1: -9153800013061619236
-      Debt Collector_2: 3344647050134473351
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
