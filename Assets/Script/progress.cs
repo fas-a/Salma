@@ -1,7 +1,7 @@
 using UnityEngine;
 using TMPro;
 
-public class Progress : MonoBehaviour
+public class Progress : MonoBehaviour, IDataPersistence
 {
     private int uang = 1000;
     private int jumlahPesanan;
@@ -45,6 +45,23 @@ public class Progress : MonoBehaviour
         return jumlahPesanan;
     }
 
+    public void LoadData(GameData data) {
+        this.jumlahPesanan = data.orderCompleted;
+        this.uang = data.money;
+    }
+
+    public void SaveData(GameData data) {
+        data.orderCompleted = this.jumlahPesanan;
+        data.money = this.uang;
+    }
+
+    public void ResetData(GameData data) {
+        data.orderCompleted = 0;
+        data.money = 1000;
+        this.jumlahPesanan = data.orderCompleted;
+        this.uang = data.money;    
+    }
+
     public void UpdateTimer(float waktuTersisa, float durasiHari, int jamMulai)
     {
         float conversionFactor = 15f / durasiHari; // Karena 15 jam dalam permainan setara dengan durasi hari dalam waktu nyata
@@ -63,7 +80,7 @@ public class Progress : MonoBehaviour
     {
         string order = "Pesanan yang diselesaikan: " + jumlahPesanan;
         string money = "Uang: Rp. " + uang;
-        teksUang.text = order + "\n" + money; // Combine order and money text
+        teksUang.text = order + "\n" + money; 
     }
 
     void OnDestroy()

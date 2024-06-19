@@ -41,4 +41,19 @@ public class slotItem : MonoBehaviour
         }
         
     }
+
+    // public void LoadData(GameData data) {
+    //     data.slotItems.TryGetValue(item.name, out int savedStok);
+    //     stok = savedStok;
+    //     text.text = stok.ToString();
+    //     Debug.Log("Ini load item: " + item.name + " " + stok);
+    // }
+
+    // public void SaveData(GameData data) {
+    //     if (data.slotItems.ContainsKey(item.name))
+    //     {
+    //         data.slotItems.Remove(item.name);
+    //     }
+    //     data.slotItems.Add(item.name, stok);        
+    // }
 }

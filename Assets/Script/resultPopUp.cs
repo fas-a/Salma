@@ -8,10 +8,12 @@ public class resultPopUp : MonoBehaviour
     public TMP_Text teksPesanan;
     public stageDay dayScript;
     public GameObject modal;
+    private int day;
 
-    public void displayResult(string hari, string pesanan) {
-        teksHari.text = hari;
-        teksPesanan.text = pesanan;
+    public void displayResult(int hari, int pesanan) {
+        this.day = hari;
+        teksHari.text = "Hari ke-" + hari;
+        teksPesanan.text = "Hari selesai!\n Total pesanan: " + pesanan;
         modal.SetActive(true);
     }
 
@@ -24,7 +26,14 @@ public class resultPopUp : MonoBehaviour
     {
         HideResult();
 
-        dayScript.HariBerikutnya();
+        if (day < 30)
+        {
+            dayScript.HariBerikutnya();
+        }
+        else
+        {
+            dayScript.LoadEndingScene();
+        }
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

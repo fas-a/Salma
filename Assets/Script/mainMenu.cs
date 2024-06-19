@@ -1,15 +1,24 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class mainMenu : MonoBehaviour
 {
     public void PlayGame() {
-        SceneManager.LoadSceneAsync(2);
+        GamePersistenceManager.instance.NewGame();
+        SceneManager.LoadSceneAsync(3);
     }
 
     public void QuitGame() {
         Application.Quit();
     }
+
+    public void LoadGame() {
+        GamePersistenceManager.instance.LoadGame();
+        SceneManager.LoadSceneAsync(3);
+    }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

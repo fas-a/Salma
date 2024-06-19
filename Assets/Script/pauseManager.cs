@@ -5,6 +5,7 @@ public class pauseManager : MonoBehaviour
 {
     private bool isPaused = false;
     public GameObject pauseMenu;
+    private GamePersistenceManager gamePersistenceManager;
 
     public void pauseGame(){
         Time.timeScale = 0f;
@@ -16,6 +17,10 @@ public class pauseManager : MonoBehaviour
         Time.timeScale = 1f;
         isPaused = false;
         pauseMenu.SetActive(false);
+    }
+
+    public void saveGame() {
+        GamePersistenceManager.instance.SaveGame();
     }
 
     public void exit()

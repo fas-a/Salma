@@ -1,13 +1,14 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement; // Add this directive for SceneManager
 
-public class stageDay : MonoBehaviour
+public class stageDay : MonoBehaviour, IDataPersistence
 {
     public int hari;
     public TMP_Text teksHari;
     public Progress progressScript;
     public Pesanan orderSpawner;
-    public float durasiHari = 450f;
+    public float durasiHari = 360f;
     private float waktuTersisa;
     private int jamMulai = 7; // Jam mulai pukul 7 pagi
     public resultPopUp popup;
@@ -41,8 +42,6 @@ public class stageDay : MonoBehaviour
         }
     }
 
-    
-
     public void MulaiHariBaru()
     {
         waktuTersisa = durasiHari;
@@ -57,6 +56,7 @@ public class stageDay : MonoBehaviour
 
         if (orderSpawner != null)
         {
+            orderSpawner.ClearActiveOrders();
             orderSpawner.SpawnOrders();
         }
         else
@@ -67,19 +67,26 @@ public class stageDay : MonoBehaviour
 
     public void HariBerikutnya()
     {
-        hari++;
-        UpdateDayText();
-        MulaiHariBaru();
+        if (hari < 30)
+        {
+            hari++;
+            UpdateDayText();
+            MulaiHariBaru();
+        }
+        else
+        {
+            LoadEndingScene();
+        }
     }
 
     public void HariSelesai()
     {
-        // Prepare result text, for example:
-        string today = "Hari ke-" + hari;
-        string result = "Hari selesai!\n Total pesanan: " + progressScript.GetJumlahPesanan();
+        popup.displayResult(hari, progressScript.GetJumlahPesanan());
+    }
 
-        // Display the result popup
-        popup.displayResult(today, result);
+    public void LoadEndingScene()
+    {
+        SceneManager.LoadScene("endingScene", LoadSceneMode.Single);
     }
 
     void UpdateDayText()
@@ -92,5 +99,23 @@ public class stageDay : MonoBehaviour
         {
             Debug.LogError("teksHari is not assigned in UpdateDayText!");
         }
+    }
+
+    public void LoadData(GameData data) {
+        this.hari = data.day;
+        this.waktuTersisa = data.time;
+        UpdateDayText();
+    }
+
+    public void SaveData(GameData data) {
+        data.day = this.hari;
+        data.time = this.waktuTersisa;
+    }
+
+    public void ResetData(GameData data) {
+        data.day = 1;
+        data.time = 360;
+        this.hari = data.day;
+        this.waktuTersisa = data.time;    
     }
 }

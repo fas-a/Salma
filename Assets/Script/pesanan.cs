@@ -91,4 +91,14 @@ public class Pesanan : MonoBehaviour
     {
         activeOrders.Remove(order);
     }
+
+    public void ClearActiveOrders()
+    {
+    foreach (ItemPesanan order in activeOrders)
+    {
+        Destroy(order.gameObject);
+    }
+    activeOrders.Clear();
+    }
+
 }
