@@ -13,9 +13,9 @@ public class slotItem : MonoBehaviour
     {
         
     }
-    public void add()
+    public void add(int amount)
     {
-        stok++;
+        stok += amount;
         text.text = stok.ToString();
     }
     public void remove()

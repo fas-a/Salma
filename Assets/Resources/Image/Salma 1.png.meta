@@ -182,7 +182,10 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Salma 1_0: 247803772772828476
+      Salma 1_1: -6593823238877086253
+      Salma 1_2: -8284882113909178992
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

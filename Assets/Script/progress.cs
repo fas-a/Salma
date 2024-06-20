@@ -3,7 +3,7 @@ using TMPro;
 
 public class Progress : MonoBehaviour, IDataPersistence
 {
-    private int uang = 1000;
+    private int uang = 10000;
     private int jumlahPesanan;
     private int pesananHarian;
     public TMP_Text teksUang;
