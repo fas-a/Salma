@@ -10,6 +10,7 @@ public class pisau : MonoBehaviour
     private GameObject bahan;
     private DragAndDrop dragDrop;
     public TMP_Text tekspotong;
+    public GameObject back;
 
     private void Start()
     {
@@ -21,15 +22,25 @@ public class pisau : MonoBehaviour
     {
         this.bahan = bahan;
         dragDrop = bahan.GetComponent<DragAndDrop>();
+        potong = dragDrop.countPotong;
+        back.SetActive(true);
+    }
+
+    public void reset()
+    {
+        back.SetActive(false);
+        cam.transform.position = new Vector3(0, 0, -10);
+        dragDrop.setAwal();
     }
 
     private void OnMouseDown()
     {
         Debug.Log("down");
         potong++;
+        dragDrop.countPotong++;
         StartCoroutine(AnimateMovement());
-        tekspotong.text = "Klik Pisau " + (5-potong) + " kali lagi";
-        if(potong == 5)
+        tekspotong.text = "Klik Pisau " + (5-dragDrop.countPotong) + " kali lagi";
+        if(dragDrop.countPotong == 5)
         {
             tekspotong.text = "Bahan memotong";
         }
@@ -43,7 +54,7 @@ public class pisau : MonoBehaviour
         // Move down
         Vector3 targetPosition = originalPosition + Vector3.down * 6;
         yield return MoveToPosition(targetPosition, duration);
-        if (potong == 5)
+        if (dragDrop.countPotong == 5)
         {
             dragDrop.potongBahan();
         }
@@ -52,7 +63,7 @@ public class pisau : MonoBehaviour
         targetPosition = originalPosition;
         yield return MoveToPosition(targetPosition, duration);
 
-        if (potong == 5)
+        if (dragDrop.countPotong == 5)
         {
             targetPosition = posisiAwal;
             yield return MoveToPosition(targetPosition, duration);
@@ -76,4 +87,5 @@ public class pisau : MonoBehaviour
 
         transform.position = targetPosition; // Ensure the final position is set
     }
+
 }
