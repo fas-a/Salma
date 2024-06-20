@@ -17,6 +17,7 @@ public class panci : MonoBehaviour
     public Sprite jamuSederhana;
     public bool jamu = false;
     public string namaJamu;
+    public bahanPanci tooltip;
 
     private void Start()
     {
@@ -52,10 +53,21 @@ public class panci : MonoBehaviour
         }
     }
 
+    private void OnMouseEnter()
+    {
+        tooltip.showBahan();
+    }
+
+    private void OnMouseExit()
+    {
+        tooltip.hideBahan();
+    }
+
     private void OnMouseDown()
     {
         offset = gameObject.transform.position - GetMouseWorldPos();
         rb.bodyType = RigidbodyType2D.Dynamic;
+        tooltip.hideBahan();
     }
 
     private void OnMouseDrag()
@@ -87,6 +99,7 @@ public class panci : MonoBehaviour
 
     public void addItem(string item)
     {
+        tooltip.addBahan(item);
         items.Add(item);
         CheckResep();
     }
