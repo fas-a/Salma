@@ -761,7 +761,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43a13832965a26f44a131f7bba5c5c29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fileName: datagames.json
+  fileName: gamedata.game
 --- !u!1 &1325584482
 GameObject:
   m_ObjectHideFlags: 0

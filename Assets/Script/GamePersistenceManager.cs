@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using UnityEngine.SceneManagement;
 
 public class GamePersistenceManager : MonoBehaviour
 {
@@ -23,14 +24,39 @@ public class GamePersistenceManager : MonoBehaviour
         }
         instance = this;
         DontDestroyOnLoad(this.gameObject);
-        this.dataHandler = new FileDataHandler(Application.persistentDataPath, fileName);
     }
 
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
 
-    public void Start()
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    public void Start() {
+        this.dataPersistenceObjects = FindAllDataPersistenceObjects();
+        if (this.gameData != null)
+        {
+            foreach (IDataPersistence dataPersistenceObj in dataPersistenceObjects)
+            {
+                dataPersistenceObj.LoadData(gameData);
+            }
+        }
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         this.dataPersistenceObjects = FindAllDataPersistenceObjects();
-        LoadGame();
+        if (this.gameData != null)
+        {
+            foreach (IDataPersistence dataPersistenceObj in dataPersistenceObjects)
+            {
+                dataPersistenceObj.LoadData(gameData);
+            }
+        }
     }
 
     public void NewGame()
@@ -38,8 +64,12 @@ public class GamePersistenceManager : MonoBehaviour
         this.gameData = new GameData();
         foreach (IDataPersistence dataPersistenceObj in dataPersistenceObjects)
         {
-            dataPersistenceObj.ResetData(gameData);
+            dataPersistenceObj.LoadData(gameData);
         }
+        Debug.Log("new day count = " + gameData.day);
+        Debug.Log("new money count = " + gameData.money);
+        Debug.Log("new time count = " + gameData.time);
+        Debug.Log("new orderCompleted count = " + gameData.orderCompleted);
     }
 
     public void LoadGame()
@@ -50,12 +80,18 @@ public class GamePersistenceManager : MonoBehaviour
         {
             Debug.Log("Tidak ada data ditemukan. Memulai game baru.");
             NewGame();
+            return;
         }
 
         foreach (IDataPersistence dataPersistenceObj in dataPersistenceObjects)
         {
             dataPersistenceObj.LoadData(gameData);
         }
+
+        Debug.Log("Load day count = " + gameData.day);
+        Debug.Log("Load money count = " + gameData.money);
+        Debug.Log("Load time count = " + gameData.time);
+        Debug.Log("Load orderCompleted count = " + gameData.orderCompleted);
     }
 
     public void SaveGame()

@@ -13,7 +13,7 @@ public class GameData
 
     public GameData() {
         this.day = 1;
-        this.money = 1000;
+        this.money = 10000;
         this.time = 360;
         this.orderCompleted = 0;
         // this.slotItems = new SerializableDictionary<string, int>();

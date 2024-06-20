@@ -15,11 +15,19 @@ public class stageDay : MonoBehaviour, IDataPersistence
 
     void Start()
     {
-        hari = 1;
-        UpdateDayText();
         MulaiHariBaru();
-
+        UpdateDayText();
         InvokeRepeating("HitungMundurWaktu", 0f, 1f);
+    }
+
+    public void LoadData(GameData data) {
+        this.hari = data.day;
+        this.waktuTersisa = data.time;
+    }
+
+    public void SaveData(GameData data) {
+        data.day = this.hari;
+        data.time = this.waktuTersisa;
     }
 
     void HitungMundurWaktu()
@@ -45,14 +53,6 @@ public class stageDay : MonoBehaviour, IDataPersistence
     public void MulaiHariBaru()
     {
         waktuTersisa = durasiHari;
-        if (progressScript != null)
-        {
-            progressScript.ResetPesananHarian();
-        }
-        else
-        {
-            Debug.LogError("progressScript is not assigned in MulaiHariBaru!");
-        }
 
         if (orderSpawner != null)
         {
@@ -99,23 +99,5 @@ public class stageDay : MonoBehaviour, IDataPersistence
         {
             Debug.LogError("teksHari is not assigned in UpdateDayText!");
         }
-    }
-
-    public void LoadData(GameData data) {
-        this.hari = data.day;
-        this.waktuTersisa = data.time;
-        UpdateDayText();
-    }
-
-    public void SaveData(GameData data) {
-        data.day = this.hari;
-        data.time = this.waktuTersisa;
-    }
-
-    public void ResetData(GameData data) {
-        data.day = 1;
-        data.time = 360;
-        this.hari = data.day;
-        this.waktuTersisa = data.time;    
     }
 }

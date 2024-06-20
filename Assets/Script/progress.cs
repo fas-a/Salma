@@ -5,16 +5,12 @@ public class Progress : MonoBehaviour, IDataPersistence
 {
     private int uang = 10000;
     private int jumlahPesanan;
-    private int pesananHarian;
     public TMP_Text teksUang;
     public TMP_Text teksTimer;
     public stageDay dayCounterScript;
 
     void Start()
     {
-
-        jumlahPesanan = 0;
-        pesananHarian = 0;
         ItemPesanan.OnOrderCompleted += HandleOrderCompleted;
     }
 
@@ -29,15 +25,9 @@ public class Progress : MonoBehaviour, IDataPersistence
         Update();
     }
 
-    public void ResetPesananHarian()
-    {
-        pesananHarian = 0;
-    }
-
     void HandleOrderCompleted(int price)
     {
         jumlahPesanan++;
-        pesananHarian++;
         uang += price;
     }
 
@@ -53,13 +43,6 @@ public class Progress : MonoBehaviour, IDataPersistence
     public void SaveData(GameData data) {
         data.orderCompleted = this.jumlahPesanan;
         data.money = this.uang;
-    }
-
-    public void ResetData(GameData data) {
-        data.orderCompleted = 0;
-        data.money = 1000;
-        this.jumlahPesanan = data.orderCompleted;
-        this.uang = data.money;    
     }
 
     public void UpdateTimer(float waktuTersisa, float durasiHari, int jamMulai)

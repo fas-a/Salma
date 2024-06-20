@@ -7,7 +7,6 @@ public class mainMenu : MonoBehaviour
 {
     public void PlayGame() {
         GamePersistenceManager.instance.NewGame();
-        SceneManager.LoadSceneAsync(3);
     }
 
     public void QuitGame() {
@@ -16,7 +15,6 @@ public class mainMenu : MonoBehaviour
 
     public void LoadGame() {
         GamePersistenceManager.instance.LoadGame();
-        SceneManager.LoadSceneAsync(3);
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
