@@ -96,6 +96,30 @@ PrefabInstance:
       propertyPath: m_text
       value: Sereh
       objectReference: {fileID: 0}
+    - target: {fileID: 4424086191778324341, guid: 2fdbe24d8356a1b4694ba6691f7272c1, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 772b5dfd475f78e43866afa882b976c7, type: 2}
+    - target: {fileID: 4424086191778324341, guid: 2fdbe24d8356a1b4694ba6691f7272c1, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -5639416608544807015, guid: 772b5dfd475f78e43866afa882b976c7, type: 2}
+    - target: {fileID: 4424086191778324341, guid: 2fdbe24d8356a1b4694ba6691f7272c1, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5979970603574901812, guid: 2fdbe24d8356a1b4694ba6691f7272c1, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 772b5dfd475f78e43866afa882b976c7, type: 2}
+    - target: {fileID: 5979970603574901812, guid: 2fdbe24d8356a1b4694ba6691f7272c1, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -5639416608544807015, guid: 772b5dfd475f78e43866afa882b976c7, type: 2}
+    - target: {fileID: 5979970603574901812, guid: 2fdbe24d8356a1b4694ba6691f7272c1, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6208125641818170013, guid: 2fdbe24d8356a1b4694ba6691f7272c1, type: 3}
       propertyPath: item
       value: 
