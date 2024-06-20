@@ -14,6 +14,8 @@ public class GamePersistenceManager : MonoBehaviour
 
     public static GamePersistenceManager instance { get; private set; }
 
+    private bool isNewGame = true;
+
     private void Awake()
     {
         if (instance != null)
@@ -24,6 +26,7 @@ public class GamePersistenceManager : MonoBehaviour
         }
         instance = this;
         DontDestroyOnLoad(this.gameObject);
+        this.dataHandler = new FileDataHandler(Application.persistentDataPath, fileName);
     }
 
     private void OnEnable()
@@ -36,26 +39,33 @@ public class GamePersistenceManager : MonoBehaviour
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
-    public void Start() {
-        this.dataPersistenceObjects = FindAllDataPersistenceObjects();
-        if (this.gameData != null)
-        {
-            foreach (IDataPersistence dataPersistenceObj in dataPersistenceObjects)
-            {
-                dataPersistenceObj.LoadData(gameData);
-            }
-        }
+    public void StartNewGame()
+    {
+        isNewGame = true;
+        PlayerPrefs.SetInt("isNewGame", 1);
+        SceneManager.LoadScene(3);
+    }
+
+    public void ContinueGame()
+    {
+        isNewGame = false;
+        PlayerPrefs.SetInt("isNewGame", 0);
+        SceneManager.LoadScene(3);
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         this.dataPersistenceObjects = FindAllDataPersistenceObjects();
-        if (this.gameData != null)
+
+        isNewGame = PlayerPrefs.GetInt("isNewGame", 0) == 1;
+
+        if (isNewGame)
         {
-            foreach (IDataPersistence dataPersistenceObj in dataPersistenceObjects)
-            {
-                dataPersistenceObj.LoadData(gameData);
-            }
+            NewGame();
+        }
+        else
+        {
+            LoadGame();
         }
     }
 
@@ -80,7 +90,6 @@ public class GamePersistenceManager : MonoBehaviour
         {
             Debug.Log("Tidak ada data ditemukan. Memulai game baru.");
             NewGame();
-            return;
         }
 
         foreach (IDataPersistence dataPersistenceObj in dataPersistenceObjects)
@@ -96,12 +105,6 @@ public class GamePersistenceManager : MonoBehaviour
 
     public void SaveGame()
     {
-        if (gameData == null)
-        {
-            Debug.LogWarning("gameData is null in SaveGame(). Initializing new gameData.");
-            NewGame();
-        }
-
         if (dataPersistenceObjects == null || dataPersistenceObjects.Count == 0)
         {
             Debug.LogWarning("dataPersistenceObjects is null or empty in SaveGame().");
@@ -110,14 +113,7 @@ public class GamePersistenceManager : MonoBehaviour
 
         foreach (IDataPersistence dataPersistenceObj in dataPersistenceObjects)
         {
-            if (dataPersistenceObj != null)
-            {
-                dataPersistenceObj.SaveData(gameData);
-            }
-            else
-            {
-                Debug.LogWarning("Found a null dataPersistenceObject in SaveGame().");
-            }
+            dataPersistenceObj.SaveData(gameData);
         }
 
         Debug.Log("Saved day count = " + gameData.day);
@@ -135,7 +131,7 @@ public class GamePersistenceManager : MonoBehaviour
 
     private List<IDataPersistence> FindAllDataPersistenceObjects()
     {
-        IEnumerable<IDataPersistence> dataPersistenceObjects = FindObjectsByType<MonoBehaviour>(FindObjectsSortMode.None)
+        IEnumerable<IDataPersistence> dataPersistenceObjects = FindObjectsOfType<MonoBehaviour>()
             .OfType<IDataPersistence>();
 
         return new List<IDataPersistence>(dataPersistenceObjects);

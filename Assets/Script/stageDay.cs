@@ -20,12 +20,16 @@ public class stageDay : MonoBehaviour, IDataPersistence
         InvokeRepeating("HitungMundurWaktu", 0f, 1f);
     }
 
-    public void LoadData(GameData data) {
+    public void LoadData(GameData data)
+    {
         this.hari = data.day;
         this.waktuTersisa = data.time;
+        Debug.Log("waktu" + waktuTersisa);
+        progressScript.UpdateTimer(waktuTersisa, durasiHari, jamMulai); // Update timer in Progress script
     }
 
-    public void SaveData(GameData data) {
+    public void SaveData(GameData data)
+    {
         data.day = this.hari;
         data.time = this.waktuTersisa;
     }
@@ -52,7 +56,10 @@ public class stageDay : MonoBehaviour, IDataPersistence
 
     public void MulaiHariBaru()
     {
-        waktuTersisa = durasiHari;
+        if (waktuTersisa == 0)
+        {
+            waktuTersisa = durasiHari;
+        }
 
         if (orderSpawner != null)
         {

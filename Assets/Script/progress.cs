@@ -31,16 +31,19 @@ public class Progress : MonoBehaviour, IDataPersistence
         uang += price;
     }
 
-    public int GetJumlahPesanan() {
+    public int GetJumlahPesanan()
+    {
         return jumlahPesanan;
     }
 
-    public void LoadData(GameData data) {
+    public void LoadData(GameData data)
+    {
         this.jumlahPesanan = data.orderCompleted;
         this.uang = data.money;
     }
 
-    public void SaveData(GameData data) {
+    public void SaveData(GameData data)
+    {
         data.orderCompleted = this.jumlahPesanan;
         data.money = this.uang;
     }
@@ -63,7 +66,7 @@ public class Progress : MonoBehaviour, IDataPersistence
     {
         string order = "Pesanan yang diselesaikan: " + jumlahPesanan;
         string money = "Uang: Rp. " + uang;
-        teksUang.text = order + "\n" + money; 
+        teksUang.text = order + "\n" + money;
     }
 
     void OnDestroy()
