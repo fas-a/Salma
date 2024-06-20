@@ -333,12 +333,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 187f97313f08f12498a5c21654d86e44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  countPotong: 0
   newSprite: {fileID: 0}
   panci: {fileID: 0}
   pisau: {fileID: 0}
   rb: {fileID: 8066384676637318878}
   potong: {fileID: 2206496582082414778, guid: d957279e16cc1be46941a6eca23bfc60, type: 3}
   image: {fileID: 5461341489004804158}
+  tas: {fileID: 0}
 --- !u!50 &8066384676637318878
 Rigidbody2D:
   serializedVersion: 4
@@ -365,4 +367,4 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4

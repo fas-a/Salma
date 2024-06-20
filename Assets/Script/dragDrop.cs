@@ -6,6 +6,7 @@ public class DragAndDrop : MonoBehaviour
     private Vector3 offset;
     private Camera cam;
     private short pukulan = 0;
+    public short countPotong = 0;
     public Sprite newSprite;
     private string colliderName;
     public panci panci;
@@ -17,6 +18,7 @@ public class DragAndDrop : MonoBehaviour
     public GameObject image;
     private bool inDrag = false;
     public GameObject tas;
+    private bool cooldown = false;
 
     private void Start()
     {
@@ -37,24 +39,26 @@ public class DragAndDrop : MonoBehaviour
     {
         colliderName = other.gameObject.name;
         Debug.Log(colliderName + " entered collider");
-        if(other.gameObject.tag == "talenan" && isPotong == false)
-        {
-            cam.transform.position = new Vector3(-50, 0, -10);
-            rb.bodyType = RigidbodyType2D.Static;
-            pisau.setBahan(gameObject);
-            gameObject.transform.position = new Vector3(-49.5f, -4.5f, 0);
-            gameObject.transform.localScale = new Vector3(3, 3, 1);
-            tas.SetActive(false);
-        }
-        if(other.gameObject.tag == "ulekan")
-        {
-            cam.transform.position = new Vector3(-100, 0, -10);
-        }
-        if(other.gameObject.tag == "panci" && inDrag == false)
-        {
-            Debug.Log("Panci");
-            panci.addItem(gameObject.tag);
-            Destroy(gameObject);
+        if(!cooldown){
+            if(other.gameObject.tag == "talenan" && isPotong == false)
+            {
+                cam.transform.position = new Vector3(-50, 0, -10);
+                rb.bodyType = RigidbodyType2D.Static;
+                pisau.setBahan(gameObject);
+                gameObject.transform.position = new Vector3(-49.5f, -4.5f, 0);
+                gameObject.transform.localScale = new Vector3(3, 3, 1);
+                tas.SetActive(false);
+            }
+            if(other.gameObject.tag == "ulekan")
+            {
+                cam.transform.position = new Vector3(-100, 0, -10);
+            }
+            if(other.gameObject.tag == "panci" && inDrag == false)
+            {
+                Debug.Log("Panci");
+                panci.addItem(gameObject.tag);
+                Destroy(gameObject);
+            }
         }
     }
 
@@ -76,6 +80,7 @@ public class DragAndDrop : MonoBehaviour
     {
         Debug.Log("up");
         inDrag = false;
+        cooldown = false;
     }
     
 
@@ -116,6 +121,7 @@ public class DragAndDrop : MonoBehaviour
 
     public void setAwal()
     {
+        cooldown = true;
         gameObject.transform.position = new Vector3(-6, -3, 0);
         gameObject.transform.localScale = new Vector3(1, 1, 1);
         rb.bodyType = RigidbodyType2D.Dynamic;
