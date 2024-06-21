@@ -341,7 +341,7 @@ Transform:
   m_GameObject: {fileID: 6686575067101847827}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.25, y: -2.8, z: 0.1124255}
+  m_LocalPosition: {x: 0, y: 0, z: 0.1124255}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -360,14 +360,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 187f97313f08f12498a5c21654d86e44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tumbuk: 0
   countPotong: 0
-  newSprite: {fileID: 0}
   panci: {fileID: 0}
   pisau: {fileID: 0}
+  ulekan: {fileID: 0}
   rb: {fileID: 5732698777856400181}
   potong: {fileID: 2784250609531434388, guid: 4ef341a34ab8a9c49b364de780e3c296, type: 3}
   image: {fileID: 934014991582169048}
   tas: {fileID: 0}
+  tumbukSprite: {fileID: 0}
 --- !u!50 &5732698777856400181
 Rigidbody2D:
   serializedVersion: 4

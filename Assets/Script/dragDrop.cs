@@ -5,12 +5,12 @@ public class DragAndDrop : MonoBehaviour
 {
     private Vector3 offset;
     private Camera cam;
-    private short pukulan = 0;
+    public short tumbuk = 0;
     public short countPotong = 0;
-    public Sprite newSprite;
     private string colliderName;
     public panci panci;
     public pisau pisau;
+    public ulekan ulekan;
     private bool isPotong = false;
     private bool isUlek = false;
     public Rigidbody2D rb;
@@ -18,13 +18,15 @@ public class DragAndDrop : MonoBehaviour
     public GameObject image;
     private bool inDrag = false;
     public GameObject tas;
-    private bool cooldown = false;
+    public Sprite tumbukSprite;
 
     private void Start()
     {
         cam = Camera.main;
         GameObject pisauObj = GameObject.Find("pisaupotong");
         pisau = pisauObj.GetComponent<pisau>();
+        GameObject ulekanObj = GameObject.Find("ulekanpakai");
+        ulekan = ulekanObj.GetComponent<ulekan>();
         GameObject panciObj = GameObject.FindWithTag("panci");
         panci = panciObj.GetComponent<panci>();
         if(gameObject.tag == "madu" || gameObject.tag == "jeruknipis")
@@ -39,26 +41,29 @@ public class DragAndDrop : MonoBehaviour
     {
         colliderName = other.gameObject.name;
         Debug.Log(colliderName + " entered collider");
-        if(!cooldown){
-            if(other.gameObject.tag == "talenan" && isPotong == false)
-            {
-                cam.transform.position = new Vector3(-50, 0, -10);
-                rb.bodyType = RigidbodyType2D.Static;
-                pisau.setBahan(gameObject);
-                gameObject.transform.position = new Vector3(-49.5f, -4.5f, 0);
-                gameObject.transform.localScale = new Vector3(3, 3, 1);
-                tas.SetActive(false);
-            }
-            if(other.gameObject.tag == "ulekan")
-            {
-                cam.transform.position = new Vector3(-100, 0, -10);
-            }
-            if(other.gameObject.tag == "panci" && inDrag == false)
-            {
-                Debug.Log("Panci");
-                panci.addItem(gameObject.tag);
-                Destroy(gameObject);
-            }
+        if(other.gameObject.tag == "talenan" && isPotong == false)
+        {
+            cam.transform.position = new Vector3(-50, 0, -10);
+            rb.bodyType = RigidbodyType2D.Static;
+            pisau.setBahan(gameObject);
+            gameObject.transform.position = new Vector3(-49.5f, -4.5f, 0);
+            gameObject.transform.localScale = new Vector3(3, 3, 1);
+            tas.SetActive(false);
+        }
+        if(other.gameObject.tag == "ulekan")
+        {
+            cam.transform.position = new Vector3(-100, 0, -10);
+            rb.bodyType = RigidbodyType2D.Static;
+            ulekan.setBahan(gameObject);
+            gameObject.transform.position = new Vector3(-100f, -4.5f, 0);
+            gameObject.transform.localScale = new Vector3(3, 3, 1);
+            tas.SetActive(false);
+        }
+        if(other.gameObject.tag == "panci" && inDrag == false)
+        {
+            Debug.Log("Panci");
+            panci.addItem(gameObject.tag);
+            Destroy(gameObject);
         }
     }
 
@@ -80,10 +85,8 @@ public class DragAndDrop : MonoBehaviour
     {
         Debug.Log("up");
         inDrag = false;
-        cooldown = false;
     }
     
-
     private Vector3 GetMouseWorldPos()
     {
         // Konversi posisi mouse dari screen space ke world space
@@ -92,37 +95,29 @@ public class DragAndDrop : MonoBehaviour
         return cam.ScreenToWorldPoint(mousePoint);
     }
 
-    public void pukul()
-    {
-        pukulan++;
-        Debug.Log("Pukul " + pukulan);
-        if (pukulan == 5)
-        {
-            gepeng();
-        }
-    }
-
     public void potongBahan()
     {
         Destroy(image.GetComponent<PolygonCollider2D>());
-        SpriteRenderer spriteRenderer = GameObject.Find("image").GetComponent<SpriteRenderer>();
+        SpriteRenderer spriteRenderer = image.GetComponent<SpriteRenderer>();
         spriteRenderer.sprite = potong;
-        gameObject.transform.position = new Vector3(-50f, -2f, 0);
         isPotong = true;
         image.AddComponent<PolygonCollider2D>();
-        gameObject.tag = gameObject.tag + "potong";
+        gameObject.tag = gameObject.tag + " potong";
     }
 
-    private void gepeng()
+    public void gepeng()
     {
-        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
-        spriteRenderer.sprite = newSprite;
+        Destroy(image.GetComponent<PolygonCollider2D>());
+        SpriteRenderer spriteRenderer = image.GetComponent<SpriteRenderer>();
+        spriteRenderer.sprite = tumbukSprite;
+        isUlek = true;
+        image.AddComponent<PolygonCollider2D>();
+        gameObject.tag = gameObject.tag + " geprek";
     }
 
     public void setAwal()
     {
-        cooldown = true;
-        gameObject.transform.position = new Vector3(-6, -3, 0);
+        gameObject.transform.position = new Vector3(-9, -2, 0);
         gameObject.transform.localScale = new Vector3(1, 1, 1);
         rb.bodyType = RigidbodyType2D.Dynamic;
         tas.SetActive(true);
