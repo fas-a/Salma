@@ -10,6 +10,7 @@ public class ItemPesanan : MonoBehaviour
     public Slider progressBar;
     public int hargaJamu;
     public Pesanan pesanan;
+    public GameObject relatedCustomer;
 
     private float decreaseInterval = 1f; // Interval untuk mengurangi progress, dalam detik
 
@@ -50,10 +51,12 @@ public class ItemPesanan : MonoBehaviour
         {
             OnOrderCompleted?.Invoke(hargaJamu);
         }
-        if (pesanan != null)
+
+        if (relatedCustomer != null)
         {
-            pesanan.RemoveOrder(this);
+            relatedCustomer.GetComponent<Customer>().CompleteOrder();
         }
+
         Destroy(gameObject);
     }
 

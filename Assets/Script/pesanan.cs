@@ -7,6 +7,7 @@ public class Pesanan : MonoBehaviour, IDataPersistence
 {
     public List<GameObject> jamuItem;
     public Transform ordersContainer;
+    public customerSpawner customerSpawner; 
     public float spawnDelay;
     private List<Vector2> gridPositions;
     private List<ItemPesanan> activeOrders;
@@ -62,16 +63,20 @@ public class Pesanan : MonoBehaviour, IDataPersistence
             newOrder.transform.SetParent(ordersContainer, false);
 
             ItemPesanan newItemPesanan = newOrder.GetComponent<ItemPesanan>();
-            newItemPesanan.pesanan = this; // Atur referensi ke objek Pesanan
+            newItemPesanan.pesanan = this;
             activeOrders.Add(newItemPesanan);
 
-            Debug.Log("Jumlah order" + activeOrders.Count);
+            Debug.Log("Jumlah order: " + activeOrders.Count);
 
-            // newOrder.GetComponent<ItemPesanan>().SetRequiredItemTag("Jamu Sederhana");
             int index = gridPositions.Count > 0 ? Random.Range(0, gridPositions.Count) : 0;
             Vector2 gridPos = gridPositions[index];
             RectTransform orderRect = newOrder.GetComponent<RectTransform>();
             orderRect.anchoredPosition = gridPos;
+
+            // Spawn corresponding customer
+            GameObject customer = customerSpawner.SpawnCustomer();
+            newItemPesanan.relatedCustomer = customer;
+            customer.GetComponent<Customer>().SetLinkedOrder(newItemPesanan);
 
             yield return new WaitForSeconds(spawnDelay);
         }
@@ -81,7 +86,7 @@ public class Pesanan : MonoBehaviour, IDataPersistence
     {
         foreach (ItemPesanan order in activeOrders)
         {
-            Debug.Log("Ini order" + order);
+            Debug.Log("Ini order: " + order);
             if (order.IsMatch(itemTag))
             {
                 switch (itemTag)
@@ -94,15 +99,15 @@ public class Pesanan : MonoBehaviour, IDataPersistence
                         break;
                     case "jamuBerasKencur":
                         jumlahJamuBerasKencur++;
-                    break;
+                        break;
                     case "jamuPahitan":
                         jumlahJamuPahitan++;
                         break;
                     case "jamuTemulawak":
                         jumlahJamuTemulawak++;
-                    break;
+                        break;
                     default:
-                    break;
+                        break;
                 }
                 order.CompleteOrder(true);
                 RemoveOrder(order);
@@ -111,7 +116,7 @@ public class Pesanan : MonoBehaviour, IDataPersistence
         }
         return false;
     }
-    
+
     public void LoadData(GameData data)
     {
         this.jumlahJamuSederhana = data.jumlahJamuSederhana;
@@ -133,11 +138,11 @@ public class Pesanan : MonoBehaviour, IDataPersistence
 
     public void ClearActiveOrders()
     {
-    foreach (ItemPesanan order in activeOrders)
-    {
-        Destroy(order.gameObject);
+        foreach (ItemPesanan order in activeOrders)
+        {
+            Destroy(order.relatedCustomer); // Destroy related customer
+            Destroy(order.gameObject);
+        }
+        activeOrders.Clear();
     }
-    activeOrders.Clear();
-    }
-
 }

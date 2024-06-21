@@ -132,7 +132,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      sendok_0: -8178573401669705391
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

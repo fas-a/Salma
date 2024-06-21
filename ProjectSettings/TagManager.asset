@@ -24,6 +24,7 @@ TagManager:
   - kunyit geprek
   - sereh geprek
   - sampah
+  - customers
   layers:
   - Default
   - TransparentFX
