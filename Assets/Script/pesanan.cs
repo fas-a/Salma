@@ -3,13 +3,18 @@ using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 
-public class Pesanan : MonoBehaviour
+public class Pesanan : MonoBehaviour, IDataPersistence
 {
     public List<GameObject> jamuItem;
     public Transform ordersContainer;
     public float spawnDelay;
     private List<Vector2> gridPositions;
     private List<ItemPesanan> activeOrders;
+    private int jumlahJamuSederhana;
+    private int jumlahJamuKunyitAsam;
+    private int jumlahJamuBerasKencur;
+    private int jumlahJamuPahitan;
+    private int jumlahJamuTemulawak;
 
     void Start()
     {
@@ -62,7 +67,7 @@ public class Pesanan : MonoBehaviour
 
             Debug.Log("Jumlah order" + activeOrders.Count);
 
-            // newOrder.GetComponent<ItemPesanan>().SetRequiredItemTag("Jamu Sederhana"); // Sesuaikan tag sesuai dengan kebutuhan
+            // newOrder.GetComponent<ItemPesanan>().SetRequiredItemTag("Jamu Sederhana");
             int index = gridPositions.Count > 0 ? Random.Range(0, gridPositions.Count) : 0;
             Vector2 gridPos = gridPositions[index];
             RectTransform orderRect = newOrder.GetComponent<RectTransform>();
@@ -79,12 +84,46 @@ public class Pesanan : MonoBehaviour
             Debug.Log("Ini order" + order);
             if (order.IsMatch(itemTag))
             {
+                switch (itemTag)
+                {
+                    case "jamuSederhana":
+                        jumlahJamuSederhana++;
+                        break;
+                    case "jamuKunyitAsam":
+                        jumlahJamuKunyitAsam++;
+                        break;
+                    case "jamuBerasKencur":
+                        jumlahJamuBerasKencur++;
+                    break;
+                    case "jamuPahitan":
+                        jumlahJamuPahitan++;
+                        break;
+                    case "jamuTemulawak":
+                        jumlahJamuTemulawak++;
+                    break;
+                    default:
+                    break;
+                }
                 order.CompleteOrder(true);
                 RemoveOrder(order);
                 return true;
             }
         }
         return false;
+    }
+    
+    public void LoadData(GameData data)
+    {
+        this.jumlahJamuSederhana = data.jumlahJamuSederhana;
+        this.jumlahJamuKunyitAsam = data.jumlahJamuKunyitAsam;
+        this.jumlahJamuBerasKencur = data.jumlahJamuBerasKencur;
+    }
+
+    public void SaveData(GameData data)
+    {
+        data.jumlahJamuSederhana = this.jumlahJamuSederhana;
+        data.jumlahJamuKunyitAsam = this.jumlahJamuKunyitAsam;
+        data.jumlahJamuBerasKencur = this.jumlahJamuBerasKencur;
     }
 
     public void RemoveOrder(ItemPesanan order)

@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: c147add01de3f3049a90a2ffecffa4f1
+guid: b6dddc073ee67c444bfb0d186cc86b32
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -142555234937071538
-    second: muka-pak-jaka_0
+      213: -3338131094302342109
+    second: panci_0
+  - first:
+      213: 2088152729593821725
+    second: panci_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +103,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: muka-pak-jaka_0
+      name: panci_0
       rect:
         serializedVersion: 2
-        x: 47
-        y: 56
-        width: 269
-        height: 286
+        x: 229
+        y: 1096
+        width: 797
+        height: 265
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +118,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e4814b4e4ca850ef0800000000000000
-      internalID: -142555234937071538
+      spriteID: 3244c66b4739ca1d0800000000000000
+      internalID: -3338131094302342109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: panci_1
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 501
+        width: 1276
+        height: 499
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1ab33418db9afc10800000000000000
+      internalID: 2088152729593821725
       vertices: []
       indices: 
       edges: []
@@ -132,8 +157,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      muka-pak-jaka_0: -142555234937071538
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

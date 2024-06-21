@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: c147add01de3f3049a90a2ffecffa4f1
+guid: 2947f3c97d46028428e8b362a3a49517
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -142555234937071538
-    second: muka-pak-jaka_0
+      213: 2526620766709031522
+    second: jamu-kunyit-asam-2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: muka-pak-jaka_0
+      name: jamu-kunyit-asam-2_0
       rect:
         serializedVersion: 2
-        x: 47
-        y: 56
-        width: 269
-        height: 286
+        x: 173
+        y: 237
+        width: 1066
+        height: 905
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e4814b4e4ca850ef0800000000000000
-      internalID: -142555234937071538
+      spriteID: 26221d1633c501320800000000000000
+      internalID: 2526620766709031522
       vertices: []
       indices: 
       edges: []
@@ -132,8 +132,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      muka-pak-jaka_0: -142555234937071538
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

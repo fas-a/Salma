@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: c147add01de3f3049a90a2ffecffa4f1
+guid: c97e1e1c0ea79d84cae9ab79e3d31ef3
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -142555234937071538
-    second: muka-pak-jaka_0
+      213: -3209964062977910485
+    second: salma-outline-shadow_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: muka-pak-jaka_0
+      name: salma-outline-shadow_0
       rect:
         serializedVersion: 2
-        x: 47
-        y: 56
-        width: 269
-        height: 286
+        x: 229
+        y: 30
+        width: 646
+        height: 1345
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e4814b4e4ca850ef0800000000000000
-      internalID: -142555234937071538
+      spriteID: b299e6c11bae373d0800000000000000
+      internalID: -3209964062977910485
       vertices: []
       indices: 
       edges: []
@@ -132,8 +132,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      muka-pak-jaka_0: -142555234937071538
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

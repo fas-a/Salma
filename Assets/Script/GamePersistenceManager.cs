@@ -129,6 +129,11 @@ public class GamePersistenceManager : MonoBehaviour
         SaveGame();
     }
 
+    public GameData GetGameData()
+    {
+        return gameData;
+    }
+
     private List<IDataPersistence> FindAllDataPersistenceObjects()
     {
         IEnumerable<IDataPersistence> dataPersistenceObjects = FindObjectsOfType<MonoBehaviour>()
