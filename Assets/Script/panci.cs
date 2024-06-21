@@ -7,7 +7,8 @@ public class panci : MonoBehaviour
     private Vector3 posisiAwal;
     private Camera cam;
     private bool isGalon = false;
-    public galon galon;
+    private bool isBuang = false;
+    private bool isDrag = false;
     public SpriteRenderer image;
     public Sprite kosong;
     public Sprite isi;
@@ -41,21 +42,30 @@ public class panci : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision) 
     { 
-        if(collision.gameObject.name == galon.name){
+        if(collision.gameObject.name == "galon"){
             isGalon = true;
+        }
+        if(collision.gameObject.name == "tempatsampah"){
+            isBuang = true;
         }
     }
 
     void OnCollisionExit2D(Collision2D collision) 
     { 
-        if(collision.gameObject.name == galon.name){
+        if(collision.gameObject.name == "galon"){
             isGalon = false;
+        }
+        if(collision.gameObject.name == "tempatsampah"){
+            isBuang = false;
         }
     }
 
     private void OnMouseEnter()
     {
-        tooltip.showBahan();
+        if(!isDrag)
+        {
+            tooltip.showBahan();
+        }
     }
 
     private void OnMouseExit()
@@ -68,6 +78,7 @@ public class panci : MonoBehaviour
         offset = gameObject.transform.position - GetMouseWorldPos();
         rb.bodyType = RigidbodyType2D.Dynamic;
         tooltip.hideBahan();
+        isDrag = true;
     }
 
     private void OnMouseDrag()
@@ -81,11 +92,17 @@ public class panci : MonoBehaviour
             Debug.Log("Panci terisi");
             addItem("air");
             image.sprite = isi;
-        } else {
-            Debug.Log("Panci tidak terisi");
-            image.sprite = kosong;
-            items.Remove("air");
         }
+        if(isBuang){
+            Debug.Log("Panci terbuang");
+            items.Clear();
+            image.sprite = kosong;
+            jamu = false;
+            namaJamu = "";
+            tooltip.clearBahan();
+        }
+        isDrag = false;
+
         balik();
         rb.bodyType = RigidbodyType2D.Static;
     }

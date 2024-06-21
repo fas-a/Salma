@@ -12,14 +12,18 @@ TagManager:
   - jahe
   - kunyit
   - sereh
-  - jahepotong
-  - kunyitpotong
-  - serehpotong
   - madu
   - jeruknipis
   - jamuSederhana
   - tas
   - backalat
+  - jahe geprek
+  - jahe potong
+  - kunyit potong
+  - sereh potong
+  - kunyit geprek
+  - sereh geprek
+  - sampah
   layers:
   - Default
   - TransparentFX

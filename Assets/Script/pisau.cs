@@ -42,7 +42,7 @@ public class pisau : MonoBehaviour
         tekspotong.text = "Klik Pisau " + (5-dragDrop.countPotong) + " kali lagi";
         if(dragDrop.countPotong == 5)
         {
-            tekspotong.text = "Bahan memotong";
+            tekspotong.text = "Bahan Terpotong";
         }
     }
 
@@ -70,6 +70,7 @@ public class pisau : MonoBehaviour
             cam.transform.position = new Vector3(0, 0, -10);
             dragDrop.setAwal();
             potong = 0;
+            back.SetActive(false);
         }
     }
 

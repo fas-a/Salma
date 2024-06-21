@@ -1,70 +1,92 @@
+using System.Collections;
 using UnityEngine;
+using TMPro;
 
 public class ulekan : MonoBehaviour
 {
-    private Vector3 offset;
+    private short tumbuk = 0;
     private Camera cam;
-    public Rigidbody2D rb;
-
-    void OnCollisionEnter2D(Collision2D collision) 
-    { 
-        // if (collision.gameObject.CompareTag("Enemy")) 
-        // { 
-        //     collision.gameObject.SendMessage("ApplyDamage", 10); 
-        // } 
-        Debug.Log("Collision with " + collision.gameObject.name);
-        DragAndDrop drag = collision.gameObject.GetComponent<DragAndDrop>();
-        if (drag != null)
-        {
-            drag.pukul();
-        }
-    }
+    private Vector3 posisiAwal;
+    private GameObject bahan;
+    private DragAndDrop dragDrop;
+    public TMP_Text tekspotong;
+    public GameObject back;
 
     private void Start()
     {
         cam = Camera.main;
+        posisiAwal = transform.position;
+    }
+
+    public void setBahan(GameObject bahan)
+    {
+        this.bahan = bahan;
+        dragDrop = bahan.GetComponent<DragAndDrop>();
+        tumbuk = dragDrop.tumbuk;
+        back.SetActive(true);
+    }
+
+    public void reset()
+    {
+        back.SetActive(false);
+        cam.transform.position = new Vector3(0, 0, -10);
+        dragDrop.setAwal();
     }
 
     private void OnMouseDown()
     {
-        // Hitung offset antara posisi mouse dan posisi objek
-        offset = gameObject.transform.position - GetMouseWorldPos();
         Debug.Log("down");
-        rb.bodyType = RigidbodyType2D.Dynamic;
-        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+        tumbuk++;
+        dragDrop.tumbuk++;
+        StartCoroutine(AnimateMovement());
+        tekspotong.text = "Klik Ulekan " + (5-dragDrop.tumbuk) + " kali lagi";
+        if(dragDrop.tumbuk == 5)
+        {
+            tekspotong.text = "Bahan Digeprek";
+        }
     }
 
-    private void OnMouseDrag()
+    private IEnumerator AnimateMovement()
     {
-        // Update posisi objek mengikuti posisi mouse
-        transform.position = GetMouseWorldPos() + offset;
-        Debug.Log("drag");
+        float duration = 0.5f; // Duration of each movement
+        Vector3 originalPosition = transform.position;
+
+        // Move down
+        Vector3 targetPosition = originalPosition + Vector3.down * 6;
+        yield return MoveToPosition(targetPosition, duration);
+        if (dragDrop.tumbuk == 5)
+        {
+            dragDrop.gepeng();
+        }
+
+        // Move up
+        targetPosition = originalPosition;
+        yield return MoveToPosition(targetPosition, duration);
+
+        if (dragDrop.tumbuk == 5)
+        {
+            targetPosition = posisiAwal;
+            yield return MoveToPosition(targetPosition, duration);
+            cam.transform.position = new Vector3(0, 0, -10);
+            dragDrop.setAwal();
+            tumbuk = 0;
+            back.SetActive(false);
+        }
     }
 
-    private void OnMouseUp()
+    private IEnumerator MoveToPosition(Vector3 targetPosition, float duration)
     {
-        Debug.Log("up");
-        // RaycastHit2D hit = Physics2D.Raycast(cam.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
-        // if (hit.collider != null)
-        // {
-        //     Debug.Log(hit.collider.name);
-        //     // Jika objek yang terkena adalah slotItem, panggil metode OnMouseUp dari slotItem
-        //     slotItem slot = hit.collider.GetComponent<slotItem>();
-        //     if (slot != null)
-        //     {
-        //         slot.OnMouseUp();
-        //         Destroy(gameObject);
-        //     }
-        // }
-        rb.bodyType = RigidbodyType2D.Static;
-    }
-    
+        Vector3 startPosition = transform.position;
+        float timeElapsed = 0;
 
-    private Vector3 GetMouseWorldPos()
-    {
-        // Konversi posisi mouse dari screen space ke world space
-        Vector3 mousePoint = Input.mousePosition;
-        mousePoint.z = cam.WorldToScreenPoint(gameObject.transform.position).z;
-        return cam.ScreenToWorldPoint(mousePoint);
+        while (timeElapsed < duration)
+        {
+            transform.position = Vector3.Lerp(startPosition, targetPosition, timeElapsed / duration);
+            timeElapsed += Time.deltaTime;
+            yield return null; // Wait until the next frame
+        }
+
+        transform.position = targetPosition; // Ensure the final position is set
     }
+
 }
