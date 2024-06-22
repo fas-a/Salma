@@ -9,8 +9,14 @@ public class Pesanan : MonoBehaviour, IDataPersistence
     public Transform ordersContainer;
     public customerSpawner customerSpawner; 
     public float spawnDelay;
+    private float timeFreezeDuration = 5f; // Durasi Time Freeze
+    private float doubleMoneyDuration = 5f; // Durasi Double Money
+
     private List<Vector2> gridPositions;
     private List<ItemPesanan> activeOrders;
+    private bool timeFrozen;
+    private float timeFreezeEndTime;
+
     private int jumlahJamuSederhana;
     private int jumlahJamuKunyitAsam;
     private int jumlahJamuBerasKencur;
@@ -21,6 +27,15 @@ public class Pesanan : MonoBehaviour, IDataPersistence
     {
         InitializeGridPositions();
         activeOrders = new List<ItemPesanan>();
+        timeFrozen = false;
+    }
+
+    void Update()
+    {
+        if (timeFrozen && Time.time > timeFreezeEndTime)
+        {
+            timeFrozen = false;
+        }
     }
 
     void InitializeGridPositions()
@@ -66,6 +81,10 @@ public class Pesanan : MonoBehaviour, IDataPersistence
             newItemPesanan.pesanan = this;
             activeOrders.Add(newItemPesanan);
 
+            // Tentukan apakah order ini memiliki power-up
+            newItemPesanan.hasTimeFreeze = Random.value < 0.1f; // 10% chance
+            newItemPesanan.hasDoubleMoney = Random.value < 0.1f; // 10% chance
+
             Debug.Log("Jumlah order: " + activeOrders.Count);
 
             int index = gridPositions.Count > 0 ? Random.Range(0, gridPositions.Count) : 0;
@@ -73,7 +92,6 @@ public class Pesanan : MonoBehaviour, IDataPersistence
             RectTransform orderRect = newOrder.GetComponent<RectTransform>();
             orderRect.anchoredPosition = gridPos;
 
-            // Spawn corresponding customer
             GameObject customer = customerSpawner.SpawnCustomer();
             newItemPesanan.relatedCustomer = customer;
             customer.GetComponent<Customer>().SetLinkedOrder(newItemPesanan);
@@ -86,35 +104,67 @@ public class Pesanan : MonoBehaviour, IDataPersistence
     {
         foreach (ItemPesanan order in activeOrders)
         {
-            Debug.Log("Ini order: " + order);
             if (order.IsMatch(itemTag))
             {
-                switch (itemTag)
+                if (order.hasTimeFreeze)
                 {
-                    case "jamuSederhana":
-                        jumlahJamuSederhana++;
-                        break;
-                    case "jamuKunyitAsam":
-                        jumlahJamuKunyitAsam++;
-                        break;
-                    case "jamuBerasKencur":
-                        jumlahJamuBerasKencur++;
-                        break;
-                    case "jamuPahitan":
-                        jumlahJamuPahitan++;
-                        break;
-                    case "jamuTemulawak":
-                        jumlahJamuTemulawak++;
-                        break;
-                    default:
-                        break;
+                    ActivateTimeFreeze();
                 }
+                if (order.hasDoubleMoney)
+                {
+                    StartCoroutine(ActivateDoubleMoney());
+                }
+
+                IncrementOrderCount(itemTag);
                 order.CompleteOrder(true);
                 RemoveOrder(order);
                 return true;
             }
         }
         return false;
+    }
+
+    private void ActivateTimeFreeze()
+    {
+        timeFrozen = true;
+        timeFreezeEndTime = Time.time + timeFreezeDuration;
+    }
+
+    private IEnumerator ActivateDoubleMoney()
+    {
+        float originalDelay = spawnDelay;
+        spawnDelay /= 2;
+        yield return new WaitForSeconds(doubleMoneyDuration);
+        spawnDelay = originalDelay;
+    }
+
+    private void IncrementOrderCount(string itemTag)
+    {
+        switch (itemTag)
+        {
+            case "jamuSederhana":
+                jumlahJamuSederhana++;
+                break;
+            case "jamuKunyitAsam":
+                jumlahJamuKunyitAsam++;
+                break;
+            case "jamuBerasKencur":
+                jumlahJamuBerasKencur++;
+                break;
+            case "jamuPahitan":
+                jumlahJamuPahitan++;
+                break;
+            case "jamuTemulawak":
+                jumlahJamuTemulawak++;
+                break;
+            default:
+                break;
+        }
+    }
+
+    public bool IsTimeFrozen()
+    {
+        return timeFrozen;
     }
 
     public void LoadData(GameData data)
@@ -140,7 +190,7 @@ public class Pesanan : MonoBehaviour, IDataPersistence
     {
         foreach (ItemPesanan order in activeOrders)
         {
-            Destroy(order.relatedCustomer); // Destroy related customer
+            Destroy(order.relatedCustomer);
             Destroy(order.gameObject);
         }
         activeOrders.Clear();
