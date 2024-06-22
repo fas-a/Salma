@@ -36,24 +36,11 @@ public class ItemPesanan : MonoBehaviour
         }
     }
 
-    public void SetRequiredItemTag(string tagJamu)
-    {
-        requiredItemTag = tagJamu;
-    }
-
-    public void SetHargaJamu(int harga)
-    {
-        hargaJamu = harga;
-    }
-
     void DecreaseProgress()
     {
-        if (!pesanan.IsTimeFrozen())
-        {
-            float currentValue = progressBar.value;
-            currentValue -= decreaseInterval;
-            SetProgress(currentValue);
-        }
+        float currentValue = progressBar.value;
+        currentValue -= decreaseInterval;
+        SetProgress(currentValue);
     }
 
     public void CompleteOrder(bool serahkan)
@@ -66,6 +53,11 @@ public class ItemPesanan : MonoBehaviour
                 finalPrice *= 2;
             }
             OnOrderCompleted?.Invoke(finalPrice);
+        }
+
+        if (hasTimeFreeze)
+        {
+            pesanan.stageDayScript.ActivateTimeFreeze();
         }
 
         if (relatedCustomer != null)

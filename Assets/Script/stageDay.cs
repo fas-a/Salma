@@ -1,6 +1,9 @@
 using UnityEngine;
 using TMPro;
-using UnityEngine.SceneManagement; // Add this directive for SceneManager
+using UnityEngine.SceneManagement;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class stageDay : MonoBehaviour, IDataPersistence
 {
@@ -12,6 +15,9 @@ public class stageDay : MonoBehaviour, IDataPersistence
     private float waktuTersisa;
     private int jamMulai = 7; // Jam mulai pukul 7 pagi
     public resultPopUp popup;
+    private bool timeFrozen;
+    private float timeFreezeEndTime;
+    public Image timeFreezeBadge;
 
     void Start()
     {
@@ -25,7 +31,7 @@ public class stageDay : MonoBehaviour, IDataPersistence
         this.hari = data.day;
         this.waktuTersisa = data.time;
         Debug.Log("waktu" + waktuTersisa);
-        progressScript.UpdateTimer(waktuTersisa, durasiHari, jamMulai); // Update timer in Progress script
+        progressScript.UpdateTimer(waktuTersisa, durasiHari, jamMulai);
     }
 
     public void SaveData(GameData data)
@@ -36,19 +42,24 @@ public class stageDay : MonoBehaviour, IDataPersistence
 
     void HitungMundurWaktu()
     {
-        if (waktuTersisa > 0)
+        if (timeFrozen && Time.time > timeFreezeEndTime)
+        {
+            timeFrozen = false;
+        }
+
+        if (!timeFrozen && waktuTersisa > 0)
         {
             waktuTersisa -= 1f;
             if (progressScript != null)
             {
-                progressScript.UpdateTimer(waktuTersisa, durasiHari, jamMulai); // Update timer in Progress script
+                progressScript.UpdateTimer(waktuTersisa, durasiHari, jamMulai);
             }
             else
             {
                 Debug.LogError("progressScript is not assigned in HitungMundurWaktu!");
             }
         }
-        else
+        else if (waktuTersisa <= 0)
         {
             HariSelesai();
         }
@@ -65,6 +76,8 @@ public class stageDay : MonoBehaviour, IDataPersistence
         {
             orderSpawner.ClearActiveOrders();
             orderSpawner.SpawnOrders();
+
+            orderSpawner.UnlockJamu(hari); // membuka jamu baru setiap 6 hari
         }
         else
         {
@@ -106,5 +119,19 @@ public class stageDay : MonoBehaviour, IDataPersistence
         {
             Debug.LogError("teksHari is not assigned in UpdateDayText!");
         }
+    }
+
+    public void ActivateTimeFreeze()
+    {
+        timeFrozen = true;
+        timeFreezeEndTime = Time.time + 60f; // Membekukan waktu selama 60 detik
+        timeFreezeBadge.gameObject.SetActive(true); // Aktifkan badge
+        StartCoroutine(DeactivateTimeFreezeBadge()); // Mulai coroutine untuk menonaktifkan badge
+    }
+
+    private IEnumerator DeactivateTimeFreezeBadge()
+    {
+        yield return new WaitForSeconds(60f); // Tunggu 60 detik (atau durasi yang diinginkan)
+        timeFreezeBadge.gameObject.SetActive(false); // Nonaktifkan badge
     }
 }

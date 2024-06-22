@@ -5,37 +5,31 @@ using System.Collections.Generic;
 
 public class Pesanan : MonoBehaviour, IDataPersistence
 {
-    public List<GameObject> jamuItem;
+    public List<GameObject> jamuItem; // Daftar lengkap jamu
     public Transform ordersContainer;
-    public customerSpawner customerSpawner; 
+    public customerSpawner customerSpawner;
     public float spawnDelay;
-    private float timeFreezeDuration = 5f; // Durasi Time Freeze
-    private float doubleMoneyDuration = 5f; // Durasi Double Money
 
+    private float doubleMoneyDuration = 180f;
     private List<Vector2> gridPositions;
     private List<ItemPesanan> activeOrders;
-    private bool timeFrozen;
     private float timeFreezeEndTime;
+    public stageDay stageDayScript;
+    public Image doubleMoneyBadge;
+    private List<GameObject> unlockedJamuItems; // Daftar jamu yang sudah terbuka
 
     private int jumlahJamuSederhana;
     private int jumlahJamuKunyitAsam;
     private int jumlahJamuBerasKencur;
     private int jumlahJamuPahitan;
     private int jumlahJamuTemulawak;
+    public UnlockingRecipe popup;
 
     void Start()
     {
         InitializeGridPositions();
         activeOrders = new List<ItemPesanan>();
-        timeFrozen = false;
-    }
-
-    void Update()
-    {
-        if (timeFrozen && Time.time > timeFreezeEndTime)
-        {
-            timeFrozen = false;
-        }
+        unlockedJamuItems = new List<GameObject> { jamuItem[0] }; // Jamu pertama terbuka di awal
     }
 
     void InitializeGridPositions()
@@ -73,7 +67,7 @@ public class Pesanan : MonoBehaviour, IDataPersistence
     {
         while (true)
         {
-            GameObject randomProduct = jamuItem[Random.Range(0, jamuItem.Count)];
+            GameObject randomProduct = unlockedJamuItems[Random.Range(0, unlockedJamuItems.Count)];
             GameObject newOrder = Instantiate(randomProduct, ordersContainer);
             newOrder.transform.SetParent(ordersContainer, false);
 
@@ -81,16 +75,14 @@ public class Pesanan : MonoBehaviour, IDataPersistence
             newItemPesanan.pesanan = this;
             activeOrders.Add(newItemPesanan);
 
-            // Tentukan apakah order ini memiliki power-up
-            newItemPesanan.hasTimeFreeze = Random.value < 0.1f; // 10% chance
-            newItemPesanan.hasDoubleMoney = Random.value < 0.1f; // 10% chance
-
-            Debug.Log("Jumlah order: " + activeOrders.Count);
+            newItemPesanan.hasTimeFreeze = Random.value < 0.1f;
+            newItemPesanan.hasDoubleMoney = Random.value < 0.1f;
 
             int index = gridPositions.Count > 0 ? Random.Range(0, gridPositions.Count) : 0;
             Vector2 gridPos = gridPositions[index];
             RectTransform orderRect = newOrder.GetComponent<RectTransform>();
             orderRect.anchoredPosition = gridPos;
+            stageDayScript.ActivateTimeFreeze();
 
             GameObject customer = customerSpawner.SpawnCustomer();
             newItemPesanan.relatedCustomer = customer;
@@ -108,7 +100,7 @@ public class Pesanan : MonoBehaviour, IDataPersistence
             {
                 if (order.hasTimeFreeze)
                 {
-                    ActivateTimeFreeze();
+                    stageDayScript.ActivateTimeFreeze();
                 }
                 if (order.hasDoubleMoney)
                 {
@@ -124,19 +116,16 @@ public class Pesanan : MonoBehaviour, IDataPersistence
         return false;
     }
 
-    private void ActivateTimeFreeze()
-    {
-        timeFrozen = true;
-        timeFreezeEndTime = Time.time + timeFreezeDuration;
-    }
-
     private IEnumerator ActivateDoubleMoney()
     {
+        doubleMoneyBadge.gameObject.SetActive(true); // Aktifkan badge
         float originalDelay = spawnDelay;
         spawnDelay /= 2;
         yield return new WaitForSeconds(doubleMoneyDuration);
         spawnDelay = originalDelay;
+        doubleMoneyBadge.gameObject.SetActive(false); // Nonaktifkan badge setelah Double Money berakhir
     }
+
 
     private void IncrementOrderCount(string itemTag)
     {
@@ -160,11 +149,6 @@ public class Pesanan : MonoBehaviour, IDataPersistence
             default:
                 break;
         }
-    }
-
-    public bool IsTimeFrozen()
-    {
-        return timeFrozen;
     }
 
     public void LoadData(GameData data)
@@ -194,5 +178,17 @@ public class Pesanan : MonoBehaviour, IDataPersistence
             Destroy(order.gameObject);
         }
         activeOrders.Clear();
+    }
+
+    // Fungsi untuk membuka jamu baru setiap 6 hari
+    public void UnlockJamu(int day)
+    {
+        int unlockIndex = day / 6;
+        if (unlockIndex < jamuItem.Count && !unlockedJamuItems.Contains(jamuItem[unlockIndex]))
+        {
+            unlockedJamuItems.Add(jamuItem[unlockIndex]);
+            Debug.Log("Unlocked Jamu: " + jamuItem[unlockIndex].name);
+            popup.displayRecipe(jamuItem[unlockIndex].name, day);
+        }
     }
 }
