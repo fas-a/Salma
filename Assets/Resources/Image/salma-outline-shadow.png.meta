@@ -132,7 +132,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      salma-outline-shadow_0: -3209964062977910485
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

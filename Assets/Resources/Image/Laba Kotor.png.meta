@@ -132,7 +132,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Laba Kotor_0: 3049530428311156951
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

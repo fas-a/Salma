@@ -132,7 +132,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Jamu Terjual_0: -2196691500161067167
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

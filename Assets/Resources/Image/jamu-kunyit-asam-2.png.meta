@@ -132,7 +132,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      jamu-kunyit-asam-2_0: 2526620766709031522
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

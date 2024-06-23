@@ -132,7 +132,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      daun-jeruk_0: 6666955059438962758
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -132,7 +132,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      jamu-pahitan_0: -3628742953794992068
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

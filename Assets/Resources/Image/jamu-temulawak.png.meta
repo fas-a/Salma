@@ -132,7 +132,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      jamu-temulawak_0: -660438611880118029
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

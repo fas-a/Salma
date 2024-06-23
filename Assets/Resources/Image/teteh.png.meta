@@ -132,7 +132,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      teteh_0: -565687396033014087
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
