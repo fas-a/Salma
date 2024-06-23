@@ -9,6 +9,7 @@ public class tas : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandl
     private RectTransform _draggingItem;
     private Vector3 _startPosition;
     public GameObject item;
+    public bool alat = false;
 
     void Start()
     {
@@ -49,7 +50,23 @@ public class tas : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandl
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        InstantiateItemInWorld();
+        if(alat)
+        {
+            RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+            if (hit.collider != null)
+            {
+                GameObject target = hit.collider.gameObject;
+                alatDapur alatDapur = target.GetComponent<alatDapur>();
+                if (alatDapur != null)
+                {
+                    Debug.Log("Item dropped on alat dapur: " + target.name);
+                }
+            }
+        }
+        else
+        {
+            InstantiateItemInWorld();
+        }
         
         RemoveFromInventory();
         changeColor(1);
