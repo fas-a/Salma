@@ -10,8 +10,22 @@ public class ItemPesanan : MonoBehaviour
     public Slider progressBar;
     public int hargaJamu;
     public Pesanan pesanan;
+    public GameObject relatedCustomer;
+
+    public bool hasTimeFreeze;
+    public bool hasDoubleMoney;
+    public Image timeFreezeBadge;
+    public Image doubleMoneyBadge;
+
 
     private float decreaseInterval = 1f; // Interval untuk mengurangi progress, dalam detik
+
+    void Start()
+    {
+        timeFreezeBadge.gameObject.SetActive(hasTimeFreeze);
+        doubleMoneyBadge.gameObject.SetActive(hasDoubleMoney);
+        InvokeRepeating("DecreaseProgress", 0f, decreaseInterval);
+    }
 
     public void SetProgress(float value)
     {
@@ -20,21 +34,6 @@ public class ItemPesanan : MonoBehaviour
         {
             CompleteOrder(false);
         }
-    }
-
-    public void SetRequiredItemTag(string tagJamu)
-    {
-        requiredItemTag = tagJamu;
-    }
-
-    public void SetHargaJamu(int harga)
-    {
-        hargaJamu = harga;
-    }
-
-    void Start()
-    {
-        InvokeRepeating("DecreaseProgress", 0f, decreaseInterval);
     }
 
     void DecreaseProgress()
@@ -48,12 +47,24 @@ public class ItemPesanan : MonoBehaviour
     {
         if (serahkan)
         {
-            OnOrderCompleted?.Invoke(hargaJamu);
+            int finalPrice = hargaJamu;
+            if (hasDoubleMoney)
+            {
+                finalPrice *= 2;
+            }
+            OnOrderCompleted?.Invoke(finalPrice);
         }
-        if (pesanan != null)
+
+        if (hasTimeFreeze)
         {
-            pesanan.RemoveOrder(this);
+            pesanan.stageDayScript.ActivateTimeFreeze();
         }
+
+        if (relatedCustomer != null)
+        {
+            relatedCustomer.GetComponent<Customer>().CompleteOrder();
+        }
+
         Destroy(gameObject);
     }
 

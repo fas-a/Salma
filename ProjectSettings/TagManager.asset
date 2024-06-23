@@ -25,6 +25,7 @@ TagManager:
   - sereh geprek
   - sampah
   - parutan
+  - customers
   layers:
   - Default
   - TransparentFX

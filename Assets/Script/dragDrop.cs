@@ -21,6 +21,7 @@ public class DragAndDrop : MonoBehaviour
     public GameObject image;
     private bool inDrag = false;
     public GameObject tas;
+    public GameObject customers;
     public Sprite tumbukSprite;
 
     private void Start()
@@ -41,6 +42,7 @@ public class DragAndDrop : MonoBehaviour
             isUlek = true;
         }
         tas = GameObject.FindWithTag("tas");
+        customers = GameObject.FindWithTag("customers");
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -56,6 +58,7 @@ public class DragAndDrop : MonoBehaviour
             gameObject.transform.localScale = new Vector3(3, 3, 1);
             gameObject.transform.rotation = new Quaternion(0, 0, 0, 0);
             tas.SetActive(false);
+            customers.SetActive(false);
         }
         if(other.gameObject.tag == "ulekan" && isUlek == false)
         {
@@ -66,6 +69,7 @@ public class DragAndDrop : MonoBehaviour
             gameObject.transform.localScale = new Vector3(3, 3, 1);
             gameObject.transform.rotation = new Quaternion(0, 0, 0, 0);
             tas.SetActive(false);
+            customers.SetActive(false);
         }
         if(other.gameObject.tag == "panci" && inDrag == false)
         {
@@ -155,5 +159,6 @@ public class DragAndDrop : MonoBehaviour
         gameObject.transform.localScale = new Vector3(1, 1, 1);
         rb.bodyType = RigidbodyType2D.Dynamic;
         tas.SetActive(true);
+        customers.SetActive(true);
     }
 }

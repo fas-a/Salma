@@ -4,6 +4,7 @@ using TMPro;
 public class Progress : MonoBehaviour, IDataPersistence
 {
     private int uang = 10000;
+    private int labaKotor;
     private int jumlahPesanan;
     public TMP_Text teksUang;
     public TMP_Text teksTimer;
@@ -29,6 +30,7 @@ public class Progress : MonoBehaviour, IDataPersistence
     {
         jumlahPesanan++;
         uang += price;
+        labaKotor += price;
     }
 
     public int GetJumlahPesanan()
@@ -40,12 +42,14 @@ public class Progress : MonoBehaviour, IDataPersistence
     {
         this.jumlahPesanan = data.orderCompleted;
         this.uang = data.money;
+        this.labaKotor = data.grossProfit;
     }
 
     public void SaveData(GameData data)
     {
         data.orderCompleted = this.jumlahPesanan;
         data.money = this.uang;
+        data.grossProfit = this.labaKotor;
     }
 
     public void UpdateTimer(float waktuTersisa, float durasiHari, int jamMulai)

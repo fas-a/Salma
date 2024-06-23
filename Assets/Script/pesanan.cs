@@ -3,18 +3,33 @@ using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 
-public class Pesanan : MonoBehaviour
+public class Pesanan : MonoBehaviour, IDataPersistence
 {
-    public List<GameObject> jamuItem;
+    public List<GameObject> jamuItem; // Daftar lengkap jamu
     public Transform ordersContainer;
+    public customerSpawner customerSpawner;
     public float spawnDelay;
+
+    private float doubleMoneyDuration = 180f;
     private List<Vector2> gridPositions;
     private List<ItemPesanan> activeOrders;
+    private float timeFreezeEndTime;
+    public stageDay stageDayScript;
+    public Image doubleMoneyBadge;
+    private List<GameObject> unlockedJamuItems; // Daftar jamu yang sudah terbuka
+
+    private int jumlahJamuSederhana;
+    private int jumlahJamuKunyitAsam;
+    private int jumlahJamuBerasKencur;
+    private int jumlahJamuPahitan;
+    private int jumlahJamuTemulawak;
+    public UnlockingRecipe popup;
 
     void Start()
     {
         InitializeGridPositions();
         activeOrders = new List<ItemPesanan>();
+        unlockedJamuItems = new List<GameObject> { jamuItem[0] }; // Jamu pertama terbuka di awal
     }
 
     void InitializeGridPositions()
@@ -52,21 +67,26 @@ public class Pesanan : MonoBehaviour
     {
         while (true)
         {
-            GameObject randomProduct = jamuItem[Random.Range(0, jamuItem.Count)];
+            GameObject randomProduct = unlockedJamuItems[Random.Range(0, unlockedJamuItems.Count)];
             GameObject newOrder = Instantiate(randomProduct, ordersContainer);
             newOrder.transform.SetParent(ordersContainer, false);
 
             ItemPesanan newItemPesanan = newOrder.GetComponent<ItemPesanan>();
-            newItemPesanan.pesanan = this; // Atur referensi ke objek Pesanan
+            newItemPesanan.pesanan = this;
             activeOrders.Add(newItemPesanan);
 
-            Debug.Log("Jumlah order" + activeOrders.Count);
+            newItemPesanan.hasTimeFreeze = Random.value < 0.1f;
+            newItemPesanan.hasDoubleMoney = Random.value < 0.1f;
 
-            // newOrder.GetComponent<ItemPesanan>().SetRequiredItemTag("Jamu Sederhana"); // Sesuaikan tag sesuai dengan kebutuhan
             int index = gridPositions.Count > 0 ? Random.Range(0, gridPositions.Count) : 0;
             Vector2 gridPos = gridPositions[index];
             RectTransform orderRect = newOrder.GetComponent<RectTransform>();
             orderRect.anchoredPosition = gridPos;
+            stageDayScript.ActivateTimeFreeze();
+
+            GameObject customer = customerSpawner.SpawnCustomer();
+            newItemPesanan.relatedCustomer = customer;
+            customer.GetComponent<Customer>().SetLinkedOrder(newItemPesanan);
 
             yield return new WaitForSeconds(spawnDelay);
         }
@@ -76,15 +96,73 @@ public class Pesanan : MonoBehaviour
     {
         foreach (ItemPesanan order in activeOrders)
         {
-            Debug.Log("Ini order" + order);
             if (order.IsMatch(itemTag))
             {
+                if (order.hasTimeFreeze)
+                {
+                    stageDayScript.ActivateTimeFreeze();
+                }
+                if (order.hasDoubleMoney)
+                {
+                    StartCoroutine(ActivateDoubleMoney());
+                }
+
+                IncrementOrderCount(itemTag);
                 order.CompleteOrder(true);
                 RemoveOrder(order);
                 return true;
             }
         }
         return false;
+    }
+
+    private IEnumerator ActivateDoubleMoney()
+    {
+        doubleMoneyBadge.gameObject.SetActive(true); // Aktifkan badge
+        float originalDelay = spawnDelay;
+        spawnDelay /= 2;
+        yield return new WaitForSeconds(doubleMoneyDuration);
+        spawnDelay = originalDelay;
+        doubleMoneyBadge.gameObject.SetActive(false); // Nonaktifkan badge setelah Double Money berakhir
+    }
+
+
+    private void IncrementOrderCount(string itemTag)
+    {
+        switch (itemTag)
+        {
+            case "jamuSederhana":
+                jumlahJamuSederhana++;
+                break;
+            case "jamuKunyitAsam":
+                jumlahJamuKunyitAsam++;
+                break;
+            case "jamuBerasKencur":
+                jumlahJamuBerasKencur++;
+                break;
+            case "jamuPahitan":
+                jumlahJamuPahitan++;
+                break;
+            case "jamuTemulawak":
+                jumlahJamuTemulawak++;
+                break;
+            default:
+                break;
+        }
+    }
+
+    public void LoadData(GameData data)
+    {
+        this.jumlahJamuSederhana = data.jumlahJamuSederhana;
+        this.jumlahJamuKunyitAsam = data.jumlahJamuKunyitAsam;
+        this.jumlahJamuBerasKencur = data.jumlahJamuBerasKencur;
+    }
+
+    public void SaveData(GameData data)
+    {
+        data.jumlahJamuSederhana = this.jumlahJamuSederhana;
+        data.jumlahJamuKunyitAsam = this.jumlahJamuKunyitAsam;
+        data.jumlahJamuBerasKencur = this.jumlahJamuBerasKencur;
     }
 
     public void RemoveOrder(ItemPesanan order)
@@ -94,11 +172,23 @@ public class Pesanan : MonoBehaviour
 
     public void ClearActiveOrders()
     {
-    foreach (ItemPesanan order in activeOrders)
-    {
-        Destroy(order.gameObject);
-    }
-    activeOrders.Clear();
+        foreach (ItemPesanan order in activeOrders)
+        {
+            Destroy(order.relatedCustomer);
+            Destroy(order.gameObject);
+        }
+        activeOrders.Clear();
     }
 
+    // Fungsi untuk membuka jamu baru setiap 6 hari
+    public void UnlockJamu(int day)
+    {
+        int unlockIndex = day / 6;
+        if (unlockIndex < jamuItem.Count && !unlockedJamuItems.Contains(jamuItem[unlockIndex]))
+        {
+            unlockedJamuItems.Add(jamuItem[unlockIndex]);
+            Debug.Log("Unlocked Jamu: " + jamuItem[unlockIndex].name);
+            popup.displayRecipe(jamuItem[unlockIndex].name, day);
+        }
+    }
 }

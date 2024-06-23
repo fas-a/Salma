@@ -157,7 +157,9 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      tempat-sampah_0: 1076160615015276155
+      tempat-sampah_1: -4205096763042359621
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

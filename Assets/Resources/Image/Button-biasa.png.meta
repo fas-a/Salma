@@ -132,7 +132,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Button-biasa_0: 7246168489712011283
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

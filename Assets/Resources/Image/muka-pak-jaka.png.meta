@@ -132,7 +132,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      muka-pak-jaka_0: -142555234937071538
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

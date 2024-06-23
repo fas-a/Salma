@@ -132,7 +132,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      gas-regulator_0: -393939876600686296
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
