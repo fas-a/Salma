@@ -51,6 +51,10 @@ MonoBehaviour:
   panci: {fileID: 0}
   pisau: {fileID: 0}
   ulekan: {fileID: 0}
+  parutan: {fileID: 0}
+  isPotong: 0
+  isUlek: 0
+  isParut: 0
   rb: {fileID: 165222444622330301}
   potong: {fileID: -4243097232039248698, guid: 650a9ebf6b7221e4a90b420032909df8, type: 3}
   image: {fileID: 3377609660720915762}
@@ -82,7 +86,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 0
 --- !u!1 &3377609660720915762
 GameObject:
   m_ObjectHideFlags: 0
@@ -110,7 +114,7 @@ Transform:
   m_GameObject: {fileID: 3377609660720915762}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.1124255}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.13507383, y: 0.13507383, z: 0.13507383}
   m_ConstrainProportionsScale: 0
   m_Children: []

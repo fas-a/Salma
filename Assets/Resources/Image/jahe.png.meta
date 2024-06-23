@@ -108,7 +108,7 @@ TextureImporter:
         width: 1187
         height: 886
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -121,11 +121,99 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: jahe_1
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 275
+        width: 953
+        height: 886
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3e389afd46966b409c3dc4eec11d961
+      internalID: -54274039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jahe_2
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 277
+        width: 700
+        height: 884
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ade0a2e086b4f640a34d44c911ee214
+      internalID: -240857370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jahe_3
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 275
+        width: 512
+        height: 888
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2be3a3f1c617b6f4c8303b5797a9338a
+      internalID: 148278083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jahe_4
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 273
+        width: 298
+        height: 890
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e7417c2d47becb4da46969dcb26c8ac
+      internalID: 1843310144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: a05a3790a4e1ecc40bf5818f29c409f0
     internalID: 0
     vertices: []
     indices: 
@@ -134,6 +222,10 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       jahe_0: -5979615800170424690
+      jahe_1: -54274039
+      jahe_2: -240857370
+      jahe_3: 148278083
+      jahe_4: 1843310144
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

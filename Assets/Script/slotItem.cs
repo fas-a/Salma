@@ -11,7 +11,7 @@ public class slotItem : MonoBehaviour
 
     void start()
     {
-        
+        text.text = stok.ToString();
     }
     public void add(int amount)
     {

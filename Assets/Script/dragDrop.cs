@@ -11,8 +11,11 @@ public class DragAndDrop : MonoBehaviour
     public panci panci;
     public pisau pisau;
     public ulekan ulekan;
-    private bool isPotong = false;
-    private bool isUlek = false;
+    public parutan parutan;
+    public bool isPotong = false;
+    public bool isUlek = false;
+    public bool isParut = false;
+    private bool pindahParut = false;
     public Rigidbody2D rb;
     public Sprite potong;
     public GameObject image;
@@ -27,8 +30,11 @@ public class DragAndDrop : MonoBehaviour
         pisau = pisauObj.GetComponent<pisau>();
         GameObject ulekanObj = GameObject.Find("ulekanpakai");
         ulekan = ulekanObj.GetComponent<ulekan>();
+        GameObject parutanObj = GameObject.Find("parutanpakai");
+        parutan = parutanObj.GetComponent<parutan>();
         GameObject panciObj = GameObject.FindWithTag("panci");
         panci = panciObj.GetComponent<panci>();
+        rb = gameObject.GetComponent<Rigidbody2D>();
         if(gameObject.tag == "madu" || gameObject.tag == "jeruknipis")
         {
             isPotong = true;
@@ -48,15 +54,17 @@ public class DragAndDrop : MonoBehaviour
             pisau.setBahan(gameObject);
             gameObject.transform.position = new Vector3(-49.5f, -4.5f, 0);
             gameObject.transform.localScale = new Vector3(3, 3, 1);
+            gameObject.transform.rotation = new Quaternion(0, 0, 0, 0);
             tas.SetActive(false);
         }
-        if(other.gameObject.tag == "ulekan")
+        if(other.gameObject.tag == "ulekan" && isUlek == false)
         {
             cam.transform.position = new Vector3(-100, 0, -10);
             rb.bodyType = RigidbodyType2D.Static;
             ulekan.setBahan(gameObject);
             gameObject.transform.position = new Vector3(-100f, -4.5f, 0);
             gameObject.transform.localScale = new Vector3(3, 3, 1);
+            gameObject.transform.rotation = new Quaternion(0, 0, 0, 0);
             tas.SetActive(false);
         }
         if(other.gameObject.tag == "panci" && inDrag == false)
@@ -64,6 +72,23 @@ public class DragAndDrop : MonoBehaviour
             Debug.Log("Panci");
             panci.addItem(gameObject.tag);
             Destroy(gameObject);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.gameObject.tag == "parutan" && isParut == false)
+        {
+            Debug.Log("Parutan");
+            pindahParut = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if(other.gameObject.tag == "parutan")
+        {
+            pindahParut = false;
         }
     }
 
@@ -83,7 +108,16 @@ public class DragAndDrop : MonoBehaviour
 
     private void OnMouseUp()
     {
-        Debug.Log("up");
+        if(pindahParut)
+        {
+            cam.transform.position = new Vector3(-150, 0, -10);
+            rb.bodyType = RigidbodyType2D.Static;
+            parutan.setBahan(gameObject);
+            gameObject.transform.position = new Vector3(-149.5f, -4.5f, 0);
+            gameObject.transform.localScale = new Vector3(3, 3, 1);
+            gameObject.transform.rotation = new Quaternion(0, 0, 0, 0);
+            tas.SetActive(false);
+        }
         inDrag = false;
     }
     

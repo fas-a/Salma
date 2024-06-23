@@ -132,7 +132,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Scene 1 (anyaman)_0: 3368191172437880537
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

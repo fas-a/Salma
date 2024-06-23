@@ -139,15 +139,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9e8518590ad84049bec96688cdda578, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  proses: {fileID: 0}
   harga: 0
   nama: 
-  image: {fileID: 0}
-  targetImage: {fileID: 4079578517910468105}
   teksHarga: {fileID: 8482653595184713156}
   teksNama: {fileID: 7188249705861422381}
-  gudang: {fileID: 0}
-  tabungan: {fileID: 0}
 --- !u!1 &406542461739568633
 GameObject:
   m_ObjectHideFlags: 0
@@ -375,6 +370,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumlah: {fileID: 1961005554707275130}
   jumlahBeliItem: 0
+  harga: 0
+  item: {fileID: 0}
+  keranjang: {fileID: 0}
 --- !u!1 &3487320225335395572
 GameObject:
   m_ObjectHideFlags: 0
@@ -542,8 +540,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 41.8615, y: -12.6978}
-  m_SizeDelta: {x: 83.723, y: 25.3954}
+  m_AnchoredPosition: {x: 60.6455, y: -12.6978}
+  m_SizeDelta: {x: 96.2457, y: 25.3954}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3689632376311011203
 CanvasRenderer:
@@ -600,10 +598,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
+  m_fontSize: 20.3
   m_fontSizeBase: 24
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0

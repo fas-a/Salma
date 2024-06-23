@@ -31,7 +31,7 @@ public class panci : MonoBehaviour
     private void InitializeJamuResep()
     {
         jamuResep = new List<Resep>();
-        jamuResep.Add(new Resep("Jamu Sederhana", new List<string> {"air", "kunyitpotong", "jahepotong", "serehpotong", "madu", "jeruknipis"}, jamuSederhana));
+        jamuResep.Add(new Resep("Jamu Sederhana", new List<string> {"air", "kunyit potong", "jahe potong", "sereh potong", "madu", "jeruknipis"}, jamuSederhana));
         // jamuResep.Add(new Resep("Jamu Sederhana", new List<string> {"air"}, jamuSederhana));
     }
 
@@ -118,10 +118,9 @@ public class panci : MonoBehaviour
     {
         tooltip.addBahan(item);
         items.Add(item);
-        CheckResep();
     }
 
-    private void CheckResep()
+    public void CheckResep()
     {
         foreach (var resep in jamuResep)
         {
