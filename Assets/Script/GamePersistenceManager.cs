@@ -11,9 +11,7 @@ public class GamePersistenceManager : MonoBehaviour, IDataPersistence
     private GameData gameData;
     private List<IDataPersistence> dataPersistenceObjects;
     private FileDataHandler dataHandler;
-
     public static GamePersistenceManager instance { get; private set; }
-
     private bool isNewGame = true;
 
     public enum DifficultyLevel
@@ -46,37 +44,6 @@ public class GamePersistenceManager : MonoBehaviour, IDataPersistence
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
-    public void StartNewGame(DifficultyLevel difficulty)
-    {
-        isNewGame = true;
-        PlayerPrefs.SetInt("isNewGame", 1);
-        PlayerPrefs.SetInt("difficulty", (int)difficulty);
-        SceneManager.LoadScene(3);
-    }
-
-    public void NewGame()
-    {
-        this.gameData = new GameData();
-        gameData.difficulty = (DifficultyLevel)PlayerPrefs.GetInt("difficulty", 0); // Load difficulty level
-        foreach (IDataPersistence dataPersistenceObj in dataPersistenceObjects)
-        {
-            dataPersistenceObj.LoadData(gameData);
-        }
-        Debug.Log("new day count = " + gameData.day);
-        Debug.Log("new money count = " + gameData.money);
-        Debug.Log("new time count = " + gameData.time);
-        Debug.Log("new orderCompleted count = " + gameData.orderCompleted);
-    }
-
-
-    public void ContinueGame()
-    {
-        isNewGame = false;
-        PlayerPrefs.SetInt("isNewGame", 0);
-        SceneManager.LoadScene(3);
-    }
-
-
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         this.dataPersistenceObjects = FindAllDataPersistenceObjects();
@@ -91,6 +58,37 @@ public class GamePersistenceManager : MonoBehaviour, IDataPersistence
         {
             LoadGame();
         }
+    }
+
+    public void StartNewGame(DifficultyLevel difficulty)
+    {
+        isNewGame = true;
+        PlayerPrefs.SetInt("isNewGame", 1);
+        PlayerPrefs.SetInt("difficulty", (int)difficulty);
+        SceneManager.LoadScene(2);
+    }
+
+    public void NewGame()
+    {
+        this.gameData = new GameData();
+        gameData.difficulty = (DifficultyLevel)PlayerPrefs.GetInt("difficulty", 0); // Load difficulty level
+        foreach (IDataPersistence dataPersistenceObj in dataPersistenceObjects)
+        {
+            dataPersistenceObj.LoadData(gameData);
+        }
+        
+        Debug.Log("new day count = " + gameData.day);
+        Debug.Log("new money count = " + gameData.money);
+        Debug.Log("new time count = " + gameData.time);
+        Debug.Log("new difficulty count = " + gameData.difficulty);
+        Debug.Log("new orderCompleted count = " + gameData.orderCompleted);
+    }
+
+    public void ContinueGame()
+    {
+        isNewGame = false;
+        PlayerPrefs.SetInt("isNewGame", 0);
+        SceneManager.LoadScene(3);
     }
 
     public void LoadGame()
@@ -111,6 +109,7 @@ public class GamePersistenceManager : MonoBehaviour, IDataPersistence
         Debug.Log("Load day count = " + gameData.day);
         Debug.Log("Load money count = " + gameData.money);
         Debug.Log("Load time count = " + gameData.time);
+        Debug.Log("Load difficulty = " + gameData.difficulty);
         Debug.Log("Load orderCompletedcount = " + gameData.orderCompleted);
     }
 
@@ -130,6 +129,7 @@ public class GamePersistenceManager : MonoBehaviour, IDataPersistence
         Debug.Log("Saved day count = " + gameData.day);
         Debug.Log("Saved money count = " + gameData.money);
         Debug.Log("Saved time count = " + gameData.time);
+        Debug.Log("Saved difficulty = " + gameData.difficulty);
         Debug.Log("Saved orderCompleted count = " + gameData.orderCompleted);
 
         dataHandler.Save(gameData);
@@ -145,15 +145,14 @@ public class GamePersistenceManager : MonoBehaviour, IDataPersistence
         data.difficulty = this.gameData.difficulty;
     }
 
+    public GameData GetGameData()
+    {
+        return gameData;
+    }
 
     private void OnApplicationQuit()
     {
         SaveGame();
-    }
-
-    public GameData GetGameData()
-    {
-        return gameData;
     }
 
     private List<IDataPersistence> FindAllDataPersistenceObjects()

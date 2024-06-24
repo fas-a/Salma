@@ -2,7 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class slotItem : MonoBehaviour
+public class slotItem : MonoBehaviour, IDataPersistence
 {
     public TMP_Text text;
     public GameObject item;
@@ -25,7 +25,8 @@ public class slotItem : MonoBehaviour
     }
     public void addBag()
     {
-        if(stok > 0){
+        if (stok > 0)
+        {
             bool ada = slot.GetComponent<tasContainer>().cari(item.name);
             int contain = slot.GetComponent<tasContainer>().hitungList();
             if (ada)
@@ -39,21 +40,31 @@ public class slotItem : MonoBehaviour
             }
             remove();
         }
-        
+
     }
 
-    // public void LoadData(GameData data) {
-    //     data.slotItems.TryGetValue(item.name, out int savedStok);
-    //     stok = savedStok;
-    //     text.text = stok.ToString();
-    //     Debug.Log("Ini load item: " + item.name + " " + stok);
-    // }
+    public void LoadData(GameData data)
+    {
+        if (data.slotItems.TryGetValue(item.name, out int savedStok))
+        {
+            stok = savedStok;
+        }
+        else
+        {
+            // Set to default stock 1 if not found in saved data
+            stok = 1;
+        }
+        text.text = stok.ToString();
+        Debug.Log("Ini load item: " + item.name + " " + stok);
+    }
 
-    // public void SaveData(GameData data) {
-    //     if (data.slotItems.ContainsKey(item.name))
-    //     {
-    //         data.slotItems.Remove(item.name);
-    //     }
-    //     data.slotItems.Add(item.name, stok);        
-    // }
+
+    public void SaveData(GameData data)
+    {
+        if (data.slotItems.ContainsKey(item.name))
+        {
+            data.slotItems.Remove(item.name);
+        }
+        data.slotItems.Add(item.name, stok);
+    }
 }

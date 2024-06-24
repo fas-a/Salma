@@ -4,10 +4,8 @@ using TMPro;
 public class Progress : MonoBehaviour, IDataPersistence
 {
     private int uang = 10000;
-    private int labaKotor;
-    private int jumlahPesanan;
-    public TMP_Text teksUang;
-    public TMP_Text teksTimer;
+    private int labaKotor, jumlahPesanan;
+    public TMP_Text teksUang, teksTimer;
     public stageDay dayCounterScript;
 
     void Start()

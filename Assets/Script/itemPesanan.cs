@@ -5,19 +5,13 @@ public class ItemPesanan : MonoBehaviour
 {
     public delegate void OrderCompleted(int harga);
     public static event OrderCompleted OnOrderCompleted;
-
     public string requiredItemTag;
     public Slider progressBar;
     public int hargaJamu;
     public Pesanan pesanan;
     public GameObject relatedCustomer;
-
-    public bool hasTimeFreeze;
-    public bool hasDoubleMoney;
-    public Image timeFreezeBadge;
-    public Image doubleMoneyBadge;
-
-
+    public bool hasTimeFreeze, hasDoubleMoney;
+    public Image timeFreezeBadge, doubleMoneyBadge;
     private float decreaseInterval = 1f; // Interval untuk mengurangi progress, dalam detik
 
     void Start()
@@ -53,11 +47,6 @@ public class ItemPesanan : MonoBehaviour
                 finalPrice *= 2;
             }
             OnOrderCompleted?.Invoke(finalPrice);
-        }
-
-        if (hasTimeFreeze)
-        {
-            pesanan.stageDayScript.ActivateTimeFreeze();
         }
 
         if (relatedCustomer != null)

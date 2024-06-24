@@ -9,7 +9,6 @@ public class Pesanan : MonoBehaviour, IDataPersistence
     public Transform ordersContainer;
     public customerSpawner customerSpawner;
     public float spawnDelay;
-
     private float doubleMoneyDuration = 180f;
     private List<Vector2> gridPositions;
     private List<ItemPesanan> activeOrders;
@@ -19,12 +18,9 @@ public class Pesanan : MonoBehaviour, IDataPersistence
     private List<GameObject> unlockedJamuItems; // Daftar jamu yang sudah terbuka
     private List<GameObject> weightedJamuItems; // Daftar weighted jamu
 
-    private int jumlahJamuSederhana;
-    private int jumlahJamuKunyitAsam;
-    private int jumlahJamuBerasKencur;
-    private int jumlahJamuPahitan;
-    private int jumlahJamuTemulawak;
+    private int jumlahJamuSederhana, jumlahJamuKunyitAsam, jumlahJamuBerasKencur, jumlahJamuPahitan, jumlahJamuTemulawak;
     public UnlockingRecipe popup;
+
 
     void Start()
     {
@@ -97,8 +93,11 @@ public class Pesanan : MonoBehaviour, IDataPersistence
             newItemPesanan.pesanan = this;
             activeOrders.Add(newItemPesanan);
 
-            newItemPesanan.hasTimeFreeze = Random.value < 0.1f;
-            newItemPesanan.hasDoubleMoney = Random.value < 0.1f;
+            newItemPesanan.hasTimeFreeze = Random.value < 0.05f; // Kemungkinan 5% untuk Time Freeze
+            newItemPesanan.hasDoubleMoney = Random.value < 0.05f; // Kemungkinan 5% untuk Double MoneyP
+            newItemPesanan.hasTimeFreeze = true;
+
+            Debug.Log("" + activeOrders);
 
             int index = gridPositions.Count > 0 ? Random.Range(0, gridPositions.Count) : 0;
             Vector2 gridPos = gridPositions[index];
@@ -194,11 +193,15 @@ public class Pesanan : MonoBehaviour, IDataPersistence
     {
         foreach (ItemPesanan order in activeOrders)
         {
-            Destroy(order.relatedCustomer);
+            if (order.relatedCustomer != null)
+            {
+                Destroy(order.relatedCustomer);
+            }
             Destroy(order.gameObject);
         }
         activeOrders.Clear();
     }
+
 
     public void UnlockJamu(int day)
     {
