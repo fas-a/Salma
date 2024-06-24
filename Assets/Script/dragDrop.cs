@@ -121,6 +121,7 @@ public class DragAndDrop : MonoBehaviour
             gameObject.transform.localScale = new Vector3(3, 3, 1);
             gameObject.transform.rotation = new Quaternion(0, 0, 0, 0);
             tas.SetActive(false);
+            customers.SetActive(false);
         }
         inDrag = false;
     }

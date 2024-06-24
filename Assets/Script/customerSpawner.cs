@@ -6,9 +6,8 @@ using System.Collections.Generic;
 public class customerSpawner : MonoBehaviour
 {
     public List<GameObject> customerPrefabs;
-    public Transform customersContainer;
-
     private List<Vector2> gridPositions;
+    public Transform customersContainer;
 
     void Start()
     {
@@ -43,6 +42,7 @@ public class customerSpawner : MonoBehaviour
 
     public GameObject SpawnCustomer()
     {
+        // spawn random customer prefabs
         GameObject randomCustomer = customerPrefabs[Random.Range(0, customerPrefabs.Count)];
         GameObject newCustomer = Instantiate(randomCustomer, customersContainer);
         newCustomer.transform.SetParent(customersContainer, false);

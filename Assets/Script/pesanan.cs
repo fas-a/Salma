@@ -9,7 +9,6 @@ public class Pesanan : MonoBehaviour, IDataPersistence
     public Transform ordersContainer;
     public customerSpawner customerSpawner;
     public float spawnDelay;
-
     private float doubleMoneyDuration = 180f;
     private List<Vector2> gridPositions;
     private List<ItemPesanan> activeOrders;
@@ -19,12 +18,9 @@ public class Pesanan : MonoBehaviour, IDataPersistence
     private List<GameObject> unlockedJamuItems; // Daftar jamu yang sudah terbuka
     private List<GameObject> weightedJamuItems; // Daftar weighted jamu
 
-    private int jumlahJamuSederhana;
-    private int jumlahJamuKunyitAsam;
-    private int jumlahJamuBerasKencur;
-    private int jumlahJamuPahitan;
-    private int jumlahJamuTemulawak;
+    private int jumlahJamuSederhana, jumlahJamuKunyitAsam, jumlahJamuBerasKencur, jumlahJamuPahitan, jumlahJamuTemulawak;
     public UnlockingRecipe popup;
+
 
     void Start()
     {
@@ -99,6 +95,7 @@ public class Pesanan : MonoBehaviour, IDataPersistence
 
             newItemPesanan.hasTimeFreeze = Random.value < 0.1f;
             newItemPesanan.hasDoubleMoney = Random.value < 0.1f;
+            newItemPesanan.hasTimeFreeze = true;
 
             int index = gridPositions.Count > 0 ? Random.Range(0, gridPositions.Count) : 0;
             Vector2 gridPos = gridPositions[index];

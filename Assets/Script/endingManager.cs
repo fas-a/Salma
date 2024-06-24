@@ -48,18 +48,17 @@ public class endingManager : MonoBehaviour, IDataPersistence
         textJumlahJamuPahitan.text = jumlahJamuPahitan + "x";
         textJumlahJamuTemulawak.text = jumlahJamuTemulawak + "x";
 
-        int hasilJamuSederhana = jumlahJamuSederhana * 12000;
-        int hasilJamuKunyitAsam = jumlahJamuKunyitAsam * 17000;
-        int hasilJamuBerasKencur = jumlahJamuBerasKencur * 20000;
-        int hasilJamuPahitan = jumlahJamuPahitan * 22000;
-        int hasilJamuTemulawak = jumlahJamuTemulawak * 22000;
+        int hasilJamuSederhana = jumlahJamuSederhana * 10000;
+        int hasilJamuKunyitAsam = jumlahJamuKunyitAsam * 11000;
+        int hasilJamuBerasKencur = jumlahJamuBerasKencur * 11000;
+        int hasilJamuPahitan = jumlahJamuPahitan * 14000;
+        int hasilJamuTemulawak = jumlahJamuTemulawak * 18000;
 
         textHargaJamuSederhana.text = "Rp" + hasilJamuSederhana;
         textHargaJamuKunyitAsam.text = "Rp" + hasilJamuKunyitAsam;
         textHargaJamuBerasKencur.text = "Rp" + hasilJamuBerasKencur;
         textHargaJamuPahitan.text = "Rp" + hasilJamuPahitan;
         textHargaJamuTemulawak.text = "Rp" + hasilJamuTemulawak;
-
         textPenghasilan.text = "Rp" + money;
         textLabaKotor.text = "Rp" + grossProfit;
         textPengeluaran.text = "Rp" + expenses;
@@ -67,6 +66,7 @@ public class endingManager : MonoBehaviour, IDataPersistence
         if (money >= targetMoney)
         {
             successStamp.SetActive(true);
+            failureStamp.SetActive(false);
             succesStampAnimation.Play("successStamp");
         }
         else

@@ -23,7 +23,6 @@ public class Customer : MonoBehaviour
 
     public void CompleteOrder()
     {
-        // Perform any necessary actions when the order is completed
         Destroy(gameObject);
     }
 }
