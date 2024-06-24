@@ -16,7 +16,7 @@ public class GameData
     public int jumlahJamuBerasKencur;
     public int jumlahJamuPahitan;
     public int jumlahJamuTemulawak;
-    // public SerializableDictionary<string, int> slotItems;
+    public GamePersistenceManager.DifficultyLevel difficulty;
 
     public GameData() {
         this.day = 1;
@@ -30,6 +30,6 @@ public class GameData
         this.jumlahJamuKunyitAsam = 0;
         this.jumlahJamuPahitan = 0;
         this.jumlahJamuTemulawak = 0;
-        // this.slotItems = new SerializableDictionary<string, int>();
+        this.difficulty = GamePersistenceManager.DifficultyLevel.Easy; // Default difficulty
     }
 }

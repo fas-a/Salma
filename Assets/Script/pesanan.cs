@@ -17,6 +17,7 @@ public class Pesanan : MonoBehaviour, IDataPersistence
     public stageDay stageDayScript;
     public Image doubleMoneyBadge;
     private List<GameObject> unlockedJamuItems; // Daftar jamu yang sudah terbuka
+    private List<GameObject> weightedJamuItems; // Daftar weighted jamu
 
     private int jumlahJamuSederhana;
     private int jumlahJamuKunyitAsam;
@@ -30,6 +31,27 @@ public class Pesanan : MonoBehaviour, IDataPersistence
         InitializeGridPositions();
         activeOrders = new List<ItemPesanan>();
         unlockedJamuItems = new List<GameObject> { jamuItem[0] }; // Jamu pertama terbuka di awal
+
+        // Atur tingkat kesulitan
+        GameData gameData = GamePersistenceManager.instance.GetGameData();
+        SetDifficulty(gameData.difficulty);
+        UpdateWeightedJamuItems();
+    }
+
+    void SetDifficulty(GamePersistenceManager.DifficultyLevel difficulty)
+    {
+        switch (difficulty)
+        {
+            case GamePersistenceManager.DifficultyLevel.Easy:
+                spawnDelay = 40f; // Interval antar pesanan lebih lama
+                break;
+            case GamePersistenceManager.DifficultyLevel.Medium:
+                spawnDelay = 30f; // Interval antar pesanan lebih cepat
+                break;
+            case GamePersistenceManager.DifficultyLevel.Hard:
+                spawnDelay = 25f; // Interval antar pesanan sangat cepat
+                break;
+        }
     }
 
     void InitializeGridPositions()
@@ -67,7 +89,7 @@ public class Pesanan : MonoBehaviour, IDataPersistence
     {
         while (true)
         {
-            GameObject randomProduct = unlockedJamuItems[Random.Range(0, unlockedJamuItems.Count)];
+            GameObject randomProduct = weightedJamuItems[Random.Range(0, weightedJamuItems.Count)];
             GameObject newOrder = Instantiate(randomProduct, ordersContainer);
             newOrder.transform.SetParent(ordersContainer, false);
 
@@ -82,7 +104,6 @@ public class Pesanan : MonoBehaviour, IDataPersistence
             Vector2 gridPos = gridPositions[index];
             RectTransform orderRect = newOrder.GetComponent<RectTransform>();
             orderRect.anchoredPosition = gridPos;
-            stageDayScript.ActivateTimeFreeze();
 
             GameObject customer = customerSpawner.SpawnCustomer();
             newItemPesanan.relatedCustomer = customer;
@@ -125,7 +146,6 @@ public class Pesanan : MonoBehaviour, IDataPersistence
         spawnDelay = originalDelay;
         doubleMoneyBadge.gameObject.SetActive(false); // Nonaktifkan badge setelah Double Money berakhir
     }
-
 
     private void IncrementOrderCount(string itemTag)
     {
@@ -180,15 +200,54 @@ public class Pesanan : MonoBehaviour, IDataPersistence
         activeOrders.Clear();
     }
 
-    // Fungsi untuk membuka jamu baru setiap 6 hari
     public void UnlockJamu(int day)
     {
         int unlockIndex = day / 6;
         if (unlockIndex < jamuItem.Count && !unlockedJamuItems.Contains(jamuItem[unlockIndex]))
         {
             unlockedJamuItems.Add(jamuItem[unlockIndex]);
+            UpdateWeightedJamuItems();
             Debug.Log("Unlocked Jamu: " + jamuItem[unlockIndex].name);
             popup.displayRecipe(jamuItem[unlockIndex].name, day);
+        }
+    }
+
+    void UpdateWeightedJamuItems()
+    {
+        weightedJamuItems = new List<GameObject>();
+
+        foreach (GameObject jamu in unlockedJamuItems)
+        {
+            // Default weight
+            int weight = 1;
+
+            if (GamePersistenceManager.instance.GetGameData().difficulty == GamePersistenceManager.DifficultyLevel.Easy)
+            {
+                if (jamu == jamuItem[0] || jamu == jamuItem[1]) // Jamu index 0-1 lebih sering muncul di easy
+                {
+                    weight = 5;
+                }
+            }
+            else if (GamePersistenceManager.instance.GetGameData().difficulty == GamePersistenceManager.DifficultyLevel.Medium)
+            {
+                if (jamu == jamuItem[3]) // Jamu index 3 lebih sering muncul di medium
+                {
+                    weight = 5;
+                }
+            }
+            else if (GamePersistenceManager.instance.GetGameData().difficulty == GamePersistenceManager.DifficultyLevel.Hard)
+            {
+                if (jamu == jamuItem[4] || jamu == jamuItem[5]) // Jamu index 4-5 lebih sering muncul di hard
+                {
+                    weight = 5;
+                }
+            }
+
+            // Tambahkan jamu ke daftar weighted berdasarkan weight
+            for (int i = 0; i < weight; i++)
+            {
+                weightedJamuItems.Add(jamu);
+            }
         }
     }
 }

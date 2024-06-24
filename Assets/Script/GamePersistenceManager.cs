@@ -4,7 +4,7 @@ using UnityEngine;
 using System.Linq;
 using UnityEngine.SceneManagement;
 
-public class GamePersistenceManager : MonoBehaviour
+public class GamePersistenceManager : MonoBehaviour, IDataPersistence
 {
     [Header("File Storage Config")]
     [SerializeField] private string fileName;
@@ -15,6 +15,13 @@ public class GamePersistenceManager : MonoBehaviour
     public static GamePersistenceManager instance { get; private set; }
 
     private bool isNewGame = true;
+
+    public enum DifficultyLevel
+    {
+        Easy,
+        Medium,
+        Hard
+    }
 
     private void Awake()
     {
@@ -39,12 +46,28 @@ public class GamePersistenceManager : MonoBehaviour
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
-    public void StartNewGame()
+    public void StartNewGame(DifficultyLevel difficulty)
     {
         isNewGame = true;
         PlayerPrefs.SetInt("isNewGame", 1);
+        PlayerPrefs.SetInt("difficulty", (int)difficulty);
         SceneManager.LoadScene(3);
     }
+
+    public void NewGame()
+    {
+        this.gameData = new GameData();
+        gameData.difficulty = (DifficultyLevel)PlayerPrefs.GetInt("difficulty", 0); // Load difficulty level
+        foreach (IDataPersistence dataPersistenceObj in dataPersistenceObjects)
+        {
+            dataPersistenceObj.LoadData(gameData);
+        }
+        Debug.Log("new day count = " + gameData.day);
+        Debug.Log("new money count = " + gameData.money);
+        Debug.Log("new time count = " + gameData.time);
+        Debug.Log("new orderCompleted count = " + gameData.orderCompleted);
+    }
+
 
     public void ContinueGame()
     {
@@ -52,6 +75,7 @@ public class GamePersistenceManager : MonoBehaviour
         PlayerPrefs.SetInt("isNewGame", 0);
         SceneManager.LoadScene(3);
     }
+
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
@@ -69,26 +93,13 @@ public class GamePersistenceManager : MonoBehaviour
         }
     }
 
-    public void NewGame()
-    {
-        this.gameData = new GameData();
-        foreach (IDataPersistence dataPersistenceObj in dataPersistenceObjects)
-        {
-            dataPersistenceObj.LoadData(gameData);
-        }
-        Debug.Log("new day count = " + gameData.day);
-        Debug.Log("new money count = " + gameData.money);
-        Debug.Log("new time count = " + gameData.time);
-        Debug.Log("new orderCompleted count = " + gameData.orderCompleted);
-    }
-
     public void LoadGame()
     {
         this.gameData = dataHandler.Load();
 
         if (this.gameData == null)
         {
-            Debug.Log("Tidak ada data ditemukan. Memulai game baru.");
+            Debug.Log("Tidak ada data ditemukan.Memulai game baru.");
             NewGame();
         }
 
@@ -100,7 +111,7 @@ public class GamePersistenceManager : MonoBehaviour
         Debug.Log("Load day count = " + gameData.day);
         Debug.Log("Load money count = " + gameData.money);
         Debug.Log("Load time count = " + gameData.time);
-        Debug.Log("Load orderCompleted count = " + gameData.orderCompleted);
+        Debug.Log("Load orderCompletedcount = " + gameData.orderCompleted);
     }
 
     public void SaveGame()
@@ -124,6 +135,17 @@ public class GamePersistenceManager : MonoBehaviour
         dataHandler.Save(gameData);
     }
 
+    public void LoadData(GameData data)
+    {
+        this.gameData = data;
+    }
+
+    public void SaveData(GameData data)
+    {
+        data.difficulty = this.gameData.difficulty;
+    }
+
+
     private void OnApplicationQuit()
     {
         SaveGame();
@@ -137,7 +159,7 @@ public class GamePersistenceManager : MonoBehaviour
     private List<IDataPersistence> FindAllDataPersistenceObjects()
     {
         IEnumerable<IDataPersistence> dataPersistenceObjects = FindObjectsOfType<MonoBehaviour>()
-            .OfType<IDataPersistence>();
+                .OfType<IDataPersistence>();
 
         return new List<IDataPersistence>(dataPersistenceObjects);
     }
