@@ -897,9 +897,10 @@ MonoBehaviour:
   isUlek: 0
   isParut: 0
   rb: {fileID: 1321279853983373446}
-  potong: {fileID: 21300000, guid: 98c33f08a1618a942a95ba15f61b2bc6, type: 3}
+  potong: {fileID: -8098732075087890923, guid: 98c33f08a1618a942a95ba15f61b2bc6, type: 3}
   image: {fileID: 771105529198838676}
   tas: {fileID: 0}
+  customers: {fileID: 0}
   tumbukSprite: {fileID: 0}
 --- !u!50 &1321279853983373446
 Rigidbody2D:

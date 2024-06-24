@@ -9,12 +9,14 @@ public class panci : MonoBehaviour
     private bool isGalon = false;
     private bool isBuang = false;
     private bool isDrag = false;
+    private bool isGelas = false;
     public SpriteRenderer image;
     public Sprite kosong;
     public Sprite isi;
     public Rigidbody2D rb;
     public List<string> items;
     private List<Resep> jamuResep;
+    private alatDapur alatDapur;
     public Sprite jamuSederhana;
     public bool jamu = false;
     public string namaJamu;
@@ -25,6 +27,7 @@ public class panci : MonoBehaviour
         cam = Camera.main;
         posisiAwal = transform.position;
         items = new List<string>();
+        alatDapur = gameObject.GetComponent<alatDapur>();
         InitializeJamuResep();
     }
 
@@ -48,6 +51,9 @@ public class panci : MonoBehaviour
         if(collision.gameObject.name == "tempatsampah"){
             isBuang = true;
         }
+        if(collision.gameObject.name == "gelas"){
+            isGelas = true;
+        }
     }
 
     void OnCollisionExit2D(Collision2D collision) 
@@ -57,6 +63,9 @@ public class panci : MonoBehaviour
         }
         if(collision.gameObject.name == "tempatsampah"){
             isBuang = false;
+        }
+        if(collision.gameObject.name == "gelas"){
+            isGelas = false;
         }
     }
 
@@ -100,6 +109,24 @@ public class panci : MonoBehaviour
             jamu = false;
             namaJamu = "";
             tooltip.clearBahan();
+            alatDapur.kurang();
+        }
+        if(isGelas && jamu)
+        {
+            gelas gelas = GameObject.Find("gelas").GetComponent<gelas>();
+            switch(namaJamu)
+            {
+                case "Jamu Sederhana":
+                    Debug.Log("Jamu Sederhana");
+                    gelas.image.sprite = gelas.jamuSederhana;
+                    gelas.jamu = true;
+                    gelas.gelasJamu = "jamuSederhana";
+                    break;
+            }
+            image.sprite = kosong;
+            jamu = false;
+            namaJamu = "";
+            alatDapur.kurang();
         }
         isDrag = false;
 

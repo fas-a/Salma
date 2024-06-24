@@ -103,12 +103,12 @@ TextureImporter:
       name: Jamu Beras Kencur_0
       rect:
         serializedVersion: 2
-        x: 92
-        y: 216
-        width: 1147
-        height: 926
+        x: 89
+        y: 209
+        width: 1150
+        height: 1291
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 639fcbe96a5a5be438f148db86fc11af
     internalID: 0
     vertices: []
     indices: 
