@@ -93,9 +93,11 @@ public class Pesanan : MonoBehaviour, IDataPersistence
             newItemPesanan.pesanan = this;
             activeOrders.Add(newItemPesanan);
 
-            newItemPesanan.hasTimeFreeze = Random.value < 0.1f;
-            newItemPesanan.hasDoubleMoney = Random.value < 0.1f;
+            newItemPesanan.hasTimeFreeze = Random.value < 0.05f; // Kemungkinan 5% untuk Time Freeze
+            newItemPesanan.hasDoubleMoney = Random.value < 0.05f; // Kemungkinan 5% untuk Double MoneyP
             newItemPesanan.hasTimeFreeze = true;
+
+            Debug.Log("" + activeOrders);
 
             int index = gridPositions.Count > 0 ? Random.Range(0, gridPositions.Count) : 0;
             Vector2 gridPos = gridPositions[index];
@@ -191,11 +193,15 @@ public class Pesanan : MonoBehaviour, IDataPersistence
     {
         foreach (ItemPesanan order in activeOrders)
         {
-            Destroy(order.relatedCustomer);
+            if (order.relatedCustomer != null)
+            {
+                Destroy(order.relatedCustomer);
+            }
             Destroy(order.gameObject);
         }
         activeOrders.Clear();
     }
+
 
     public void UnlockJamu(int day)
     {

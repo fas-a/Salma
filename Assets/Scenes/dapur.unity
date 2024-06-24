@@ -11197,7 +11197,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1490699674}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 76069593}
+        m_TargetAssemblyTypeName: UnlockingRecipe, Assembly-CSharp
+        m_MethodName: HideModal
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1490699674
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13318,7 +13330,7 @@ MonoBehaviour:
   teksHari: {fileID: 1395068787}
   progressScript: {fileID: 1685765952}
   orderSpawner: {fileID: 236752196}
-  durasiHari: 360
+  durasiHari: 20
   popup: {fileID: 1146419727}
   timeFreezeBadge: {fileID: 470259539}
 --- !u!224 &1749176934 stripped

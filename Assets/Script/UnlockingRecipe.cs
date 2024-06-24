@@ -33,11 +33,13 @@ public class UnlockingRecipe : MonoBehaviour
             default:
                 break;
         }
+        Time.timeScale = 0f;
         modal.SetActive(true);
     }
 
     public void HideModal()
     {
+        Time.timeScale = 1f;
         modal.SetActive(false); // Nonaktifkan objek popup
     }
 

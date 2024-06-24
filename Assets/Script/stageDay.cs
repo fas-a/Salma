@@ -67,6 +67,7 @@ public class stageDay : MonoBehaviour, IDataPersistence
 
     public void MulaiHariBaru()
     {
+        Time.timeScale = 1f;
         if (waktuTersisa == 0)
         {
             waktuTersisa = durasiHari;
@@ -78,6 +79,7 @@ public class stageDay : MonoBehaviour, IDataPersistence
             orderSpawner.SpawnOrders();
 
             orderSpawner.UnlockJamu(hari); // membuka jamu baru setiap 6 hari
+            ResumeGame();
         }
         else
         {
@@ -101,6 +103,7 @@ public class stageDay : MonoBehaviour, IDataPersistence
 
     public void HariSelesai()
     {
+        PauseGame(); // Jeda game sebelum menampilkan hasil
         popup.displayResult(hari, progressScript.GetJumlahPesanan());
     }
 
@@ -133,5 +136,15 @@ public class stageDay : MonoBehaviour, IDataPersistence
     {
         yield return new WaitForSeconds(60f); // Tunggu 60 detik (atau durasi yang diinginkan)
         timeFreezeBadge.gameObject.SetActive(false); // Nonaktifkan badge
+    }
+
+    public void PauseGame()
+    {
+        Time.timeScale = 0f; // Jeda game
+    }
+
+    public void ResumeGame()
+    {
+        Time.timeScale = 1f; // Lanjutkan game
     }
 }
