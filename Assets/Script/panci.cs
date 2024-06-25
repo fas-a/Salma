@@ -17,7 +17,9 @@ public class panci : MonoBehaviour
     public List<string> items;
     private List<Resep> jamuResep;
     private alatDapur alatDapur;
-    public Sprite jamuSederhana;
+    public Sprite kuning;
+    public Sprite hitam;
+    public Sprite gagal;
     public bool jamu = false;
     public string namaJamu;
     public bahanPanci tooltip;
@@ -34,8 +36,12 @@ public class panci : MonoBehaviour
     private void InitializeJamuResep()
     {
         jamuResep = new List<Resep>();
-        jamuResep.Add(new Resep("Jamu Sederhana", new List<string> {"air", "kunyit potong", "jahe potong", "sereh potong", "madu", "jeruknipis"}, jamuSederhana));
-        // jamuResep.Add(new Resep("Jamu Sederhana", new List<string> {"air"}, jamuSederhana));
+        jamuResep.Add(new Resep("Jamu Sederhana", new List<string> {"Air", "Kunyit Potong", "Jahe Potong", "Sereh Potong", "Madu", "Jeruk Nipis"}, kuning));
+        jamuResep.Add(new Resep("Jamu Kunyit Asam", new List<string> {"Air", "Kunyit Halus", "Asam Jawa", "Gula Merah Potong"}, kuning));
+        jamuResep.Add(new Resep("Jamu Beras Kencur", new List<string> {"Air", "Jahe Geprek", "Gula Merah Potong", "Gula Pasir", "Kencur Halus", "Beras Halus"}, kuning));
+        jamuResep.Add(new Resep("Jamu Temulawak", new List<string> {"Air", "Temu Lawak", "Temu Lawak", "Madu"}, kuning));
+        jamuResep.Add(new Resep("Jamu Pahitan", new List<string> {"Air", "Kunyit Halus", "Temu Lawak Halus", "Temu Hitam Halus", "Brotowali Halus", "Daun Sirih", "Gula Merah Potong", "Asam Jawa"}, hitam));
+        // jamuResep.Add(new Resep("Jamu Sederhana", new List<string> {"Air"}, jamuSederhana));
     }
 
     private void balik()
@@ -104,7 +110,7 @@ public class panci : MonoBehaviour
             if(galon.currentDurability > 0)
             {
                 galon.kurang();
-                addItem("air");
+                addItem("Air");
                 image.sprite = isi;
             }
         }
@@ -124,14 +130,31 @@ public class panci : MonoBehaviour
             {
                 case "Jamu Sederhana":
                     Debug.Log("Jamu Sederhana");
-                    gelas.image.sprite = gelas.jamuSederhana;
-                    gelas.jamu = true;
+                    gelas.image.sprite = gelas.jamus[0];
                     gelas.gelasJamu = "jamuSederhana";
                     break;
+                case "Jamu Kunyit Asam":
+                    gelas.image.sprite = gelas.jamus[1];
+                    gelas.gelasJamu = "jamuKunyitAsam";
+                    break;
+                case "Jamu Beras Kencur":
+                    gelas.image.sprite = gelas.jamus[2];
+                    gelas.gelasJamu = "jamuBerasKencur";
+                    break;
+                case "Jamu Temulawak":
+                    gelas.image.sprite = gelas.jamus[3];
+                    gelas.gelasJamu = "jamuTemulawak";
+                    break;
+                case "Jamu Pahitan":
+                    gelas.image.sprite = gelas.jamus[4];
+                    gelas.gelasJamu = "jamuPahitan";
+                    break;
             }
+            gelas.jamu = true;
             image.sprite = kosong;
             jamu = false;
             namaJamu = "";
+            tooltip.clearBahan();
             alatDapur.kurang();
         }
         isDrag = false;
@@ -163,6 +186,8 @@ public class panci : MonoBehaviour
                 image.sprite = resep.sprite;
                 jamu = true;
                 namaJamu = resep.name;
+                tooltip.clearBahan();
+                tooltip.addBahan(resep.name);
             }
         }
     }

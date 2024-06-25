@@ -236,7 +236,7 @@ GameObject:
   - component: {fileID: 4757570692901054436}
   m_Layer: 0
   m_Name: temuhitam
-  m_TagString: Untagged
+  m_TagString: Temu Hitam
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -301,12 +301,11 @@ MonoBehaviour:
   panci: {fileID: 0}
   pisau: {fileID: 0}
   ulekan: {fileID: 0}
-  parutan: {fileID: 0}
-  isPotong: 0
+  isPotong: 1
   isUlek: 0
-  isParut: 0
   rb: {fileID: 0}
   potong: {fileID: 0}
-  image: {fileID: 0}
+  image: {fileID: 4171218653889663305}
   tas: {fileID: 0}
-  tumbukSprite: {fileID: 0}
+  customers: {fileID: 0}
+  tumbukSprite: {fileID: 1933707359925083903, guid: 917d036913588394c9798edd081cebb9, type: 3}

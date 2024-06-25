@@ -13,7 +13,6 @@ public class DragAndDrop : MonoBehaviour
     public ulekan ulekan;
     public bool isPotong = false;
     public bool isUlek = false;
-    public bool isParut = false;
     private bool pindahParut = false;
     public Rigidbody2D rb;
     public Sprite potong;
@@ -33,11 +32,6 @@ public class DragAndDrop : MonoBehaviour
         GameObject panciObj = GameObject.FindWithTag("panci");
         panci = panciObj.GetComponent<panci>();
         rb = gameObject.GetComponent<Rigidbody2D>();
-        if(gameObject.tag == "madu" || gameObject.tag == "jeruknipis")
-        {
-            isPotong = true;
-            isUlek = true;
-        }
         tas = GameObject.FindWithTag("tas");
         customers = GameObject.FindWithTag("customers");
     }
@@ -135,8 +129,9 @@ public class DragAndDrop : MonoBehaviour
         SpriteRenderer spriteRenderer = image.GetComponent<SpriteRenderer>();
         spriteRenderer.sprite = potong;
         isPotong = true;
+        isUlek = true;
         image.AddComponent<PolygonCollider2D>();
-        gameObject.tag = gameObject.tag + " potong";
+        gameObject.tag = gameObject.tag + " Potong";
     }
 
     public void gepeng()
@@ -145,8 +140,16 @@ public class DragAndDrop : MonoBehaviour
         SpriteRenderer spriteRenderer = image.GetComponent<SpriteRenderer>();
         spriteRenderer.sprite = tumbukSprite;
         isUlek = true;
+        isPotong = true;
         image.AddComponent<PolygonCollider2D>();
-        gameObject.tag = gameObject.tag + " geprek";
+        if(gameObject.tag == "Jahe")
+        {
+            gameObject.tag = gameObject.tag + " Geprek";
+        }
+        else
+        {
+            gameObject.tag = gameObject.tag + " Halus";
+        }
     }
 
     public void setAwal()

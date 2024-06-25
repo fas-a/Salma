@@ -1,0 +1,323 @@
+fileFormatVersion: 2
+guid: b9f60beee62331148b3c6c33eb14ae6c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5143316027318101218
+    second: Resep - Jamu Kunyit Asam_0
+  - first:
+      213: 4085752310552888371
+    second: Resep - Jamu Kunyit Asam_1
+  - first:
+      213: 4050328787718864561
+    second: Resep - Jamu Kunyit Asam_2
+  - first:
+      213: -4621891764262178679
+    second: Resep - Jamu Kunyit Asam_3
+  - first:
+      213: -5404050063545315123
+    second: Resep - Jamu Kunyit Asam_4
+  - first:
+      213: -5569888705594601747
+    second: Resep - Jamu Kunyit Asam_5
+  - first:
+      213: 6301562083194174176
+    second: Resep - Jamu Kunyit Asam_6
+  - first:
+      213: 2793020495522205849
+    second: Resep - Jamu Kunyit Asam_7
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Resep - Jamu Kunyit Asam_0
+      rect:
+        serializedVersion: 2
+        x: 334
+        y: 1004
+        width: 113
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e46ed72daab06740800000000000000
+      internalID: 5143316027318101218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Resep - Jamu Kunyit Asam_1
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 996
+        width: 137
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3348cb6441283b830800000000000000
+      internalID: 4085752310552888371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Resep - Jamu Kunyit Asam_2
+      rect:
+        serializedVersion: 2
+        x: 597
+        y: 1004
+        width: 120
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1be7587a298a53830800000000000000
+      internalID: 4050328787718864561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Resep - Jamu Kunyit Asam_3
+      rect:
+        serializedVersion: 2
+        x: 963
+        y: 874
+        width: 412
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98079d0adedbbdfb0800000000000000
+      internalID: -4621891764262178679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Resep - Jamu Kunyit Asam_4
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 396
+        width: 523
+        height: 445
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc054fd5915f005b0800000000000000
+      internalID: -5404050063545315123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Resep - Jamu Kunyit Asam_5
+      rect:
+        serializedVersion: 2
+        x: 963
+        y: 705
+        width: 355
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: deec2989bb7c3b2b0800000000000000
+      internalID: -5569888705594601747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Resep - Jamu Kunyit Asam_6
+      rect:
+        serializedVersion: 2
+        x: 963
+        y: 536
+        width: 412
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0eafbdad355a37750800000000000000
+      internalID: 6301562083194174176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Resep - Jamu Kunyit Asam_7
+      rect:
+        serializedVersion: 2
+        x: 963
+        y: 367
+        width: 412
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9909cf5b75dc2c620800000000000000
+      internalID: 2793020495522205849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Resep - Jamu Kunyit Asam_0: 5143316027318101218
+      Resep - Jamu Kunyit Asam_1: 4085752310552888371
+      Resep - Jamu Kunyit Asam_2: 4050328787718864561
+      Resep - Jamu Kunyit Asam_3: -4621891764262178679
+      Resep - Jamu Kunyit Asam_4: -5404050063545315123
+      Resep - Jamu Kunyit Asam_5: -5569888705594601747
+      Resep - Jamu Kunyit Asam_6: 6301562083194174176
+      Resep - Jamu Kunyit Asam_7: 2793020495522205849
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

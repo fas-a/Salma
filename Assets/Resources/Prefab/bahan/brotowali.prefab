@@ -267,7 +267,7 @@ GameObject:
   - component: {fileID: 6895356491712975555}
   m_Layer: 0
   m_Name: brotowali
-  m_TagString: Untagged
+  m_TagString: Brotowali
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -332,12 +332,11 @@ MonoBehaviour:
   panci: {fileID: 0}
   pisau: {fileID: 0}
   ulekan: {fileID: 0}
-  parutan: {fileID: 0}
-  isPotong: 0
+  isPotong: 1
   isUlek: 0
-  isParut: 0
   rb: {fileID: 0}
   potong: {fileID: 0}
-  image: {fileID: 0}
+  image: {fileID: 1908083810400251569}
   tas: {fileID: 0}
-  tumbukSprite: {fileID: 0}
+  customers: {fileID: 0}
+  tumbukSprite: {fileID: -1007853363723663195, guid: c8b2e1d0a19ee994a901fe0f0541f684, type: 3}

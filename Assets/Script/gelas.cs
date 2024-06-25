@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class gelas : MonoBehaviour
 {
@@ -8,8 +9,9 @@ public class gelas : MonoBehaviour
     public SpriteRenderer image;
     public Sprite kosong;
     public Rigidbody2D rb;
-    public Sprite jamuSederhana;
+    public List<Sprite> jamus;
     private bool isSerahkan = false;
+    private bool isBuang = false;
     public bool jamu = false;
     public GameObject serahkan;
     public Pesanan boxPesanan;
@@ -31,12 +33,18 @@ public class gelas : MonoBehaviour
         if(collision.gameObject.name == serahkan.name){
             isSerahkan = true;
         }
+        if(collision.gameObject.name == "tempatsampah"){
+            isBuang = true;
+        }
     }
 
     void OnCollisionExit2D(Collision2D collision) 
     { 
         if(collision.gameObject.name == serahkan.name){
             isSerahkan = false;
+        }
+        if(collision.gameObject.name == "tempatsampah"){
+            isBuang = false;
         }
     }
     private void OnMouseDown()
@@ -62,6 +70,11 @@ public class gelas : MonoBehaviour
                 image.sprite = kosong;
                 jamu = false;
             }
+        }
+        if(isBuang){
+            image.sprite = kosong;
+            jamu = false;
+            gelasJamu = "";
         }
         balik();
         rb.bodyType = RigidbodyType2D.Static;

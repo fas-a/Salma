@@ -854,7 +854,7 @@ GameObject:
   - component: {fileID: 1321279853983373446}
   m_Layer: 0
   m_Name: sereh
-  m_TagString: sereh
+  m_TagString: Sereh
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -892,10 +892,8 @@ MonoBehaviour:
   panci: {fileID: 0}
   pisau: {fileID: 0}
   ulekan: {fileID: 0}
-  parutan: {fileID: 0}
   isPotong: 0
-  isUlek: 0
-  isParut: 0
+  isUlek: 1
   rb: {fileID: 1321279853983373446}
   potong: {fileID: -8098732075087890923, guid: 98c33f08a1618a942a95ba15f61b2bc6, type: 3}
   image: {fileID: 771105529198838676}

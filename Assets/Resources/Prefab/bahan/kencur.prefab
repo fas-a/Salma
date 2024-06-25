@@ -371,7 +371,7 @@ GameObject:
   - component: {fileID: 6591172413173104443}
   m_Layer: 0
   m_Name: kencur
-  m_TagString: Untagged
+  m_TagString: Kencur
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -436,12 +436,11 @@ MonoBehaviour:
   panci: {fileID: 0}
   pisau: {fileID: 0}
   ulekan: {fileID: 0}
-  parutan: {fileID: 0}
-  isPotong: 0
+  isPotong: 1
   isUlek: 0
-  isParut: 0
   rb: {fileID: 0}
   potong: {fileID: 0}
-  image: {fileID: 0}
+  image: {fileID: 361939336477572352}
   tas: {fileID: 0}
-  tumbukSprite: {fileID: 0}
+  customers: {fileID: 0}
+  tumbukSprite: {fileID: -2448558528352012726, guid: 32250f7354def354bbe9c1f216fcd5e6, type: 3}

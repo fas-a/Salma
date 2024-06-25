@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5646558910885286279}
   m_Layer: 0
   m_Name: jahe
-  m_TagString: jahe
+  m_TagString: Jahe
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -51,14 +51,13 @@ MonoBehaviour:
   panci: {fileID: 0}
   pisau: {fileID: 0}
   ulekan: {fileID: 0}
-  parutan: {fileID: 0}
   isPotong: 0
   isUlek: 0
-  isParut: 0
   rb: {fileID: 5646558910885286279}
   potong: {fileID: 21300000, guid: 660870029368aee49abd9dc242360fc4, type: 3}
   image: {fileID: 6236359149487648214}
   tas: {fileID: 0}
+  customers: {fileID: 0}
   tumbukSprite: {fileID: 333176380966058360, guid: 3ace089718e97b345a3cd1432fc8da53, type: 3}
 --- !u!50 &5646558910885286279
 Rigidbody2D:

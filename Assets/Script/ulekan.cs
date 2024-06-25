@@ -42,7 +42,7 @@ public class ulekan : MonoBehaviour
         tekspotong.text = "Klik Ulekan " + (5-dragDrop.tumbuk) + " kali lagi";
         if(dragDrop.tumbuk == 5)
         {
-            tekspotong.text = "Bahan Digeprek";
+            tekspotong.text = "Bahan Halus";
         }
     }
 

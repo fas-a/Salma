@@ -10,6 +10,7 @@ public class UnlockingRecipe : MonoBehaviour
     public Image jamuImage; // Image UI yang akan diubah
     public List<Sprite> jamuSprites; // Daftar sprite jamu
     public GameObject modal;
+    public ubahResep bukuresep;
     private int day;
 
     public void displayRecipe(string jamu, int hari)
@@ -33,6 +34,7 @@ public class UnlockingRecipe : MonoBehaviour
             default:
                 break;
         }
+        bukuresep.add();
         Time.timeScale = 0f;
         modal.SetActive(true);
     }

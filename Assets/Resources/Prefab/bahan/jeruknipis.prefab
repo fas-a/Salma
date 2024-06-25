@@ -300,7 +300,7 @@ GameObject:
   - component: {fileID: 8066384676637318878}
   m_Layer: 0
   m_Name: jeruknipis
-  m_TagString: jeruknipis
+  m_TagString: Jeruk Nipis
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -338,14 +338,13 @@ MonoBehaviour:
   panci: {fileID: 0}
   pisau: {fileID: 0}
   ulekan: {fileID: 0}
-  parutan: {fileID: 0}
-  isPotong: 0
-  isUlek: 0
-  isParut: 0
+  isPotong: 1
+  isUlek: 1
   rb: {fileID: 8066384676637318878}
   potong: {fileID: 2206496582082414778, guid: d957279e16cc1be46941a6eca23bfc60, type: 3}
   image: {fileID: 5461341489004804158}
   tas: {fileID: 0}
+  customers: {fileID: 0}
   tumbukSprite: {fileID: 0}
 --- !u!50 &8066384676637318878
 Rigidbody2D:

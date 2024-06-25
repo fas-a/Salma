@@ -327,7 +327,7 @@ GameObject:
   - component: {fileID: 5732698777856400181}
   m_Layer: 0
   m_Name: kunyit
-  m_TagString: kunyit
+  m_TagString: Kunyit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -365,15 +365,14 @@ MonoBehaviour:
   panci: {fileID: 0}
   pisau: {fileID: 0}
   ulekan: {fileID: 0}
-  parutan: {fileID: 0}
   isPotong: 0
   isUlek: 0
-  isParut: 0
   rb: {fileID: 5732698777856400181}
   potong: {fileID: 2784250609531434388, guid: 4ef341a34ab8a9c49b364de780e3c296, type: 3}
   image: {fileID: 934014991582169048}
   tas: {fileID: 0}
-  tumbukSprite: {fileID: 0}
+  customers: {fileID: 0}
+  tumbukSprite: {fileID: -1440262412499492991, guid: c16751b7f2e08da4cafece8e9985f3ae, type: 3}
 --- !u!50 &5732698777856400181
 Rigidbody2D:
   serializedVersion: 4

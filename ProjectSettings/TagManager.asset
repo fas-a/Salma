@@ -22,10 +22,18 @@ TagManager:
   - kunyit potong
   - sereh potong
   - kunyit geprek
-  - sereh geprek
   - sampah
   - parutan
   - customers
+  - kencur geprek
+  - beras geprek
+  - temulawak geprek
+  - temuhitam geprek
+  - brotowali geprek
+  - gulamerah
+  - Asam Jawa
+  - Beras
+  - Beras Halus
   layers:
   - Default
   - TransparentFX

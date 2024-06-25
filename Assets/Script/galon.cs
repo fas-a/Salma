@@ -15,7 +15,7 @@ public class galon : MonoBehaviour
     {
         if(currentDurability > 0)
         {
-            currentDurability -= 11;
+            currentDurability -= 1;
         }
         if(currentDurability % 11 == 0)
         {

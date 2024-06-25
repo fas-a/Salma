@@ -706,7 +706,7 @@ GameObject:
   - component: {fileID: 2586318621990981538}
   m_Layer: 0
   m_Name: asamjawa
-  m_TagString: Untagged
+  m_TagString: Asam Jawa
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -771,12 +771,11 @@ MonoBehaviour:
   panci: {fileID: 0}
   pisau: {fileID: 0}
   ulekan: {fileID: 0}
-  parutan: {fileID: 0}
-  isPotong: 0
-  isUlek: 0
-  isParut: 0
+  isPotong: 1
+  isUlek: 1
   rb: {fileID: 0}
   potong: {fileID: 0}
-  image: {fileID: 0}
+  image: {fileID: 2113879578055774802}
   tas: {fileID: 0}
+  customers: {fileID: 0}
   tumbukSprite: {fileID: 0}

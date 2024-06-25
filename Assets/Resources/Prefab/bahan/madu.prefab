@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 165222444622330301}
   m_Layer: 0
   m_Name: madu
-  m_TagString: madu
+  m_TagString: Madu
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -51,14 +51,13 @@ MonoBehaviour:
   panci: {fileID: 0}
   pisau: {fileID: 0}
   ulekan: {fileID: 0}
-  parutan: {fileID: 0}
-  isPotong: 0
-  isUlek: 0
-  isParut: 0
+  isPotong: 1
+  isUlek: 1
   rb: {fileID: 165222444622330301}
   potong: {fileID: -4243097232039248698, guid: 650a9ebf6b7221e4a90b420032909df8, type: 3}
   image: {fileID: 3377609660720915762}
   tas: {fileID: 0}
+  customers: {fileID: 0}
   tumbukSprite: {fileID: 0}
 --- !u!50 &165222444622330301
 Rigidbody2D:

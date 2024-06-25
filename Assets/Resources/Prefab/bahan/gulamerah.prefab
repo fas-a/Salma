@@ -303,7 +303,7 @@ GameObject:
   - component: {fileID: 2984671560158751642}
   m_Layer: 0
   m_Name: gulamerah
-  m_TagString: Untagged
+  m_TagString: Gula Merah
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -368,12 +368,11 @@ MonoBehaviour:
   panci: {fileID: 0}
   pisau: {fileID: 0}
   ulekan: {fileID: 0}
-  parutan: {fileID: 0}
   isPotong: 0
-  isUlek: 0
-  isParut: 0
+  isUlek: 1
   rb: {fileID: 0}
-  potong: {fileID: 0}
-  image: {fileID: 0}
+  potong: {fileID: -4087623198916789743, guid: 224909c80179ec644bb81eb49ae59693, type: 3}
+  image: {fileID: 3590772333298154064}
   tas: {fileID: 0}
+  customers: {fileID: 0}
   tumbukSprite: {fileID: 0}

@@ -1,0 +1,323 @@
+fileFormatVersion: 2
+guid: f3d3c7067b5eedf428c69d4d9b7c2bb7
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3810435337904359929
+    second: Resep - Jamu Pahitan_0
+  - first:
+      213: 5408727576189771338
+    second: Resep - Jamu Pahitan_1
+  - first:
+      213: 1642583527066229826
+    second: Resep - Jamu Pahitan_2
+  - first:
+      213: 6672200498325178233
+    second: Resep - Jamu Pahitan_3
+  - first:
+      213: 1605521053834622715
+    second: Resep - Jamu Pahitan_4
+  - first:
+      213: 975169148117174297
+    second: Resep - Jamu Pahitan_5
+  - first:
+      213: -4648574167517768872
+    second: Resep - Jamu Pahitan_6
+  - first:
+      213: 620753722901858555
+    second: Resep - Jamu Pahitan_7
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Resep - Jamu Pahitan_0
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 1004
+        width: 113
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7067d9caf3d9e1bc0800000000000000
+      internalID: -3810435337904359929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Resep - Jamu Pahitan_1
+      rect:
+        serializedVersion: 2
+        x: 509
+        y: 1005
+        width: 155
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4e96a9e219af0b40800000000000000
+      internalID: 5408727576189771338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Resep - Jamu Pahitan_2
+      rect:
+        serializedVersion: 2
+        x: 963
+        y: 874
+        width: 650
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24cd0bcd301abc610800000000000000
+      internalID: 1642583527066229826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Resep - Jamu Pahitan_3
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 385
+        width: 562
+        height: 456
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9774bdc900b689c50800000000000000
+      internalID: 6672200498325178233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Resep - Jamu Pahitan_4
+      rect:
+        serializedVersion: 2
+        x: 963
+        y: 705
+        width: 650
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf6393d54e4f74610800000000000000
+      internalID: 1605521053834622715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Resep - Jamu Pahitan_5
+      rect:
+        serializedVersion: 2
+        x: 963
+        y: 536
+        width: 650
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 918c17d6c2f788d00800000000000000
+      internalID: 975169148117174297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Resep - Jamu Pahitan_6
+      rect:
+        serializedVersion: 2
+        x: 963
+        y: 367
+        width: 650
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 853db018c62fc7fb0800000000000000
+      internalID: -4648574167517768872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Resep - Jamu Pahitan_7
+      rect:
+        serializedVersion: 2
+        x: 963
+        y: 198
+        width: 650
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf8019ad83c5d9800800000000000000
+      internalID: 620753722901858555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Resep - Jamu Pahitan_0: -3810435337904359929
+      Resep - Jamu Pahitan_1: 5408727576189771338
+      Resep - Jamu Pahitan_2: 1642583527066229826
+      Resep - Jamu Pahitan_3: 6672200498325178233
+      Resep - Jamu Pahitan_4: 1605521053834622715
+      Resep - Jamu Pahitan_5: 975169148117174297
+      Resep - Jamu Pahitan_6: -4648574167517768872
+      Resep - Jamu Pahitan_7: 620753722901858555
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

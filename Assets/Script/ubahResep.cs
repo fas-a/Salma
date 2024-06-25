@@ -1,11 +1,13 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 public class ubahResep : MonoBehaviour
 {
     private Image targetImage;
+    public List<Sprite> resepJamu;
     private short currentPage;
-    private short maxPage = 2;
+    private short maxPage;
 
     void Start()
     {
@@ -17,9 +19,7 @@ public class ubahResep : MonoBehaviour
     {   
         if(currentPage < maxPage){
             currentPage++;
-            string name = "Image/resep-jamu-" + currentPage;
-            Sprite newSprite = Resources.Load<Sprite>(name);
-            targetImage.sprite = newSprite;
+            targetImage.sprite = resepJamu[currentPage - 1];
         }
     }
 
@@ -27,9 +27,12 @@ public class ubahResep : MonoBehaviour
     {   
         if(currentPage > 1){
             currentPage--;
-            string name = "Image/resep-jamu-" + currentPage ;
-            Sprite newSprite = Resources.Load<Sprite>(name);
-            targetImage.sprite = newSprite;
+            targetImage.sprite = resepJamu[currentPage - 1];
         }
+    }
+
+    public void add()
+    {
+        maxPage++;
     }
 }
