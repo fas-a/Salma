@@ -99,8 +99,14 @@ public class panci : MonoBehaviour
     {
         if(isGalon){
             Debug.Log("Panci terisi");
-            addItem("air");
-            image.sprite = isi;
+            GameObject galonObj = GameObject.Find("galon");
+            galon galon = galonObj.GetComponent<galon>();
+            if(galon.currentDurability > 0)
+            {
+                galon.kurang();
+                addItem("air");
+                image.sprite = isi;
+            }
         }
         if(isBuang){
             Debug.Log("Panci terbuang");

@@ -57,19 +57,25 @@ public class tas : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandl
             {
                 GameObject target = hit.collider.gameObject;
                 alatDapur alatDapur = target.GetComponent<alatDapur>();
+                galon galon = target.GetComponent<galon>();
                 if (alatDapur != null)
                 {
-                    Debug.Log("Item dropped on alat dapur: " + target.name);
                     alatDapur.ganti();
+                    RemoveFromInventory();
+                }
+                if (galon != null)
+                {
+                    galon.ganti();
+                    RemoveFromInventory();
                 }
             }
+            _draggingItem.anchoredPosition = _startPosition;
         }
         else
         {
             InstantiateItemInWorld();
+            RemoveFromInventory();
         }
-        
-        RemoveFromInventory();
         changeColor(1);
     }
 
@@ -84,9 +90,7 @@ public class tas : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandl
 
     private void RemoveFromInventory()
     {
-        // Remove the item from the inventory system
-        // Implement your inventory management logic here
-        _draggingItem.anchoredPosition = _startPosition; // Reset the item to its original position
+        _draggingItem.anchoredPosition = _startPosition;
         Transform parent = _draggingItem.parent;
         parent.parent.GetComponent<tasContainer>().kurang(transform.name);
     }
