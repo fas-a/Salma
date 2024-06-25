@@ -9,13 +9,11 @@ public class gelas : MonoBehaviour
     public Sprite kosong;
     public Rigidbody2D rb;
     public Sprite jamuSederhana;
-    private bool isPanci = false;
     private bool isSerahkan = false;
-    public panci panci;
-    private bool jamu = false;
+    public bool jamu = false;
     public GameObject serahkan;
     public Pesanan boxPesanan;
-    private string gelasJamu;
+    public string gelasJamu;
 
     private void Start()
     {
@@ -30,9 +28,6 @@ public class gelas : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision) 
     { 
-        if(collision.gameObject.name == panci.name){
-            isPanci = true;
-        }
         if(collision.gameObject.name == serahkan.name){
             isSerahkan = true;
         }
@@ -40,9 +35,6 @@ public class gelas : MonoBehaviour
 
     void OnCollisionExit2D(Collision2D collision) 
     { 
-        if(collision.gameObject.name == panci.name){
-            isPanci = false;
-        }
         if(collision.gameObject.name == serahkan.name){
             isSerahkan = false;
         }
@@ -60,19 +52,7 @@ public class gelas : MonoBehaviour
 
     private void OnMouseUp()
     {
-        Debug.Log(this.isPanci);
         Debug.Log("up");
-        if(isPanci && panci.jamu){
-            switch(panci.namaJamu){
-                case "Jamu Sederhana":
-                    image.sprite = jamuSederhana;
-                    jamu = true;
-                    panci.image.sprite = panci.kosong;
-                    panci.jamu = false;
-                    gelasJamu = "jamuSederhana";
-                    break;
-            }
-        }
         if(isSerahkan && jamu){
             Debug.Log(gelasJamu);
             bool matchingOrder = boxPesanan.GetMatchingOrder(gelasJamu);

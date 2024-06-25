@@ -11,7 +11,6 @@ public class DragAndDrop : MonoBehaviour
     public panci panci;
     public pisau pisau;
     public ulekan ulekan;
-    public parutan parutan;
     public bool isPotong = false;
     public bool isUlek = false;
     public bool isParut = false;
@@ -31,8 +30,6 @@ public class DragAndDrop : MonoBehaviour
         pisau = pisauObj.GetComponent<pisau>();
         GameObject ulekanObj = GameObject.Find("ulekanpakai");
         ulekan = ulekanObj.GetComponent<ulekan>();
-        GameObject parutanObj = GameObject.Find("parutanpakai");
-        parutan = parutanObj.GetComponent<parutan>();
         GameObject panciObj = GameObject.FindWithTag("panci");
         panci = panciObj.GetComponent<panci>();
         rb = gameObject.GetComponent<Rigidbody2D>();
@@ -45,56 +42,65 @@ public class DragAndDrop : MonoBehaviour
         customers = GameObject.FindWithTag("customers");
     }
 
+    private void pindahAlat(int x, float y)
+    {
+        cam.transform.position = new Vector3(x, 0, -10);
+        rb.bodyType = RigidbodyType2D.Static;
+        gameObject.transform.position = new Vector3(x, y, 0);
+        gameObject.transform.localScale = new Vector3(3, 3, 1);
+        gameObject.transform.rotation = new Quaternion(0, 0, 0, 0);
+        tas.SetActive(false);
+        customers.SetActive(false);
+    }
+
     private void OnCollisionEnter2D(Collision2D other)
     {
         colliderName = other.gameObject.name;
         Debug.Log(colliderName + " entered collider");
         if(other.gameObject.tag == "talenan" && isPotong == false)
         {
-            cam.transform.position = new Vector3(-50, 0, -10);
-            rb.bodyType = RigidbodyType2D.Static;
-            pisau.setBahan(gameObject);
-            gameObject.transform.position = new Vector3(-49.5f, -4.5f, 0);
-            gameObject.transform.localScale = new Vector3(3, 3, 1);
-            gameObject.transform.rotation = new Quaternion(0, 0, 0, 0);
-            tas.SetActive(false);
-            customers.SetActive(false);
+            alatDapur alatDapur = other.collider.gameObject.GetComponent<alatDapur>();
+            if (alatDapur.currentDurability > 0)
+            {
+                alatDapur.kurang();
+                pisau.setBahan(gameObject);
+                pindahAlat(-50, -4.5f);
+            }
+            else
+            {
+                gameObject.transform.position = new Vector3(-10, -3, 0);
+            }
         }
         if(other.gameObject.tag == "ulekan" && isUlek == false)
         {
-            cam.transform.position = new Vector3(-100, 0, -10);
-            rb.bodyType = RigidbodyType2D.Static;
-            ulekan.setBahan(gameObject);
-            gameObject.transform.position = new Vector3(-100f, -4.5f, 0);
-            gameObject.transform.localScale = new Vector3(3, 3, 1);
-            gameObject.transform.rotation = new Quaternion(0, 0, 0, 0);
-            tas.SetActive(false);
-            customers.SetActive(false);
+            alatDapur alatDapur = other.collider.gameObject.GetComponent<alatDapur>();
+            if (alatDapur.currentDurability > 0)
+            {
+                alatDapur.kurang();
+                ulekan.setBahan(gameObject);
+                pindahAlat(-100, -4.5f);
+            }
+            else
+            {
+                gameObject.transform.position = new Vector3(-10, -3, 0);
+            }
         }
         if(other.gameObject.tag == "panci" && inDrag == false)
         {
-            Debug.Log("Panci");
-            panci.addItem(gameObject.tag);
-            Destroy(gameObject);
+            alatDapur alatDapur = other.collider.gameObject.GetComponent<alatDapur>();
+            if (alatDapur.currentDurability > 0)
+            {
+                Debug.Log("Panci");
+                panci.addItem(gameObject.tag);
+                Destroy(gameObject);
+            }
+            else
+            {
+                gameObject.transform.position = new Vector3(-10, -3, 0);
+            }
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if(other.gameObject.tag == "parutan" && isParut == false)
-        {
-            Debug.Log("Parutan");
-            pindahParut = true;
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if(other.gameObject.tag == "parutan")
-        {
-            pindahParut = false;
-        }
-    }
 
     private void OnMouseDown()
     {
@@ -112,17 +118,6 @@ public class DragAndDrop : MonoBehaviour
 
     private void OnMouseUp()
     {
-        if(pindahParut)
-        {
-            cam.transform.position = new Vector3(-150, 0, -10);
-            rb.bodyType = RigidbodyType2D.Static;
-            parutan.setBahan(gameObject);
-            gameObject.transform.position = new Vector3(-149.5f, -4.5f, 0);
-            gameObject.transform.localScale = new Vector3(3, 3, 1);
-            gameObject.transform.rotation = new Quaternion(0, 0, 0, 0);
-            tas.SetActive(false);
-            customers.SetActive(false);
-        }
         inDrag = false;
     }
     
@@ -156,7 +151,7 @@ public class DragAndDrop : MonoBehaviour
 
     public void setAwal()
     {
-        gameObject.transform.position = new Vector3(-9, -2, 0);
+        gameObject.transform.position = new Vector3(-10, -3, 0);
         gameObject.transform.localScale = new Vector3(1, 1, 1);
         rb.bodyType = RigidbodyType2D.Dynamic;
         tas.SetActive(true);

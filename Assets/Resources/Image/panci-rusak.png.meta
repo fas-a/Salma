@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 2947f3c97d46028428e8b362a3a49517
+guid: c7f7a186c5c869849aef766d8f9ffa2f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2526620766709031522
-    second: jamu-kunyit-asam-2_0
+      213: 5105180649506574807
+    second: panci-rusak_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: jamu-kunyit-asam-2_0
+      name: panci-rusak_0
       rect:
         serializedVersion: 2
-        x: 89
-        y: 209
-        width: 1150
-        height: 1291
+        x: 43
+        y: 558
+        width: 1254
+        height: 617
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 26221d1633c501320800000000000000
-      internalID: 2526620766709031522
+      spriteID: 7d1990890ce39d640800000000000000
+      internalID: 5105180649506574807
       vertices: []
       indices: 
       edges: []
@@ -125,15 +125,14 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: abb089b0b3db4e143bc4955ed763f132
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      jamu-kunyit-asam-2_0: 2526620766709031522
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
