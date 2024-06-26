@@ -95,7 +95,6 @@ public class Pesanan : MonoBehaviour, IDataPersistence
 
             newItemPesanan.hasTimeFreeze = Random.value < 0.05f; // Kemungkinan 5% untuk Time Freeze
             newItemPesanan.hasDoubleMoney = Random.value < 0.05f; // Kemungkinan 5% untuk Double MoneyP
-            newItemPesanan.hasTimeFreeze = true;
 
             Debug.Log("" + activeOrders);
 

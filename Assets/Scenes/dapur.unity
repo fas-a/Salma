@@ -1191,6 +1191,7 @@ MonoBehaviour:
   - {fileID: -3628742953794992068, guid: ceb2c6cd2b2e1724084d8ba981129ed4, type: 3}
   - {fileID: -660438611880118029, guid: 0be085237209f544ab58a0f361098aa1, type: 3}
   modal: {fileID: 76069591}
+  bukuresep: {fileID: 0}
 --- !u!114 &76069594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2650,11 +2651,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jamuItem:
-  - {fileID: 8866324180838104983, guid: a9689911d9c273b4ea8e6fbd73a70b45, type: 3}
-  - {fileID: 64109219275418935, guid: 8c5d1380287c9fe48a12f007c85505f0, type: 3}
-  - {fileID: 7381748539430388761, guid: bb2aa792540fd224fbb4db4ebe0e1ba3, type: 3}
   - {fileID: 2756647967211930370, guid: feb417ee4ac953547a61f24344b3ba95, type: 3}
+  - {fileID: 64109219275418935, guid: 8c5d1380287c9fe48a12f007c85505f0, type: 3}
+  - {fileID: 8866324180838104983, guid: a9689911d9c273b4ea8e6fbd73a70b45, type: 3}
   - {fileID: 7051212359604767561, guid: afba1685942ec41488e5ce8b1f12a45d, type: 3}
+  - {fileID: 7381748539430388761, guid: bb2aa792540fd224fbb4db4ebe0e1ba3, type: 3}
   ordersContainer: {fileID: 236752195}
   customerSpawner: {fileID: 510211331}
   spawnDelay: 30
@@ -4398,7 +4399,9 @@ MonoBehaviour:
   isi: {fileID: -7854239059754051060, guid: f3f62b10ab7a7c8418459431268d8575, type: 3}
   rb: {fileID: 421317720}
   items: []
-  jamuSederhana: {fileID: -6159589635233873921, guid: 373c3d3b736c8594c9f954500713e9f0, type: 3}
+  kuning: {fileID: 0}
+  hitam: {fileID: 0}
+  gagal: {fileID: 0}
   jamu: 0
   namaJamu: 
   tooltip: {fileID: 733725377}
@@ -4719,7 +4722,7 @@ MonoBehaviour:
   image: {fileID: 457310876}
   kosong: {fileID: 2897535229775523791, guid: b8d2f151abf6bff4a99039a211af726f, type: 3}
   rb: {fileID: 457310874}
-  jamuSederhana: {fileID: 2059533177303299714, guid: 03930b3e23120b944832c6e5b0a649d1, type: 3}
+  jamus: []
   jamu: 0
   serahkan: {fileID: 465283998}
   boxPesanan: {fileID: 236752196}
@@ -12454,7 +12457,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1531911166
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14233,7 +14236,6 @@ MonoBehaviour:
   teksHari: {fileID: 1395068787}
   progressScript: {fileID: 1685765952}
   orderSpawner: {fileID: 236752196}
-  durasiHari: 20
   popup: {fileID: 1146419727}
   timeFreezeBadge: {fileID: 470259539}
 --- !u!224 &1749176934 stripped
