@@ -4722,7 +4722,12 @@ MonoBehaviour:
   image: {fileID: 457310876}
   kosong: {fileID: 2897535229775523791, guid: b8d2f151abf6bff4a99039a211af726f, type: 3}
   rb: {fileID: 457310874}
-  jamus: []
+  jamus:
+  - {fileID: 2059533177303299714, guid: 03930b3e23120b944832c6e5b0a649d1, type: 3}
+  - {fileID: 2526620766709031522, guid: 2947f3c97d46028428e8b362a3a49517, type: 3}
+  - {fileID: 7812970827906401345, guid: 7cf05ed83b2c3104dbaaca1677b6b37f, type: 3}
+  - {fileID: -660438611880118029, guid: 0be085237209f544ab58a0f361098aa1, type: 3}
+  - {fileID: -3628742953794992068, guid: ceb2c6cd2b2e1724084d8ba981129ed4, type: 3}
   jamu: 0
   serahkan: {fileID: 465283998}
   boxPesanan: {fileID: 236752196}
