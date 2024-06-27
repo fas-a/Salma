@@ -319,7 +319,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   requiredItemTag: jamuTemulawak
   progressBar: {fileID: 1874594661630831381}
-  hargaJamu: 14000
+  hargaJamu: 13000
   pesanan: {fileID: 0}
   relatedCustomer: {fileID: 0}
   hasTimeFreeze: 0

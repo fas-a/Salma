@@ -85,6 +85,13 @@ public class Pesanan : MonoBehaviour, IDataPersistence
     {
         while (true)
         {
+            // Jika tidak ada item di weightedJamuItems, gunakan item default pertama
+            if (weightedJamuItems.Count == 0)
+            {
+                Debug.LogError("No items to spawn!");
+                yield break;
+            }
+
             GameObject randomProduct = weightedJamuItems[Random.Range(0, weightedJamuItems.Count)];
             GameObject newOrder = Instantiate(randomProduct, ordersContainer);
             newOrder.transform.SetParent(ordersContainer, false);
@@ -93,10 +100,10 @@ public class Pesanan : MonoBehaviour, IDataPersistence
             newItemPesanan.pesanan = this;
             activeOrders.Add(newItemPesanan);
 
-            newItemPesanan.hasTimeFreeze = Random.value < 0.05f; // Kemungkinan 5% untuk Time Freeze
-            newItemPesanan.hasDoubleMoney = Random.value < 0.05f; // Kemungkinan 5% untuk Double MoneyP
+            newItemPesanan.hasTimeFreeze = Random.value < 0.05f;
+            newItemPesanan.hasDoubleMoney = Random.value < 0.05f;
 
-            Debug.Log("" + activeOrders);
+            Debug.Log("New Order: " + newItemPesanan.name);
 
             int index = gridPositions.Count > 0 ? Random.Range(0, gridPositions.Count) : 0;
             Vector2 gridPos = gridPositions[index];
@@ -110,6 +117,7 @@ public class Pesanan : MonoBehaviour, IDataPersistence
             yield return new WaitForSeconds(spawnDelay);
         }
     }
+
 
     public bool GetMatchingOrder(string itemTag)
     {
@@ -217,39 +225,54 @@ public class Pesanan : MonoBehaviour, IDataPersistence
     void UpdateWeightedJamuItems()
     {
         weightedJamuItems = new List<GameObject>();
+        GameData gameData = GamePersistenceManager.instance.GetGameData();
+        GamePersistenceManager.DifficultyLevel difficulty = gameData.difficulty;
 
+        // Tentukan indeks unlocking berdasarkan tingkat kesulitan
+        int unlockIndexForWeighting = 0;
+        switch (difficulty)
+        {
+            case GamePersistenceManager.DifficultyLevel.Easy:
+                unlockIndexForWeighting = 1; // Mungkin item pertama dan kedua lebih sering muncul
+                break;
+            case GamePersistenceManager.DifficultyLevel.Medium:
+                unlockIndexForWeighting = 3; // Mungkin item ketiga lebih sering muncul
+                break;
+            case GamePersistenceManager.DifficultyLevel.Hard:
+                unlockIndexForWeighting = 4; // Mungkin item keempat dan kelima lebih sering muncul
+                break;
+        }
+
+        // Tambahkan item ke weightedJamuItems sesuai dengan bobot berdasarkan unlockIndexForWeighting
         foreach (GameObject jamu in unlockedJamuItems)
         {
-            // Default weight
-            int weight = 1;
+            int weight = 1; // Default weight
 
-            if (GamePersistenceManager.instance.GetGameData().difficulty == GamePersistenceManager.DifficultyLevel.Easy)
+            // Sesuaikan weight berdasarkan unlockIndex
+            if (unlockedJamuItems.IndexOf(jamu) <= unlockIndexForWeighting)
             {
-                if (jamu == jamuItem[0] || jamu == jamuItem[1]) // Jamu index 0-1 lebih sering muncul di easy
-                {
-                    weight = 5;
-                }
-            }
-            else if (GamePersistenceManager.instance.GetGameData().difficulty == GamePersistenceManager.DifficultyLevel.Medium)
-            {
-                if (jamu == jamuItem[3]) // Jamu index 3 lebih sering muncul di medium
-                {
-                    weight = 5;
-                }
-            }
-            else if (GamePersistenceManager.instance.GetGameData().difficulty == GamePersistenceManager.DifficultyLevel.Hard)
-            {
-                if (jamu == jamuItem[4] || jamu == jamuItem[5]) // Jamu index 4-5 lebih sering muncul di hard
-                {
-                    weight = 5;
-                }
+                weight = 5; // Bobot lebih tinggi untuk item yang berada dalam unlockIndexForWeighting
             }
 
-            // Tambahkan jamu ke daftar weighted berdasarkan weight
+            // Tambahkan item ke daftar weighted berdasarkan weight
             for (int i = 0; i < weight; i++)
             {
                 weightedJamuItems.Add(jamu);
             }
         }
+
+        // Jika hanya satu item yang terbuka, pastikan hanya item itu yang ditambahkan
+        if (weightedJamuItems.Count == 0 && unlockedJamuItems.Count > 0)
+        {
+            weightedJamuItems.Add(unlockedJamuItems[0]);
+        }
+
+        // Debugging log
+        Debug.Log("Updated Weighted Jamu Items Count: " + weightedJamuItems.Count);
+        foreach (var item in weightedJamuItems)
+        {
+            Debug.Log("Item: " + item.name);
+        }
     }
+
 }
