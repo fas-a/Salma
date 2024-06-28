@@ -276,6 +276,8 @@ public class Pesanan : MonoBehaviour, IDataPersistence
     {
         int unlockIndex = GetUnlockIndex(day);
         Debug.Log("Current Day: " + day + ", Unlock Index: " + unlockIndex);
+
+        // Pastikan unlockIndex tidak melebihi jumlah jamu yang tersedia
         if (unlockIndex < jamuItem.Count && !unlockedJamuItems.Contains(jamuItem[unlockIndex]))
         {
             unlockedJamuItems.Add(jamuItem[unlockIndex]);
@@ -287,16 +289,24 @@ public class Pesanan : MonoBehaviour, IDataPersistence
     private int GetUnlockIndex(int day)
     {
         GameData gameData = GamePersistenceManager.instance.GetGameData();
+        int maxIndex = jamuItem.Count - 1; // Indeks maksimum berdasarkan jumlah item jamu
+
+        int index = 0;
         switch (gameData.difficulty)
         {
             case GamePersistenceManager.DifficultyLevel.Easy:
-                return day / 6;
+                index = day / 6;
+                break;
             case GamePersistenceManager.DifficultyLevel.Medium:
-                return day / 4;
+                index = day / 4;
+                break;
             case GamePersistenceManager.DifficultyLevel.Hard:
-                return day / 3;
-            default:
-                return 0;
+                index = day / 3;
+                break;
         }
+
+        // Pastikan index tidak lebih besar dari maxIndex
+        return Mathf.Clamp(index, 0, maxIndex);
     }
+
 }
