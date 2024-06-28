@@ -35,5 +35,17 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/endingScene.unity
     guid: 89c990bbe1296484f82eb14093d79f8e
+  - enabled: 1
+    path: Assets/Scenes/BadEnding.unity
+    guid: 1a9dd2c13367bbb43b84597544d660d9
+  - enabled: 1
+    path: Assets/Scenes/GoodEnding.unity
+    guid: aa06d27223709e24b92d6ca0d6810e45
+  - enabled: 0
+    path: Assets/Scenes/BadEndingTest.unity
+    guid: f6cf2fe968572e64cba7d05f2becd85f
+  - enabled: 1
+    path: Assets/Scenes/endScene.unity
+    guid: eceaa246389dd554eb1706547aa8e669
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

@@ -32,7 +32,7 @@ public class resultPopUp : MonoBehaviour
         }
         else
         {
-            dayScript.LoadEndingScene();
+            GamePersistenceManager.instance.LoadEndingScene();
         }
     }
 

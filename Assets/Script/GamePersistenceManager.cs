@@ -84,6 +84,11 @@ public class GamePersistenceManager : MonoBehaviour, IDataPersistence
         Debug.Log("new orderCompleted count = " + gameData.orderCompleted);
     }
 
+    public void LoadEndingScene()
+    {
+        SceneManager.LoadScene(4);
+    }
+
     public void ContinueGame()
     {
         isNewGame = false;

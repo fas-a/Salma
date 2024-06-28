@@ -1,9 +1,9 @@
-using UnityEngine;
-using TMPro;
-using UnityEngine.SceneManagement;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class stageDay : MonoBehaviour, IDataPersistence
 {
@@ -101,7 +101,7 @@ public class stageDay : MonoBehaviour, IDataPersistence
         }
         else
         {
-            LoadEndingScene();
+            GamePersistenceManager.instance.LoadEndingScene();
         }
     }
 
@@ -109,11 +109,6 @@ public class stageDay : MonoBehaviour, IDataPersistence
     {
         PauseGame(); // Jeda game sebelum menampilkan hasil
         popup.displayResult(hari, progressScript.GetJumlahPesanan());
-    }
-
-    public void LoadEndingScene()
-    {
-        SceneManager.LoadScene(4);
     }
 
     void UpdateDayText()

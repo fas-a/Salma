@@ -2,12 +2,12 @@ using UnityEngine;
 using UnityEngine.Playables;
 using TMPro;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class endingManager : MonoBehaviour, IDataPersistence
 {
-    public GameObject goodEnding, badEnding, successStamp, failureStamp;
+    public GameObject successStamp, failureStamp;
     public Animator successStampAnimation, failureStampAnimation;
-    public PlayableDirector goodEndingTimeline, badEndingTimeline;
     private int targetMoney = 2000000;
     private GameData gameData;
     public TMP_Text textPenghasilan, textLabaKotor, textPengeluaran, textJumlahJamuSederhana, textJumlahJamuKunyitAsam, textJumlahJamuBerasKencur, textJumlahJamuPahitan, textJumlahJamuTemulawak, textHargaJamuSederhana, textHargaJamuKunyitAsam, textHargaJamuBerasKencur, textHargaJamuPahitan, textHargaJamuTemulawak;
@@ -124,44 +124,12 @@ public class endingManager : MonoBehaviour, IDataPersistence
 
     public void ShowHappyEnding()
     {
-        Debug.Log("Showing Happy Ending");
-        goodEnding.SetActive(true);
-        if (goodEndingTimeline != null)
-        {
-            StartCoroutine(PlayGoodEndingTimeline());
-        }
-        else
-        {
-            Debug.LogError("Good ending timeline is null");
-        }
+        SceneManager.LoadScene(6);
     }
 
     public void ShowBadEnding()
     {
-        Debug.Log("Showing Bad Ending");
-        badEnding.SetActive(true);
-        if (badEndingTimeline != null)
-        {
-            StartCoroutine(PlayBadEndingTimeline());
-        }
-        else
-        {
-            Debug.LogError("Bad ending timeline is null");
-        }
-    }
-
-    IEnumerator PlayGoodEndingTimeline()
-    {
-        yield return new WaitForSeconds(0.1f);  // Menambahkan sedikit delay
-        Debug.Log("Playing Good Ending Timeline");
-        goodEndingTimeline.Play();
-    }
-
-    IEnumerator PlayBadEndingTimeline()
-    {
-        yield return new WaitForSeconds(0.1f);  // Menambahkan sedikit delay
-        Debug.Log("Playing Bad Ending Timeline");
-        badEndingTimeline.Play();
+        SceneManager.LoadScene(5);
     }
 
     void Update()
