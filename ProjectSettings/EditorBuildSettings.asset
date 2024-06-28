@@ -26,10 +26,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/dapur.unity
     guid: 03373e1f3e9d9ea479237c1554b23f5b
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/talenan.unity
     guid: 6e76daefb3a3f2f47bc4d6637eb59d4b
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/ulekan.unity
     guid: 00300ec41c1e2074da4b553385fe1c5c
   - enabled: 1
