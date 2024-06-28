@@ -2658,7 +2658,6 @@ MonoBehaviour:
   - {fileID: 7381748539430388761, guid: bb2aa792540fd224fbb4db4ebe0e1ba3, type: 3}
   ordersContainer: {fileID: 236752195}
   customerSpawner: {fileID: 510211331}
-  spawnDelay: 30
   stageDayScript: {fileID: 1744593307}
   doubleMoneyBadge: {fileID: 1859839460}
   popup: {fileID: 76069593}
@@ -4399,9 +4398,9 @@ MonoBehaviour:
   isi: {fileID: -7854239059754051060, guid: f3f62b10ab7a7c8418459431268d8575, type: 3}
   rb: {fileID: 421317720}
   items: []
-  kuning: {fileID: 0}
-  hitam: {fileID: 0}
-  gagal: {fileID: 0}
+  kuning: {fileID: -6159589635233873921, guid: 373c3d3b736c8594c9f954500713e9f0, type: 3}
+  hitam: {fileID: 139782987494807915, guid: 715babe7428a6d94a846141700296d39, type: 3}
+  gagal: {fileID: 3016372787091935839, guid: eb9094f4c8d18bf429bcc31289f5c33f, type: 3}
   jamu: 0
   namaJamu: 
   tooltip: {fileID: 733725377}
@@ -4951,7 +4950,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 112, y: 418}
+  m_AnchoredPosition: {x: 112, y: 344}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &470259539
@@ -15264,7 +15263,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 110, y: 417.2}
+  m_AnchoredPosition: {x: 110, y: 430.2001}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1859839460
@@ -16686,8 +16685,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1057802951}
   m_HandleRect: {fileID: 1057802950}
   m_Direction: 2
-  m_Value: 1
-  m_Size: 0.48959982
+  m_Value: 1.0000001
+  m_Size: 0.48959985
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

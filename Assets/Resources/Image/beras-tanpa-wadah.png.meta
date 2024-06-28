@@ -132,7 +132,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      beras-tanpa-wadah_0: -8609685462624999280
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

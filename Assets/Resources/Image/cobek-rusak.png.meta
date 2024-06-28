@@ -132,7 +132,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      cobek-rusak_0: -5895132761872340901
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

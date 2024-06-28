@@ -132,7 +132,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      panci-rusak_0: 5105180649506574807
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

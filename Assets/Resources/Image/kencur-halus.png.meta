@@ -132,7 +132,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      kencur-halus_0: -2448558528352012726
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

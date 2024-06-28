@@ -132,7 +132,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      gula-pasir-doang_0: -2600561471917732803
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

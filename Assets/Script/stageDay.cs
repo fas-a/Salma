@@ -26,6 +26,10 @@ public class stageDay : MonoBehaviour, IDataPersistence
         InvokeRepeating("HitungMundurWaktu", 0f, 1f);
     }
 
+    public int GetCurrentDay() {
+        return hari;
+    }
+
     public void LoadData(GameData data)
     {
         this.hari = data.day;

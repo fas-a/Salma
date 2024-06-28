@@ -132,7 +132,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      beras-halusan_0: 8389804280449211676
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

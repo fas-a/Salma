@@ -132,7 +132,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      kencur_0: -4058043825386622718
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

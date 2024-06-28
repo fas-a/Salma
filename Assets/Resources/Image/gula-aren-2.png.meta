@@ -132,7 +132,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      gula-aren-2_0: -8444566931083331638
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

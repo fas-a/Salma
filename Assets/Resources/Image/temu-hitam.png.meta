@@ -132,7 +132,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      temu-hitam_0: -4921036212600640563
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -132,7 +132,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      gula-pasir_0: -7389501680652678829
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

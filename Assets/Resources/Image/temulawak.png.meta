@@ -132,7 +132,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      temulawak_0: -6711567738945050737
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -132,7 +132,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      parutan-dapur_0: -3659117514772951061
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

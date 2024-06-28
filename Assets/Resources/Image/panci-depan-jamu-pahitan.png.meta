@@ -132,7 +132,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      panci-depan-jamu-pahitan_0: 139782987494807915
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

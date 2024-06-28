@@ -132,7 +132,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      brotowali-satuan_0: -5283855547847619753
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

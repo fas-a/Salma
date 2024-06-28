@@ -132,7 +132,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      gula-batu_0: -2877574746206689545
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

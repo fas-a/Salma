@@ -132,7 +132,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      mangkok_0: -4248513335234845898
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

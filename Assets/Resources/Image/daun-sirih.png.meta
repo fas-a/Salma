@@ -132,7 +132,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      daun-sirih_0: 5782301619199617311
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

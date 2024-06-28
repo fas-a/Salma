@@ -282,7 +282,14 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      panci-gagal_0: 3200467235892656272
+      panci-gagal_1: -5827562005907524343
+      panci-gagal_2: 3173371063814285054
+      panci-gagal_3: 8792053740946395052
+      panci-gagal_4: -7513976918468654858
+      panci-gagal_5: 3437968984982861258
+      panci-gagal_6: -9042263109188524243
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

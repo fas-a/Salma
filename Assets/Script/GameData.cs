@@ -5,17 +5,10 @@ using UnityEngine;
 [System.Serializable]
 public class GameData
 {
-    public int day;
-    public int money;
-    public int expenses;
-    public int grossProfit;
-    public int orderCompleted;
+    public int day, money, expenses, grossProfit, orderCompleted;
     public float time;
-    public int jumlahJamuSederhana;
-    public int jumlahJamuKunyitAsam;
-    public int jumlahJamuBerasKencur;
-    public int jumlahJamuPahitan;
-    public int jumlahJamuTemulawak;
+    public int spawnDelay;
+    public int jumlahJamuSederhana, jumlahJamuKunyitAsam, jumlahJamuBerasKencur, jumlahJamuPahitan, jumlahJamuTemulawak;
     public GamePersistenceManager.DifficultyLevel difficulty;
     public SerializableDictionary<string, int> slotItems;
 
@@ -24,7 +17,7 @@ public class GameData
         this.money = 10000;
         this.time = 360;
         this.expenses = 0;
-        this.grossProfit = 0;
+        this.grossProfit = 10000;
         this.orderCompleted = 0;
         this.jumlahJamuSederhana = 0;
         this.jumlahJamuBerasKencur = 0;

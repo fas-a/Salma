@@ -132,7 +132,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      parutan-ui_0: 8400962002588419532
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

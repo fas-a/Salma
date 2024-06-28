@@ -8,7 +8,7 @@ public class endingManager : MonoBehaviour, IDataPersistence
     private int targetMoney = 2000000;
     private GameData gameData;
     public TMP_Text textPenghasilan, textLabaKotor, textPengeluaran, textJumlahJamuSederhana, textJumlahJamuKunyitAsam, textJumlahJamuBerasKencur, textJumlahJamuPahitan, textJumlahJamuTemulawak, textHargaJamuSederhana, textHargaJamuKunyitAsam, textHargaJamuBerasKencur, textHargaJamuPahitan, textHargaJamuTemulawak;
-    private int money, expenses, grossProfit, orderCompleted, jumlahJamuSederhana, jumlahJamuKunyitAsam, jumlahJamuBerasKencur, jumlahJamuPahitan, jumlahJamuTemulawak;
+    private int money, profit, expenses, grossProfit, orderCompleted, jumlahJamuSederhana, jumlahJamuKunyitAsam, jumlahJamuBerasKencur, jumlahJamuPahitan, jumlahJamuTemulawak;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -30,14 +30,6 @@ public class endingManager : MonoBehaviour, IDataPersistence
 
     public void SaveData(GameData data)
     {
-        data.jumlahJamuSederhana = this.jumlahJamuSederhana;
-        data.jumlahJamuKunyitAsam = this.jumlahJamuKunyitAsam;
-        data.jumlahJamuBerasKencur = this.jumlahJamuBerasKencur;
-        data.jumlahJamuPahitan = this.jumlahJamuPahitan;
-        data.jumlahJamuTemulawak = this.jumlahJamuTemulawak;
-        data.money = this.money;
-        data.expenses = this.expenses;
-        data.grossProfit = this.grossProfit;
     }
 
     public void showCalculation()
@@ -48,18 +40,19 @@ public class endingManager : MonoBehaviour, IDataPersistence
         textJumlahJamuPahitan.text = jumlahJamuPahitan + "x";
         textJumlahJamuTemulawak.text = jumlahJamuTemulawak + "x";
 
-        int hasilJamuSederhana = jumlahJamuSederhana * 10000;
-        int hasilJamuKunyitAsam = jumlahJamuKunyitAsam * 11000;
-        int hasilJamuBerasKencur = jumlahJamuBerasKencur * 11000;
-        int hasilJamuPahitan = jumlahJamuPahitan * 14000;
-        int hasilJamuTemulawak = jumlahJamuTemulawak * 18000;
+        int hasilJamuSederhana = jumlahJamuSederhana * 17000;
+        int hasilJamuKunyitAsam = jumlahJamuKunyitAsam * 13000;
+        int hasilJamuBerasKencur = jumlahJamuBerasKencur * 19000;
+        int hasilJamuPahitan = jumlahJamuPahitan * 18500;
+        int hasilJamuTemulawak = jumlahJamuTemulawak * 13000;
+        profit = grossProfit - expenses;
 
         textHargaJamuSederhana.text = "Rp" + hasilJamuSederhana;
         textHargaJamuKunyitAsam.text = "Rp" + hasilJamuKunyitAsam;
         textHargaJamuBerasKencur.text = "Rp" + hasilJamuBerasKencur;
         textHargaJamuPahitan.text = "Rp" + hasilJamuPahitan;
         textHargaJamuTemulawak.text = "Rp" + hasilJamuTemulawak;
-        textPenghasilan.text = "Rp" + money;
+        textPenghasilan.text = "Rp" + profit;
         textLabaKotor.text = "Rp" + grossProfit;
         textPengeluaran.text = "Rp" + expenses;
 

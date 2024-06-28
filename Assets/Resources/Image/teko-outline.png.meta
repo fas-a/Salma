@@ -132,7 +132,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      teko-outline_0: -1277770482844267339
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -51,11 +51,19 @@ public class ItemPesanan : MonoBehaviour
 
         if (relatedCustomer != null)
         {
-            relatedCustomer.GetComponent<Customer>().CompleteOrder();
+            Customer customerComponent = relatedCustomer.GetComponent<Customer>();
+            if (customerComponent != null)
+            {
+                customerComponent.CompleteOrder();
+            }
         }
 
-        Destroy(gameObject);
+        if (this != null && gameObject != null)
+        {
+            Destroy(gameObject);
+        }
     }
+
 
     public bool IsMatch(string itemTag)
     {

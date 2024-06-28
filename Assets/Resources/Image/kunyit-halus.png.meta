@@ -132,7 +132,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      kunyit-halus_0: -1440262412499492991
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
