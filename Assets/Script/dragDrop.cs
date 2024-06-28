@@ -53,46 +53,49 @@ public class DragAndDrop : MonoBehaviour
     {
         colliderName = other.gameObject.name;
         Debug.Log(colliderName + " entered collider");
-        if(other.gameObject.tag == "talenan")
+        if(!inDrag)
         {
-            alatDapur alatDapur = other.collider.gameObject.GetComponent<alatDapur>();
-            if(!isPotong && alatDapur.currentDurability > 0)
+            if(other.gameObject.tag == "talenan")
             {
-                alatDapur.kurang();
-                pisau.setBahan(gameObject);
-                pindahAlat(-50, -4.5f);
+                alatDapur alatDapur = other.collider.gameObject.GetComponent<alatDapur>();
+                if(!isPotong && alatDapur.currentDurability > 0)
+                {
+                    alatDapur.kurang();
+                    pisau.setBahan(gameObject);
+                    pindahAlat(-50, -4.5f);
+                }
+                else
+                {
+                    gameObject.transform.position = new Vector3(-10, -3, 0);
+                }
             }
-            else
+            if(other.gameObject.tag == "ulekan")
             {
-                gameObject.transform.position = new Vector3(-10, -3, 0);
+                alatDapur alatDapur = other.collider.gameObject.GetComponent<alatDapur>();
+                if(!isUlek && alatDapur.currentDurability > 0)
+                {
+                    alatDapur.kurang();
+                    ulekan.setBahan(gameObject);
+                    pindahAlat(-100, -4.5f);
+                }
+                else
+                {
+                    gameObject.transform.position = new Vector3(-10, -3, 0);
+                }
             }
-        }
-        if(other.gameObject.tag == "ulekan")
-        {
-            alatDapur alatDapur = other.collider.gameObject.GetComponent<alatDapur>();
-            if(!isUlek && alatDapur.currentDurability > 0)
+            if(other.gameObject.tag == "panci")
             {
-                alatDapur.kurang();
-                ulekan.setBahan(gameObject);
-                pindahAlat(-100, -4.5f);
-            }
-            else
-            {
-                gameObject.transform.position = new Vector3(-10, -3, 0);
-            }
-        }
-        if(other.gameObject.tag == "panci" && inDrag == false)
-        {
-            alatDapur alatDapur = other.collider.gameObject.GetComponent<alatDapur>();
-            if (alatDapur.currentDurability > 0)
-            {
-                Debug.Log("Panci");
-                panci.addItem(gameObject.tag);
-                Destroy(gameObject);
-            }
-            else
-            {
-                gameObject.transform.position = new Vector3(-10, -3, 0);
+                alatDapur alatDapur = other.collider.gameObject.GetComponent<alatDapur>();
+                if (alatDapur.currentDurability > 0)
+                {
+                    Debug.Log("Panci");
+                    panci.addItem(gameObject.tag);
+                    Destroy(gameObject);
+                }
+                else
+                {
+                    gameObject.transform.position = new Vector3(-10, -3, 0);
+                }
             }
         }
     }
