@@ -2,37 +2,46 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
 
-public class ubahResep : MonoBehaviour
+public class ubahResep : MonoBehaviour, IDataPersistence
 {
-    private Image targetImage;
+    public Image targetImage;
     public List<Sprite> resepJamu;
-    private short currentPage;
-    private short maxPage;
+    public int currentPage = 0;
+    public int maxPage;
 
     void Start()
     {
-        currentPage = 1;
-        targetImage = GetComponent<Image>();
+        
     }
     
     public void nextImage()
     {   
         if(currentPage < maxPage){
             currentPage++;
-            targetImage.sprite = resepJamu[currentPage - 1];
+            targetImage.sprite = resepJamu[currentPage];
         }
     }
 
     public void backImage()
     {   
-        if(currentPage > 1){
+        if(currentPage > 0){
             currentPage--;
-            targetImage.sprite = resepJamu[currentPage - 1];
+            targetImage.sprite = resepJamu[currentPage];
         }
     }
 
     public void add()
     {
         maxPage++;
+    }
+
+    public void LoadData(GameData data)
+    {
+        maxPage = data.halaman;
+    }
+
+    public void SaveData(GameData data)
+    {
+        data.halaman = maxPage;
     }
 }
