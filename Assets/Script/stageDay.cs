@@ -113,7 +113,7 @@ public class stageDay : MonoBehaviour, IDataPersistence
 
     public void LoadEndingScene()
     {
-        SceneManager.LoadScene("endingScene", LoadSceneMode.Single);
+        SceneManager.LoadScene(4);
     }
 
     void UpdateDayText()

@@ -2271,7 +2271,6 @@ RectTransform:
   - {fileID: 150794890}
   - {fileID: 1984339653}
   - {fileID: 1190093130}
-  - {fileID: 700690986}
   - {fileID: 1948323343}
   - {fileID: 31735735}
   - {fileID: 54430622}
@@ -5154,14 +5153,14 @@ RectTransform:
   m_GameObject: {fileID: 700690985}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.7114583, y: 0.7114583, z: 0.7114583}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 220618559}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 959.99994, y: 539.73645}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &700690987
@@ -5180,8 +5179,10 @@ MonoBehaviour:
   badEnding: {fileID: 1396092689}
   successStamp: {fileID: 1100743930}
   failureStamp: {fileID: 1104419674}
-  succesStampAnimation: {fileID: 1100743934}
+  successStampAnimation: {fileID: 1100743934}
   failureStampAnimation: {fileID: 1104419678}
+  goodEndingTimeline: {fileID: 491596885}
+  badEndingTimeline: {fileID: 1396092691}
   textPenghasilan: {fileID: 888918491}
   textLabaKotor: {fileID: 326122551}
   textPengeluaran: {fileID: 1461203412}
@@ -9924,7 +9925,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1396092690
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10007,6 +10008,8 @@ PlayableDirector:
     value: {fileID: 502553725}
   - key: {fileID: -2013418173811689046, guid: ebc90169d5fbfae4c80e57c3c9a0994c, type: 2}
     value: {fileID: 464759105}
+  - key: {fileID: 7628830415065499009, guid: ebc90169d5fbfae4c80e57c3c9a0994c, type: 2}
+    value: {fileID: 0}
   m_ExposedReferences:
     m_References: []
 --- !u!222 &1396092693
@@ -15399,4 +15402,5 @@ SceneRoots:
   m_Roots:
   - {fileID: 1502472207}
   - {fileID: 220618559}
+  - {fileID: 700690986}
   - {fileID: 2005305694}
