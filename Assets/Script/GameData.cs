@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,8 +10,10 @@ public class GameData
     public int jumlahJamuSederhana, jumlahJamuKunyitAsam, jumlahJamuBerasKencur, jumlahJamuPahitan, jumlahJamuTemulawak;
     public GamePersistenceManager.DifficultyLevel difficulty;
     public SerializableDictionary<string, int> slotItems;
+    public List<int> unlockedJamuIndexes; // Menyimpan indeks jamu yang telah dibuka
 
-    public GameData() {
+    public GameData()
+    {
         this.day = 1;
         this.money = 10000;
         this.time = 360;
@@ -26,5 +27,6 @@ public class GameData
         this.jumlahJamuTemulawak = 0;
         this.difficulty = GamePersistenceManager.DifficultyLevel.Easy; // Default difficulty
         this.slotItems = new SerializableDictionary<string, int>();
+        this.unlockedJamuIndexes = new List<int>(); // Defaultnya kosong
     }
 }

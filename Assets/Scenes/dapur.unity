@@ -1187,11 +1187,11 @@ MonoBehaviour:
   jamuImage: {fileID: 70363915192169201}
   jamuSprites:
   - {fileID: 2526620766709031522, guid: 2947f3c97d46028428e8b362a3a49517, type: 3}
-  - {fileID: 7812970827906401345, guid: 7cf05ed83b2c3104dbaaca1677b6b37f, type: 3}
+  - {fileID: 2059533177303299714, guid: 03930b3e23120b944832c6e5b0a649d1, type: 3}
   - {fileID: -3628742953794992068, guid: ceb2c6cd2b2e1724084d8ba981129ed4, type: 3}
-  - {fileID: -660438611880118029, guid: 0be085237209f544ab58a0f361098aa1, type: 3}
+  - {fileID: 7812970827906401345, guid: 7cf05ed83b2c3104dbaaca1677b6b37f, type: 3}
   modal: {fileID: 76069591}
-  bukuresep: {fileID: 0}
+  bukuresep: {fileID: 1576858875}
 --- !u!114 &76069594
 MonoBehaviour:
   m_ObjectHideFlags: 0

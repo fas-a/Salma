@@ -22,13 +22,13 @@ public class UnlockingRecipe : MonoBehaviour
             case "jamuKunyitAsam":
                 jamuImage.sprite = jamuSprites[0];
                 break;
-            case "jamuBerasKencur":
+            case "jamuSederhana":
                 jamuImage.sprite = jamuSprites[1];
                 break;
             case "jamuPahitan":
                 jamuImage.sprite = jamuSprites[2];
                 break;
-            case "jamuTemulawak":
+            case "jamuBerasKencur":
                 jamuImage.sprite = jamuSprites[3];
                 break;
             default:

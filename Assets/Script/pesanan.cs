@@ -15,10 +15,10 @@ public class Pesanan : MonoBehaviour, IDataPersistence
     public stageDay stageDayScript;
     public Image doubleMoneyBadge;
     private List<GameObject> unlockedJamuItems; // Daftar jamu yang sudah terbuka
-    private List<GameObject> weightedJamuItems; // Daftar weighted jamu
 
     private int baseSpawnDelay, spawnDelay, jumlahJamuSederhana, jumlahJamuKunyitAsam, jumlahJamuBerasKencur, jumlahJamuPahitan, jumlahJamuTemulawak;
     public UnlockingRecipe popup;
+    private Coroutine spawnOrdersCoroutine;
 
     void Start()
     {
@@ -29,7 +29,9 @@ public class Pesanan : MonoBehaviour, IDataPersistence
         // Atur tingkat kesulitan
         GameData gameData = GamePersistenceManager.instance.GetGameData();
         SetDifficulty(gameData.difficulty);
-        UpdateWeightedJamuItems();
+
+        // Muat data pembukaan jamu
+        LoadUnlockedJamuItems(gameData.unlockedJamuIndexes);
     }
 
     void SetDifficulty(GamePersistenceManager.DifficultyLevel difficulty)
@@ -77,21 +79,25 @@ public class Pesanan : MonoBehaviour, IDataPersistence
 
     public void SpawnOrders()
     {
-        StartCoroutine(SpawnOrdersCoroutine());
+        if (spawnOrdersCoroutine != null)
+        {
+            StopCoroutine(spawnOrdersCoroutine);
+        }
+        spawnOrdersCoroutine = StartCoroutine(SpawnOrdersCoroutine());
     }
 
     IEnumerator SpawnOrdersCoroutine()
     {
         while (true)
         {
-            // Jika tidak ada item di weightedJamuItems, gunakan item default pertama
-            if (weightedJamuItems.Count == 0)
+            // Jika tidak ada item di unlockedJamuItems, gunakan item default pertama
+            if (unlockedJamuItems.Count == 0)
             {
                 Debug.LogError("No items to spawn!");
                 yield break;
             }
 
-            GameObject randomProduct = weightedJamuItems[Random.Range(0, weightedJamuItems.Count)];
+            GameObject randomProduct = unlockedJamuItems[Random.Range(0, unlockedJamuItems.Count)];
             GameObject newOrder = Instantiate(randomProduct, ordersContainer);
             newOrder.transform.SetParent(ordersContainer, false);
 
@@ -99,8 +105,8 @@ public class Pesanan : MonoBehaviour, IDataPersistence
             newItemPesanan.pesanan = this;
             activeOrders.Add(newItemPesanan);
 
-            bool isTimeFreeze = Random.value < 0.02f;
-            bool isDoubleMoney = !isTimeFreeze && Random.value < 0.02f;
+            bool isTimeFreeze = Random.value < 0.03f;
+            bool isDoubleMoney = !isTimeFreeze && Random.value < 0.03f;
 
             Debug.Log("New Order: " + newItemPesanan.name);
 
@@ -115,10 +121,11 @@ public class Pesanan : MonoBehaviour, IDataPersistence
 
             // Tentukan spawnDelay berdasarkan hari saat ini
             int currentDay = stageDayScript.GetCurrentDay();
-            spawnDelay += (currentDay / 6) * 2; // Bertambah 5 detik setiap 10 hari
+            spawnDelay = baseSpawnDelay + (currentDay / 6) * 2; // Bertambah 2 detik setiap 6 hari
 
-            Debug.Log("Waiting for " + spawnDelay + " seconds before spawning next order.");
+            Debug.Log("Waiting started at: " + Time.time + " for " + spawnDelay + " seconds.");
             yield return new WaitForSeconds(spawnDelay);
+            Debug.Log("Waiting ended at: " + Time.time);
         }
     }
 
@@ -191,6 +198,9 @@ public class Pesanan : MonoBehaviour, IDataPersistence
         this.jumlahJamuPahitan = data.jumlahJamuPahitan;
         this.jumlahJamuTemulawak = data.jumlahJamuTemulawak;
         this.spawnDelay = data.spawnDelay;
+
+        // Muat data unlocked jamu
+        LoadUnlockedJamuItems(data.unlockedJamuIndexes);
     }
 
     public void SaveData(GameData data)
@@ -201,6 +211,41 @@ public class Pesanan : MonoBehaviour, IDataPersistence
         data.jumlahJamuPahitan = this.jumlahJamuPahitan;
         data.jumlahJamuTemulawak = this.jumlahJamuTemulawak;
         data.spawnDelay = this.spawnDelay;
+
+        // Simpan data unlocked jamu
+        data.unlockedJamuIndexes = GetUnlockedJamuIndexes();
+    }
+
+    private void LoadUnlockedJamuItems(List<int> unlockedIndexes)
+    {
+        if (unlockedIndexes == null || unlockedIndexes.Count == 0)
+        {
+            unlockedJamuItems = new List<GameObject> { jamuItem[0] }; // Default hanya item pertama
+            return;
+        }
+
+        unlockedJamuItems = new List<GameObject>();
+        foreach (int index in unlockedIndexes)
+        {
+            if (index >= 0 && index < jamuItem.Count)
+            {
+                unlockedJamuItems.Add(jamuItem[index]);
+            }
+        }
+    }
+
+    private List<int> GetUnlockedJamuIndexes()
+    {
+        List<int> unlockedIndexes = new List<int>();
+        foreach (GameObject item in unlockedJamuItems)
+        {
+            int index = jamuItem.IndexOf(item);
+            if (index >= 0)
+            {
+                unlockedIndexes.Add(index);
+            }
+        }
+        return unlockedIndexes;
     }
 
     public void RemoveOrder(ItemPesanan order)
@@ -229,66 +274,29 @@ public class Pesanan : MonoBehaviour, IDataPersistence
 
     public void UnlockJamu(int day)
     {
-        int unlockIndex = day / 6;
+        int unlockIndex = GetUnlockIndex(day);
+        Debug.Log("Current Day: " + day + ", Unlock Index: " + unlockIndex);
         if (unlockIndex < jamuItem.Count && !unlockedJamuItems.Contains(jamuItem[unlockIndex]))
         {
             unlockedJamuItems.Add(jamuItem[unlockIndex]);
-            UpdateWeightedJamuItems();
             Debug.Log("Unlocked Jamu: " + jamuItem[unlockIndex].name);
             popup.displayRecipe(jamuItem[unlockIndex].name, day);
         }
     }
 
-    void UpdateWeightedJamuItems()
+    private int GetUnlockIndex(int day)
     {
-        weightedJamuItems = new List<GameObject>();
         GameData gameData = GamePersistenceManager.instance.GetGameData();
-        GamePersistenceManager.DifficultyLevel difficulty = gameData.difficulty;
-
-        // Tentukan indeks unlocking berdasarkan tingkat kesulitan
-        int unlockIndexForWeighting = 0;
-        switch (difficulty)
+        switch (gameData.difficulty)
         {
             case GamePersistenceManager.DifficultyLevel.Easy:
-                unlockIndexForWeighting = 1; // Mungkin item pertama dan kedua lebih sering muncul
-                break;
+                return day / 6;
             case GamePersistenceManager.DifficultyLevel.Medium:
-                unlockIndexForWeighting = 3; // Mungkin item ketiga lebih sering muncul
-                break;
+                return day / 4;
             case GamePersistenceManager.DifficultyLevel.Hard:
-                unlockIndexForWeighting = 4; // Mungkin item keempat dan kelima lebih sering muncul
-                break;
-        }
-
-        // Tambahkan item ke weightedJamuItems sesuai dengan bobot berdasarkan unlockIndexForWeighting
-        foreach (GameObject jamu in unlockedJamuItems)
-        {
-            int weight = 1; // Default weight
-
-            // Sesuaikan weight berdasarkan unlockIndex
-            if (unlockedJamuItems.IndexOf(jamu) <= unlockIndexForWeighting)
-            {
-                weight = 5; // Bobot lebih tinggi untuk item yang berada dalam unlockIndexForWeighting
-            }
-
-            // Tambahkan item ke daftar weighted berdasarkan weight
-            for (int i = 0; i < weight; i++)
-            {
-                weightedJamuItems.Add(jamu);
-            }
-        }
-
-        // Jika hanya satu item yang terbuka, pastikan hanya item itu yang ditambahkan
-        if (weightedJamuItems.Count == 0 && unlockedJamuItems.Count > 0)
-        {
-            weightedJamuItems.Add(unlockedJamuItems[0]);
-        }
-
-        // Debugging log
-        Debug.Log("Updated Weighted Jamu Items Count: " + weightedJamuItems.Count);
-        foreach (var item in weightedJamuItems)
-        {
-            Debug.Log("Item: " + item.name);
+                return day / 3;
+            default:
+                return 0;
         }
     }
 }

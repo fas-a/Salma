@@ -40,11 +40,11 @@ public class endingManager : MonoBehaviour, IDataPersistence
         textJumlahJamuPahitan.text = jumlahJamuPahitan + "x";
         textJumlahJamuTemulawak.text = jumlahJamuTemulawak + "x";
 
-        int hasilJamuSederhana = jumlahJamuSederhana * 17000;
-        int hasilJamuKunyitAsam = jumlahJamuKunyitAsam * 13000;
-        int hasilJamuBerasKencur = jumlahJamuBerasKencur * 19000;
-        int hasilJamuPahitan = jumlahJamuPahitan * 18500;
-        int hasilJamuTemulawak = jumlahJamuTemulawak * 13000;
+        int hasilJamuSederhana = jumlahJamuSederhana * 13000;
+        int hasilJamuKunyitAsam = jumlahJamuKunyitAsam * 9500;
+        int hasilJamuBerasKencur = jumlahJamuBerasKencur * 16000;
+        int hasilJamuPahitan = jumlahJamuPahitan * 15000;
+        int hasilJamuTemulawak = jumlahJamuTemulawak * 9000;
         profit = grossProfit - expenses;
 
         textHargaJamuSederhana.text = "Rp" + hasilJamuSederhana;
