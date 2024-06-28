@@ -11,6 +11,7 @@ public class pisau : MonoBehaviour
     private DragAndDrop dragDrop;
     public TMP_Text tekspotong;
     public GameObject back;
+    private bool animate = false;
 
     private void Start()
     {
@@ -35,14 +36,18 @@ public class pisau : MonoBehaviour
 
     private void OnMouseDown()
     {
-        Debug.Log("down");
-        potong++;
-        dragDrop.countPotong++;
-        StartCoroutine(AnimateMovement());
-        tekspotong.text = "Klik Pisau " + (5-dragDrop.countPotong) + " kali lagi";
-        if(dragDrop.countPotong == 5)
+        if(!animate)
         {
-            tekspotong.text = "Bahan Terpotong";
+            animate = true;
+            Debug.Log("down");
+            potong++;
+            dragDrop.countPotong++;
+            StartCoroutine(AnimateMovement());
+            tekspotong.text = "Klik Pisau " + (5-dragDrop.countPotong) + " kali lagi";
+            if(dragDrop.countPotong == 5)
+            {
+                tekspotong.text = "Bahan Terpotong";
+            }
         }
     }
 
@@ -72,6 +77,7 @@ public class pisau : MonoBehaviour
             potong = 0;
             back.SetActive(false);
         }
+        animate = false;
     }
 
     private IEnumerator MoveToPosition(Vector3 targetPosition, float duration)
