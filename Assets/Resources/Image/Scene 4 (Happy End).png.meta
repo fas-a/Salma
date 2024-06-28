@@ -132,7 +132,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Scene 4 (Happy End)_0: -2679653111711814292
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
