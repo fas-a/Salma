@@ -21,6 +21,7 @@ public class DragAndDrop : MonoBehaviour
     public GameObject tas;
     public GameObject customers;
     public Sprite tumbukSprite;
+    private bool use = false;
 
     private void Start()
     {
@@ -38,6 +39,7 @@ public class DragAndDrop : MonoBehaviour
 
     private void pindahAlat(int x, float y)
     {
+        use = true;
         cam.transform.position = new Vector3(x, 0, -10);
         rb.bodyType = RigidbodyType2D.Static;
         gameObject.transform.position = new Vector3(x, y, 0);
@@ -51,10 +53,10 @@ public class DragAndDrop : MonoBehaviour
     {
         colliderName = other.gameObject.name;
         Debug.Log(colliderName + " entered collider");
-        if(other.gameObject.tag == "talenan" && isPotong == false)
+        if(other.gameObject.tag == "talenan")
         {
             alatDapur alatDapur = other.collider.gameObject.GetComponent<alatDapur>();
-            if (alatDapur.currentDurability > 0)
+            if(!isPotong && alatDapur.currentDurability > 0)
             {
                 alatDapur.kurang();
                 pisau.setBahan(gameObject);
@@ -65,10 +67,10 @@ public class DragAndDrop : MonoBehaviour
                 gameObject.transform.position = new Vector3(-10, -3, 0);
             }
         }
-        if(other.gameObject.tag == "ulekan" && isUlek == false)
+        if(other.gameObject.tag == "ulekan")
         {
             alatDapur alatDapur = other.collider.gameObject.GetComponent<alatDapur>();
-            if (alatDapur.currentDurability > 0)
+            if(!isUlek && alatDapur.currentDurability > 0)
             {
                 alatDapur.kurang();
                 ulekan.setBahan(gameObject);
@@ -98,21 +100,27 @@ public class DragAndDrop : MonoBehaviour
 
     private void OnMouseDown()
     {
-        // Hitung offset antara posisi mouse dan posisi objek
-        offset = gameObject.transform.position - GetMouseWorldPos();
-        inDrag = true;
+        if(!use)
+        {
+            offset = gameObject.transform.position - GetMouseWorldPos();
+            inDrag = true;
+        }
     }
 
     private void OnMouseDrag()
     {
-        // Update posisi objek mengikuti posisi mouse
-        transform.position = GetMouseWorldPos() + offset;
-        Debug.Log("drag");
+        if(!use)
+        {
+            transform.position = GetMouseWorldPos() + offset;
+        }
     }
 
     private void OnMouseUp()
     {
-        inDrag = false;
+        if(!use)
+        {
+            inDrag = false;
+        }
     }
     
     private Vector3 GetMouseWorldPos()
@@ -159,5 +167,6 @@ public class DragAndDrop : MonoBehaviour
         rb.bodyType = RigidbodyType2D.Dynamic;
         tas.SetActive(true);
         customers.SetActive(true);
+        use = false;
     }
 }

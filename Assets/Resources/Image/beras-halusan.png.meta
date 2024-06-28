@@ -103,12 +103,12 @@ TextureImporter:
       name: beras-halusan_0
       rect:
         serializedVersion: 2
-        x: 105
+        x: 205
         y: 459
-        width: 1015
-        height: 719
+        width: 915
+        height: 312
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 20fe72cbaab28624f9f257025fe18b44
     internalID: 0
     vertices: []
     indices: 
