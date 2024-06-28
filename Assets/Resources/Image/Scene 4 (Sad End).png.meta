@@ -132,7 +132,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Scene 4 (Sad End)_0: 8514562922131817633
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

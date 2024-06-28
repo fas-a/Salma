@@ -188,17 +188,24 @@ public class panci : MonoBehaviour
                 namaJamu = resep.name;
                 tooltip.clearBahan();
                 tooltip.addBahan(resep.name);
+                return;
             }
         }
     }
 
     private bool ContainsAllItems(List<string> resepItems)
     {
+        List<string> itemsCopy = new List<string>(items);
+
         foreach (string item in resepItems)
         {
-            if (!items.Contains(item))
+            if (!itemsCopy.Contains(item))
             {
                 return false;
+            }
+            else
+            {
+                itemsCopy.Remove(item);
             }
         }
         return true;
